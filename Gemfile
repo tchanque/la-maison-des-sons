@@ -2,6 +2,21 @@ source "https://rubygems.org"
 
 ruby "3.2.2"
 
+# Use table_print to be able to create table in your console
+gem 'table_print'
+
+# Generate random infos
+gem 'faker'
+
+# Keep API's keys to yourself
+gem 'dotenv'
+
+# Manage authentication 
+gem 'devise'
+
+# Manage pictures on an external server
+gem 'aws-sdk-s3', require: false
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
