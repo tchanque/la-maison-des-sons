@@ -23,7 +23,11 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <a href="/users/sign_in">Log in</a>
-        <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" %>
+          <% if user_signed_in? %>
+          <%= link_to "Mon profil", user_path(current_user) %>
+        <%end%>   
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item" %>
+        
       </ul>
     </div>
   </div>
