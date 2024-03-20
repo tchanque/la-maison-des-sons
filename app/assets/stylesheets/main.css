@@ -1,3 +1,10 @@
+/* CHANGE PARAMETERS OF SOME CLASS IN BOOTSTRAP */
+
+.btn-primary {
+  background-color: #50A3C7;
+  box-shadow: 1px 1px 4px black;
+}
+
 /* SIGN_UP / SIGN_IN */
 
 .btn_primary_lmds {
@@ -21,4 +28,14 @@
   color: #f44336;
   font-weight: 600;
   text-decoration: underline;
+}
+
+/* CSS FOR THE CARD IN THE INDEX */
+
+.btn_size_card {
+  width: 120px !important;
+}
+
+.bg_card{
+  background-color: #FCD6B3;
 }
