@@ -1,0 +1,18 @@
+/* SIGN_UP / SIGN_IN */
+
+.btn_primary_lmds {
+  color: white;
+  background-color: #c85f4e;
+  border: none;
+  transition: 0.2s;
+}
+
+.btn_primary_lmds:hover {
+  background-color: #c85f4e;
+  scale: 1.1;
+  transition: 0.2s;
+}
+
+.lmds_title {
+  color: #474340;
+}
