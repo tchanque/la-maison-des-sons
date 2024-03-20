@@ -12,3 +12,5 @@
 </div>
 
 <%= link_to "New event", new_event_path %>
+<%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" %>
+

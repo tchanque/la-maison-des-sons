@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def welcome_email(user, password)
     @user = user
-    @url = "https://lamaisondessons.fy.dev/users/sign_inpassword"
+    @url = "https://lamaisondessons.fy.dev/users/sign_in"
     @password = password
 
     mail(to: @user.email, subject: "Bienvenue à la Maison des sons !")
