@@ -1,12 +1,46 @@
 <p style="color: green"><%= notice %></p>
+<div class="container">
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg_img d-flex align-items-center text-center">
+    <div class="col-lg-6 px-0 text-white bg_blur">
+      <h1 class="display-4 fst-italic"><%= @event.category.capitalize %></h1>
+    </div>
+  </div>
+<section class="d-flex justify-content-around align-items-center">
+<div class="d-flex w-100 justify-content-center separation">
+  <div>
+  <p><i class="display-5 bi bi-lightning-charge-fill"></i> Le niveau requis est de : <%= @event.level %> </p>
+  <p><i class="display-5 bi bi-person-circle"></i> Places disponibles restantes : <%= @event.available_seats %></p>
+  <p><i class=" display-5 bi bi-calendar3-event"></i> Notre <%= @event.category %> commence le : <%= @event.start_date.strftime("%d/%m %H:%M") %> </p>
+  <p><i class="display-5 bi bi-pin-map-fill"></i> L'adresse se trouve au : <%= @event.location %> </p>
+  </div>
+</div>
 
-<%= render @event %>
+<div class="d-flex w-100 justify-content-center">
+ <div>
+  <p><i class="display-5 bi bi-person"></i> Pour toute question : <%= @event.creator.first_name %> <%= @event.creator.last_name %> </p>
+  <p><i class="display-5 bi bi-music-note-beamed"></i> Instrument nécessaire : <%= @event.instrument %></p>
+  <p><i class="display-5 bi bi-currency-dollar"></i> Le prix ki ki vous faudra payer : <%= @event.price %></p>
+  <p><i class="display-5 bi bi-stopwatch"></i> Tout cela ne dure que : <%= @event.duration %> minutes</p>
+  </div>
+</div>
+</section>
+<div class=" separation_top d-flex flex-column justicy-content-center align-items-center my-5">
+<h3>Description</h3>
+<p class="lead my-3"><%= @event.description %></p>
+</div>
+</div>
 
-<div>
+
+<!-- <%= render @event %> -->
+
+<div class="container justify-content-center my-5">
+<div class="d-flex justify-content-center gap-3">
+<%= button_to "Je participe", attendances_path, params: {event: @event}, class: "btn btn-success btn_size_card" %>
+<%= button_to "Supprimer", @event, method: :delete, class: "btn btn-danger btn_size_card" %>
+</div>
+<div  class="d-flex justify-content-center gap-3">
   <%= link_to "Edit this event", edit_event_path(@event) %>
   <%= link_to "Back to events", events_path %>
-
-  <%= button_to "Destroy this event", @event, method: :delete %>
-  <%= button_to "Je participe", attendances_path, params: {event: @event}, class: "btn btn-success btn_size_card" %>
+</div>
 </div>
 
