@@ -1,47 +1,22 @@
-<div id="<%= dom_id event %>">
-  <p>
-    <strong>category:</strong>
-    <%= event.category %>
-  </p>
+<div class="col">
+    <div class="card">
+      <img src="https://media.istockphoto.com/id/1478375497/fr/photo/des-amis-dansent-au-festival.jpg?s=2048x2048&w=is&k=20&c=fIz_Fn7SexMUa4giD1K_wK81Z64clzlK5YjMToVb1d8=" class="card-img-top"
+        alt="Hollywood Sign on The Hill" />
+      <div class="card-body">
+        <h5 class="card-title text-center"> <%=event.category.capitalize%> </br> </h5>
+        <div class="row text-center">
+          <h6> <i class="bi bi-lightning-charge-fill"></i> Niveau <%= event.level %> </h6>
+          <h6><i class="bi bi-person-circle"></i> Places disponibles : <%= event.available_seats %></h6>
+          <h6> <i class="bi bi-calendar3-event"></i> <%= event.start_date.strftime("%d/%m %H:%M") %> </h6>
+        </div>
 
-  <p>
-    <strong>Instrument:</strong>
-    <%= event.instrument %>
-  </p>
+        <p class="card-text">
+          <%= event.description %>
+        </p>
 
-  <p>
-    <strong>Level:</strong>
-    <%= event.level %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= event.price %>
-  </p>
-
-  <p>
-    <strong>start_date:</strong>
-    <%= event.start_date %>
-  </p>
-
-  <p>
-    <strong>Duration:</strong>
-    <%= event.duration %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= event.description %>
-  </p>
-
-  <p>
-    <strong>Location:</strong>
-    <%= event.location %>
-  </p>
-
-  <p>
-    <strong>Available seats:</strong>
-    <%= event.available_seats %>
-  </p>
-
-</div>
+        <p class="card-footer bg-transparent">
+          <%= event.creator.email %>
+        </p>
+      </div>
+    </div>
+  </div>
