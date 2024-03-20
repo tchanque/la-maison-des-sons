@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 
-<div id="events">
-  <h1>Events</h1>
-  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 m-3 g-4">
+<div class=" d-flex flex-column align-items-center" id="events">
+  <h1 class="w-75 text-center header_section">Nos évènements</h1>
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 m-3 g-5">
     <% @events.each do |event| %>
       <%= render event %>
     <% end %>
