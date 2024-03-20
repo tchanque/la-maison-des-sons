@@ -3,13 +3,16 @@ require 'rails_helper'
 RSpec.describe "events/edit", type: :view do
   let(:event) {
     Event.create!(
-      type: "",
+      creator: User.create(email: Faker::Internet.email, password: "teacher123", first_name: Faker::Movies::LordOfTheRings.character,
+    last_name: Faker::Movies::HarryPotter.spell, description: Faker::Movies::LordOfTheRings.quote, is_admin: false, is_teacher: true, is_subscriber: false),
+      category: "Type",
       instrument: "MyString",
       level: 1,
       price: 1,
       duration: 1,
       description: "MyText",
       location: "MyString",
+      start_date: "2024-03-20 10:22:04",
       available_seats: 1
     )
   }
@@ -23,7 +26,7 @@ RSpec.describe "events/edit", type: :view do
 
     assert_select "form[action=?][method=?]", event_path(event), "post" do
 
-      assert_select "input[name=?]", "event[type]"
+      assert_select "input[name=?]", "event[category]"
 
       assert_select "input[name=?]", "event[instrument]"
 
