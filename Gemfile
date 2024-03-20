@@ -62,6 +62,10 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  # Create tests
+  gem "rspec-rails"
+  # Add gem factory_bot to get easier tests
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -79,4 +83,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  # Easier test
+  gem 'shoulda-matchers', '~> 6.0'
+  # Meow Meow NYA !
+  gem "nyan-cat-formatter"
 end
