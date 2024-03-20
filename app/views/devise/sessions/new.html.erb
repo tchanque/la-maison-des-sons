@@ -1,26 +1,39 @@
-<h2>Log in</h2>
+        <div class="mb-5 mt-5 mb-lg-0 d-flex justify-content-center">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="mb-4">
+              <h1 class="text-center lmds_title">Se Connecter</h1>
+            </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                <%= f.label :email, class: "form-label" %>
+              </div>
+        
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                <%= f.label :Mot_de_passe, class: "form-label" %>
+              </div>
+        
+              <!-- Remember Me checkbox -->
+                  <div class="form-check d-flex justify-content-center mt-3">
+                    <%= f.check_box :remember_me, class: "form-check-input" %>
+                    <%= f.label :Se_rappeler_de_moi, class: "form-check-label" %>
+                  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+              <!-- connection button -->    
+                <div class="actions text-center justify-content-center mt-3">
+                  <%= f.submit "Se Connecter", class: "btn btn-primary btn_primary_lmds btn-block mb-4" %>
+                </div>
+                
+              <!-- Forget Password link -->  
+                <div class="d-flex justify-content-center">
+                  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                  <%= link_to "Mot de passe oublié?", new_password_path(resource_name) %><br />
+                  <% end %>
+                </div>
+        <% end %>  
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
