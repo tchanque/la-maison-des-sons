@@ -16,3 +16,9 @@
 .lmds_title {
   color: #474340;
 }
+
+.lmds_alert {
+  color: #f44336;
+  font-weight: 600;
+  text-decoration: underline;
+}
