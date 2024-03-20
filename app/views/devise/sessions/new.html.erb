@@ -1,10 +1,10 @@
         <div class="mb-5 mt-5 mb-lg-0 d-flex justify-content-center">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        
+            <%= render "devise/shared/error_messages", resource: resource %>
             <div class="mb-4">
               <h1 class="text-center lmds_title">Se Connecter</h1>
             </div>
-            
+
               <!-- Email input -->
               <div class="form-outline mb-4">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
