@@ -79,3 +79,15 @@ body{
 .separation{
 border-right: 1px solid #474340;
 }
+
+
+/* USER SHOW */
+.lmds_background {
+  border-radius: 5px 50px 5px 50px;
+  background-color: #fcd6b3;
+  box-shadow: 1px 1px 10px black;
+}
+
+.lmds_profile_border {
+  border-bottom: 1px solid #474340;
+}

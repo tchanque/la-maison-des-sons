@@ -1,1 +1,46 @@
-<p>coucou</p>
+<p style="margin: auto"><%= notice %></p>
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <!-- Page title -->
+		<div class="col-12">
+			<div class="my-5 d-flex align-items-center gap-3 lmds_profile_border">
+				<h2>Mon Profil</h2>
+                <a href="/users/edit"><button type="button" class="btn mb-2 btn-primary btn_primary_lmds btn-lg">Editer</button></a>
+				<hr>
+			</div>
+    </div>
+		
+      <div class="row"> <!-- Row START -->
+        <form class="file-upload col-xxl-8"> <!-- Form START -->
+            <!-- Contact Details -->
+            <div class="col-xxl-12 mb-xxl-0 lmds_background">
+              <div class="bg-secondary-soft px-4 py-5 rounded profile_bg">
+                <div class="row g-3">
+                  <h4 class="mb-4 mt-0">Détails :</h4>
+                  <!-- First Name -->
+                  <div class="col-md-6">
+                    <label class="form-label">Prénom :</label>
+                    <p><% if current_user.first_name == nil %>On ne connaît pas ton prénom<% else %> <%= current_user.first_name %> <% end %></p>
+                  </div>
+                  <!-- Last name -->
+                  <div class="col-md-6">
+                    <label class="form-label">Nom :</label>
+                    <p><% if current_user.last_name == nil %>On ne connaît pas ton nom<% else %> <%= current_user.last_name %> <% end %></p>
+                  </div>
+                  <!-- Description -->
+                  <div class="col-md-12">
+                    <label class="form-label">Description :</label>
+                    <p><% if current_user.description == nil %>Dis-nous qui tu es<% else %> <%= current_user.description %> <% end %></p>
+                  </div>
+                </div>
+              </div>
+            </div> 			 
+        </form> <!-- Form END -->
+        <div class="col-xxl-4 mt-3"> <!-- Img START -->
+          <div class="bg-secondary-soft rounded">
+            <div class="row g-3">
+              <img src="https://i.ibb.co/wQgrKqj/0ez4-j99w-170828.jpg" alt="Portée de notes de musiques devant un cercle">
+            </div>
+          </div>
+        </div> <!-- Img END -->
+    </div> <!-- Row END -->
+</div>
