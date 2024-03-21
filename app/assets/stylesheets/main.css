@@ -167,9 +167,18 @@ background-color: #474340;
 border-right: 1px solid #474340;
 }
 
-/* AGENDA CSS */
+/* CSS FOR FORM EDIT AND NEW EVENT */
+.form_edit {
+  width: 25%;
+  transition: 1s;
+}
 
-
+@media screen and (max-width: 992px){
+  .form_edit {
+    width: 50%;
+    transition: 1s;
+  }
+}
 
 
 /* USER SHOW */
@@ -183,5 +192,14 @@ border-right: 1px solid #474340;
   border-bottom: 1px solid #474340;
 }
 
+.form_edit {
+  width: 25%;
+  transition: 1s;
+}
 
-
+@media screen and (max-width: 992px){
+  .form_edit {
+    width: 50%;
+    transition: 1s;
+  }
+}

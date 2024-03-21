@@ -1,10 +1,12 @@
-<h1>Editing event</h1>
+<h1>Modifier l'évènement</h1>
 
-<%= render "form", event: @event %>
+<div class="d-flex event_form justify-content-center">
 
-<br>
+  <%= render "form", event: @event %>
+
+</div>
 
 <div>
-  <%= link_to "Show this event", @event %> |
-  <%= link_to "Back to events", events_path %>
+  <%= link_to "Retour", @event %> |
+  <%= link_to "Accueil", events_path %>
 </div>

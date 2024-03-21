@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
-  default from: ENV['MAIL_DEFAULT_FROM']
+  default from: ENV['MAILJET_DEFAULT_FROM']
 
   def welcome_email(user, password)
     @user = user
-    @url = "https://lamaisondessons.fy.dev/users/sign_in"
+    @url = "https://la-maison-des-sons.fly.dev/users/sign_in"
     @password = password
 
     mail(to: @user.email, subject: "Bienvenue à la Maison des sons !")
