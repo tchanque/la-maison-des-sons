@@ -15,7 +15,7 @@
   <nav class="navbar navbar-expand-lg style_navbar">
   <div class="container-fluid">
     <a class="navbar-brand nav_link" href="/"> <%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '100px') %></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler border_burger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -92,12 +92,14 @@
           </div>
           </li>
         <%end%>   
-       
-        
       </ul>
     </div>
   </div>
 </nav>
+<div class="px-4 py-5 text-center bg_hero">
+<!-- THIS DIV IS THE CONTAINER OF THE HERO ( the hero image is define in the css background-img) -->
+</div>
+
     <p class="alert text-center lmds_alert"><%= alert %></p>
     <%= yield %>
     <p class="notice"><%= notice %></p>

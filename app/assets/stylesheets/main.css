@@ -13,6 +13,13 @@ body{
   box-shadow: 1px 1px 4px black;
 }
 
+.navbar-toggler{
+  color: white;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255, 1), 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 
 /* CSS FOR GENERAL CLASS */
 
@@ -24,7 +31,20 @@ body{
 /* CSS FOR THE NAVBAR */
 
 .style_navbar{
-  background-color: #47434067;
+  background-color: #00000077;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.border_burger{
+  border: 1px solid white;
+}
+
+.style_navbar:hover{
+  background-color: #000000b9;
+  transition: 0.5s;
 }
 
 .nav_link{
@@ -50,14 +70,42 @@ body{
 }
 
 .custom_dropdown_menu{
-  background-color: #47434067;
+  background-color: #00000067;
+  transition: 0.5s;
 }
+
+.custom_dropdown_menu:hover{
+  background-color: #000000af;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 992px){
+  .style_navbar{
+background-color: #474340;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+  }
+}
+  
 
 @media screen and (min-width: 992px) {
   .navbar-collapse ul{
-  align-items: center;     /* KEEP THE ALIGN ITEMS UNTIL THE PAGE WIDTH IS UNDER 992 px */
+  align-items: center;    /* KEEP THE ALIGN ITEMS UNTIL THE PAGE WIDTH IS UNDER 992 px */
 }
+
+.bg_hero{
+  background-image: url('https://static.wixstatic.com/media/e5c132_43c8af2a835f41029a93a85ae02c8523.jpg/v1/fill/w_1014,h_676,al_c,q_85,usm_0.66_1.00_0.01/e5c132_43c8af2a835f41029a93a85ae02c8523.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px ;
 }
+
+}
+
+/* HERO */
+
 
 
 /* SIGN_UP / SIGN_IN */
