@@ -23,7 +23,8 @@ admin_emails = ['damiengeneret@outlook.com', 'toto@gmail.com', 'scherer.alexia@g
 admin_emails.each do |email|
     password = "admin123"
     password_confirmation = password
-    user = User.new(email: email, password: password, password_confirmation: password_confirmation, is_admin: true, is_teacher: false, is_subscriber: false)
+    user = User.new(email: email, password: password, first_name: Faker::Movies::LordOfTheRings.character,
+    last_name: Faker::Movies::HarryPotter.spell, password_confirmation: password_confirmation, is_admin: true, is_teacher: false, is_subscriber: false)
     user.save!
 end
 #Creation of 4 teachers
