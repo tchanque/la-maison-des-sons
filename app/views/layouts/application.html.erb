@@ -109,21 +109,7 @@
       <div class="col-xxl-2 d-flex justify-content-center align-items-center contact_us">
         <h5 class="text-md-right">Nous contacter</h5>
       </div>
-        <form class="col-xxl-4 d-flex">
-          <div class="col-xxl-8">
-            <p class="form-group mt-3">
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Mail">
-            </p>
-            <p class="form-group">
-                <textarea class="form-control" id="exampleMessage" placeholder="Message"></textarea>
-            </p>
-          </div>
-          <div class="col-xxl-4 d-flex justify-content-center align-items-center">
-            <p class="form-group">
-                <button type="button" class="btn btn-secondary btn_primary_lmds btn-lg">Envoyer</button>
-            </p>
-          </div>
-        </form>
+        <%= render "/contact_form/contact_form" %>
     <div class="col-xxl-6 d-flex justify-content-center align-items-center">
       <div class="logo"><%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '300px') %></div>
     </div>
