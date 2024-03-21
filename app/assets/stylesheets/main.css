@@ -164,7 +164,7 @@ background-color: #474340;
 }
 
 .separation{
-border-right: 1px solid #474340;
+  border-right: 1px solid #474340;
 }
 
 
@@ -177,4 +177,40 @@ border-right: 1px solid #474340;
 
 .lmds_profile_border {
   border-bottom: 1px solid #474340;
+}
+
+/* FOOTER */
+
+.footer_haut {
+  background-color: #474340;
+  color: #ffff;
+  height: 18em;
+  
+}
+
+.footer_haut h5 {
+  border-bottom: 1px solid white;
+}
+
+.footer_bas {
+  background-color: #2a5a6f;
+  height: 2em;
+}
+
+.footer_link {
+  color: white;
+  text-decoration: none;
+}
+
+.footer_link:hover {
+  text-decoration: underline;
+
+}
+
+.bi-facebook {
+  color: blue;
+}
+
+.bi-youtube {
+  color: red;
 }
