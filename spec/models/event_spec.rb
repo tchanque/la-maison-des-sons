@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# Désactiver le before_action authenticate pour tester le chemin d'accès events/new
+
 RSpec.describe Event, type: :model do
   
   before(:each) do
