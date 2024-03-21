@@ -35,7 +35,11 @@
 
 <div class="container justify-content-center my-5">
   <div class="d-flex justify-content-center gap-3">
-    <%= button_to "Je participe", attendances_path, params: {event: @event}, class: "btn btn-success btn_size_card" %>
+    <% if !@is_attending%>
+      <%= button_to "Participer", attendances_path, params: {event: @event}, class: "btn btn-success btn_size_card" %>
+    <% else %>
+      <%= button_to "Se désinscrire", @attendance, method: :delete, class: "btn btn-danger btn_size_card" %>
+    <% end %>
     <%= link_to "Retour", events_path, class: "btn btn-secondary btn_size_card" %>
   </div>
   

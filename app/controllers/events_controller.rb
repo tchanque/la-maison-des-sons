@@ -9,6 +9,13 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    # find the event
+    event = Event.find(params[:id])
+
+    @attendance = Attendance.where(event: event, attendee: current_user).first
+    # check if the user is already attending the event (@is_attending => true if attending, else false)
+    @is_attending = @attendance ? true : false
+
   end
 
   # GET /events/new
@@ -53,7 +60,7 @@ class EventsController < ApplicationController
     @event.destroy!
 
     respond_to do |format|
-      format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
+      format.html { redirect_to events_url, notice: "L'évènement a été supprimé avec succès." }
       format.json { head :no_content }
     end
   end
