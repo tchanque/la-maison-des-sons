@@ -1,3 +1,4 @@
+<div class="form_edit">
 <%= form_with(model: event) do |form| %>
   <% if event.errors.any? %>
     <div style="color: red">
@@ -11,52 +12,58 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :category, style: "display: block" %>
-    <%= form.text_field :category %>
-  </div>
+    <div class="form-group">
+      <%= form.label "Type"%>
+      <!-- Ici, on ajoute les valeurs possibles les types d'event, d'apres l'array CATEGORIES défini dans le model de Event -->
+      <!-- Par défaut, la valeur pré-remplie est celle de l'event, grâce à @event.category, pour éviter de passer la première valeur de l'array CATEGORIES par défault, et qui équivaut à Atelier -->
+      <%= form.select :category, options_for_select(Event::CATEGORIES.map{|category| category.capitalize.tr('_', ' ')}, @event.category), {}, class: "form-select" %>
 
-  <div>
-    <%= form.label :instrument, style: "display: block" %>
-    <%= form.text_field :instrument %>
-  </div>
+    </div>
 
-  <div>
-    <%= form.label :level, style: "display: block" %>
-    <%= form.number_field :level %>
-  </div>
+    <div class="form-group">
+      <%= form.label "Instrument"%>
+      <%= form.text_field :instrument, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
+    <div class="form-group"">
+      <%= form.label "Niveau"%>
+      <!-- Ici, on ajoute les valeurs possibles pour les niveaux, d'apres l'array LEVEL défini dans le model de Event -->
+      <!-- Par défaut, la valeur pré-remplie est celle de l'event, grâce à @event.level, pour éviter de passer la première valeur de l'array LEVEL par défault, et qui équivaut à 1 -->
+      <%= form.select :level, options_for_select(Event::LEVEL, @event.level), {}, class: "form-select" %>
+    </div>
 
-  <div>
-    <%= form.label :start_date, style: "display: block" %>
-    <%= form.datetime_field :start_date %>
-  </div>
+    <div class="form-group">
+      <%= form.label "Prix"%>
+      <%= form.number_field :price, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :duration, style: "display: block" %>
-    <%= form.number_field :duration %>
-  </div>
+    <div class="form-group">
+      <%= form.label "Date"%>
+      <%= form.datetime_field :start_date, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="form-group">
+      <%= form.label "Durée"%>
+      <%= form.number_field :duration, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
-  </div>
+    <div class="form-group">
+      <%= form.label "Description"%>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :available_seats, style: "display: block" %>
-    <%= form.number_field :available_seats %>
-  </div>
+    <div class="form-group">
+      <%= form.label "Lieu"%>
+      <%= form.text_field :location, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.submit %>
+    <div class="form-group">
+      <%= form.label "Places disponibles"%>
+      <%= form.number_field :available_seats, class: "form-control" %>
+    </div>
+
+    <div class="text-center mt-4">
+      <%= form.submit class: "btn btn-primary", value: "Modifier"%>
+    </div>
+  <% end %>
   </div>
-<% end %>
