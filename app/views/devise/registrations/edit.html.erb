@@ -1,43 +1,93 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+<div class="row">
+		<div class="col-12">
+			<!-- Page title -->
+			<div class="my-5 lmds_profile_border">
+      <h2>Editer mes infos</h2>
+			
+			</div>
+			<!-- Form START -->
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: "file-upload") do |f| %> 
+        <%= render "devise/shared/error_messages", resource: resource %>
+				<div class="row mb-5 gx-5">
+					<!-- Contact detail -->
+					<div class="col-xxl-8 mb-xxl-0">
+						<div class="bg-secondary-soft px-4 py-5 rounded">
+							<div class="row g-3">
+								<h4 class="mb-4 mt-0">Détails</h4>
+								<!-- First Name -->
+								<div class="col-md-6">
+                <div class="field">
+                  <%= f.label :prénom, class: "form-label" %><br />
+                  <%= f.text_field :first_name, class: "form-control", autofocus: true, autocomplete: "first_name" %>
+                </div>
+								</div>
+								<!-- Last name -->
+								<div class="col-md-6">
+                <div class="field">
+                  <%= f.label :nom_de_famille, class: "form-label" %><br />
+                  <%= f.text_field :last_name, class: "form-control", autofocus: true, autocomplete: "last_name" %>
+                </div>
+								</div>
+								<!-- Email -->
+								<div class="col-md-6">
+                  <div class="field">
+                    <%= f.label :email, class: "form-label" %><br />
+                    <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
+                </div>
+								</div>
+                <!-- Description -->
+								<div class="col-md-6">
+                  <div class="field">
+                    <%= f.label :description, class: "form-label" %><br />
+                    <%= f.text_field :description, class: "form-control", autofocus: true, autocomplete: "description" %>
+                </div>
+								</div>
+                <br>
+                <br>
+                <br>
+                <h4 class="mb-0">Changer mon mot de passe</h4>
+                <p class="mt-0"><i>(Laissez vide si vous ne souhaitez pas le modifier)</i></p>
+                                <!-- Old password -->
+                                <div class="col-md-6">
+                                    <div class="field">
+                                    <%= f.label :Nouveau_mot_de_passe, class: "form-label" %> (<em><%= @minimum_password_length %> caractères minimum</em>)<br />
+                                    <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+                                </div>
+                                </div>
+                                <!-- New password -->
+                                <div class="col-md-6">
+                                    <div class="field">
+                                        <%= f.label :Confirmez_votre_mot_de_passe, class: "form-label" %><br />
+                                        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+                                    </div>
+                                </div>                               
+							</div> <!-- Row END -->
+						</div>
+					</div>
+          <div class="col-xxl-4">
+						<div class="bg-secondary-soft px-4 py-5 rounded">
+							<div class="row g-3 py-5">
+								<img src="https://i.ibb.co/YccmM26/9290694.png" alt="Lune entourée d'une portée">
+							</div>
+						</div>
+					</div>
+          <!-- Confirm password -->
+                                <div class="col-md-12">
+                                    <div class="field">
+                                    <%= f.label :Mot_de_passe_actuel, class: "form-label" %> <i>(Nous avons besoin de votre mot de passe actuel pour confirmer vos changements)</i><br />
+                                    <%= f.password_field :current_password, class: "form-control", autocomplete: "current-password" %>
+                                  </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+                                  <div class="d-flex mt-3">
+                                    <div class="actions">
+                                      <%= f.submit "Update", class: "btn btn-primary btn_primary_lmds" %>
+                                    </div>
+                                  </div>
+                                </div>          
+				</div> <!-- Row END -->
+			</div> <!-- Row END -->
+		</form> <!-- Form END -->
+	</div>
+</div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
