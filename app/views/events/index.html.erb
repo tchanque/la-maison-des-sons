@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 
-<div class=" d-flex flex-column align-items-center" id="events">
+<div class="d-flex flex-column align-items-center my-5" id="events">
   <h1 class="w-75 text-center header_section">Nos évènements</h1>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 m-3 g-5">
     <% @events.each do |event| %>
@@ -10,3 +10,28 @@
   </div>
 </div>
 
+<div class="d-flex flex-column align-items-center">
+    <h1 class="w-75 text-center header_section align-items-center">Agenda</h1>
+            <% @current_attendances.each do |attendance| %>
+              <div class="container separation_agenda">
+              <div class="row row-striped">
+                <div class="col-2 text-right">
+                  <h1 class="display-4"><span class="badge"><%= attendance.event.start_date.strftime("%d") %></span></h1>
+                  <h2><%= attendance.event.start_date.strftime("%b") %></h2>
+                </div>
+                <div class="col-10">
+                <div class="d-flex justify-content-between align-items-center pt-3">
+                  <h3 class="text-uppercase"><strong><%= attendance.event.category %>  (<%= attendance.event.instrument %>)</strong></h3>
+                  <%= link_to "Voir plus", event_path(attendance.event), class: "btn btn-secondary mb-2" %>
+                  </div>
+                    <ul class="list-inline">
+                      <li class="list-inline-item"><i class="bi bi-calendar" aria-hidden="true"></i> <%= attendance.event.start_date.strftime("%A") %></li>
+                      <li class="list-inline-item"><i class="bi bi-clock" aria-hidden="true"></i> <%= attendance.event.start_date.strftime("%I:%M %p") %></li>
+                      <li class="list-inline-item"><i class="bi bi-pin-map" aria-hidden="true"></i> <%= attendance.event.location %></li>
+                    </ul>
+                  <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+              </div>
+            </div>
+           <% end %>
+</div>

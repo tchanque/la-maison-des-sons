@@ -156,7 +156,7 @@ background-color: #474340;
   height: 400px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  box-shadow: 0px 4px 4px black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.466);
 }
 
 .bg_blur{
@@ -165,6 +165,31 @@ background-color: #474340;
 
 .separation{
 border-right: 1px solid #474340;
+}
+
+/* CSS FOR FORM EDIT AND NEW EVENT */
+.form_edit {
+  width: 25%;
+  transition: 1s;
+}
+
+@media screen and (max-width: 992px){
+  .form_edit {
+    width: 50%;
+    transition: 1s;
+  }
+}
+
+/* CSS FOT HE AGENDA */
+.separation_agenda{
+  border-bottom: 1px solid grey;
+  margin-bottom: 10px;
+  background-color: #FCD6B3;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.514);
+}
+
+.badge{
+  background-color: #C85F4E;
 }
 
 
@@ -178,6 +203,8 @@ border-right: 1px solid #474340;
 .lmds_profile_border {
   border-bottom: 1px solid #474340;
 }
+
+/* CSS FOR FORM EDIT AND NEW EVENT */
 
 .form_edit {
   width: 25%;
