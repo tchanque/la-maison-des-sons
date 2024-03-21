@@ -10,7 +10,7 @@
     </div>
 		
       <div class="row"> <!-- Row START -->
-        <form class="file-upload col-xxl-8"> <!-- Form START -->
+        <form class="col-xxl-8"> <!-- Form START -->
             <!-- Contact Details -->
             <div class="col-xxl-12 mb-xxl-0 lmds_background">
               <div class="bg-secondary-soft px-4 py-5 rounded profile_bg">
@@ -19,17 +19,17 @@
                   <!-- First Name -->
                   <div class="col-md-6">
                     <label class="form-label">Prénom :</label>
-                    <p><% if current_user.first_name == nil %>On ne connaît pas ton prénom<% else %> <%= current_user.first_name %> <% end %></p>
+                    <p><% if current_user.first_name == nil || current_user.first_name == "" %>On ne connaît pas ton prénom<% else %> <%= current_user.first_name %> <% end %></p>
                   </div>
                   <!-- Last name -->
                   <div class="col-md-6">
                     <label class="form-label">Nom :</label>
-                    <p><% if current_user.last_name == nil %>On ne connaît pas ton nom<% else %> <%= current_user.last_name %> <% end %></p>
+                    <p><% if current_user.last_name == nil || current_user.last_name == "" %>On ne connaît pas ton nom<% else %> <%= current_user.last_name %> <% end %></p>
                   </div>
                   <!-- Description -->
                   <div class="col-md-12">
                     <label class="form-label">Description :</label>
-                    <p><% if current_user.description == nil %>Dis-nous qui tu es<% else %> <%= current_user.description %> <% end %></p>
+                    <p><% if current_user.description == nil || current_user.description == "" %>Dis-nous qui tu es<% else %> <%= current_user.description %> <% end %></p>
                   </div>
                 </div>
               </div>
