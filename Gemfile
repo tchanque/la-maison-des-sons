@@ -88,3 +88,5 @@ group :test do
   # Meow Meow NYA !
   gem "nyan-cat-formatter"
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
