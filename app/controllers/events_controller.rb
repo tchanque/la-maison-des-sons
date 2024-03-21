@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @events = Event.all
+    @current_attendances = Attendance.all.where(attendee: current_user)
   end
 
   # GET /events/1 or /events/1.json
@@ -65,6 +66,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:type, :instrument, :level, :price, :start_date, :duration, :description, :location, :available_seats)
+      params.require(:event).permit(:creator, :type, :instrument, :level, :price, :start_date, :duration, :description, :location, :available_seats)
     end
 end
