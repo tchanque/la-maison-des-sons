@@ -4,7 +4,7 @@ class Event < ApplicationRecord
 
     belongs_to :creator, class_name: "User"
     
-    has_many :attendances
+    has_many :attendances, dependent: :destroy
     has_many :attendees, through: :attendances
 
     validates :creator, presence: true

@@ -62,8 +62,12 @@
       <%= form.number_field :available_seats, class: "form-control" %>
     </div>
 
+    <div class="form-group">
+      <%= form.hidden_field :creator_id, :value => current_user.id %>
+    </div>
+
     <div class="text-center mt-4">
-      <%= form.submit class: "btn btn-primary", value: "Modifier"%>
+      <%= form.submit class: "btn btn-primary", value: "Valider"%>
     </div>
   <% end %>
   </div>
