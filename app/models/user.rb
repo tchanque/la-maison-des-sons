@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_many :attendances
   has_many :events, through: :attendances
+
+  validates :password, presence: true, length: { minimum: 6 }
+  
   after_create :welcome_email
 
   def welcome_email
