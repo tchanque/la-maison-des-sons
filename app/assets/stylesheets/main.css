@@ -21,6 +21,45 @@ body{
 }
 
 
+/* CSS FOR THE NAVBAR */
+
+.style_navbar{
+  background-color: #47434067;
+}
+
+.nav_link{
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  transition: 0.5s;
+}
+.nav_link:hover{
+  background-color: #c85e4ea6;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+.logo_nav{
+  width: 150px;
+  height: 50px;
+}
+
+.dropdown_button{
+  background-color: transparent;
+  border: none;
+}
+
+.custom_dropdown_menu{
+  background-color: #47434067;
+}
+
+@media screen and (min-width: 992px) {
+  .navbar-collapse ul{
+  align-items: center;     /* KEEP THE ALIGN ITEMS UNTIL THE PAGE WIDTH IS UNDER 992 px */
+}
+}
+
+
 /* SIGN_UP / SIGN_IN */
 
 .btn_primary_lmds {

@@ -12,22 +12,87 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg style_navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Navbar</a>
+    <a class="navbar-brand nav_link" href="/"> <%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '100px') %></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav justify-content-around w-100">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav_link" aria-current="page" href="/"> Accueil </a>
         </li>
-        <a href="/users/sign_in">Log in</a>
+        <li>
+        <a class="nav_link" href="#agenda"> Agenda </a>
+        </li>
+        <li>
+        <% if user_signed_in? && current_user.is_admin === true || user_signed_in? && current_user.is_teacher ===true %>
+          <div class="dropdown">
+            <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Évènements
+            </button>
+            <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul class="justify-content-around">
+            <li>
+            <a class="nav_link" href="/"> Atelier </a>
+            </li>
+            <li>
+            <a class="nav_link" href="/"> Concert </a>
+            </li>
+            <li>
+            <a class="nav_link" href="/"> Permanance </a>
+            </li>
+            <li>
+            <a class="nav_link" href="/"> Scène ouverte </a>
+            </li>
+            <li>
+            <%= link_to " Créer un évènement ", new_event_path, class: "nav_link" %>
+            </li>
+            </ul>
+            </div>
+          </div>
+          <% else %>
+          <div class="dropdown">
+          <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Évènements
+          </button>
+          <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <ul class="justify-content-around">
+          <li>
+          <a class="nav_link" href="/"> Atelier </a>
+          </li>
+          <li>
+          <a class="nav_link" href="/"> Concert </a>
+          </li>
+          <li>
+          <a class="nav_link" href="/"> Permanance </a>
+          </li>
+          <li>
+          <a class="nav_link" href="/"> Scène ouverte </a>
+          </li>
+          </ul>
+          </div>
+        </div>
+          <% end %>
+        </li>
+    <!--<li> 
+          <a class="nav_link" href="/users/sign_in">Log in</a> THIS LINK IS NOT USEFUL CAUSE IF WE ARE NOT LOG IN, WE STAY ON THE LOGIN PAGE 
+        </li> -->
           <% if user_signed_in? %>
-          <%= link_to "Mon profil", user_path(current_user) %>
+          <li>
+          <div class="dropdown">
+            <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.first_name %> <%= current_user.last_name %>
+            </button>
+            <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to "Mon profil", user_path(current_user), class: "nav_link" %> 
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item nav_link" %>
+            </div>
+          </div>
+          </li>
         <%end%>   
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item" %>
+       
         
       </ul>
     </div>
