@@ -11,5 +11,12 @@ class AttendancesController < ApplicationController
     end
 
     def destroy
+        attendance = Attendance.find(params[:id])
+        attendance.destroy!
+
+        respond_to do |format|
+            format.html { redirect_to root_path, notice: "Vous vous êtes désinscrit de l'évènement."}
+            format.json { head :no_content }
+        end
     end
 end
