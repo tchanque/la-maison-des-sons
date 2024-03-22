@@ -18,14 +18,14 @@ body{
 }
 
 .btn-primary:hover{
-  background-color: #FCD6B3;
-  color: #C85F4E;
+  background-color: #e27d6e;
+  color: #792e22;
   transition: 0.5s;
 }
 
 .btn-primary:active{
   scale: 0.9;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 
@@ -39,14 +39,14 @@ body{
 }
 
 .btn-secondary:hover{
-  background-color: #9ec6d8;
-  color: #38748d;
+  background-color: #70a4bd;
+  color: #023e58;
   transition: 0.5s;
 }
 
 .btn-secondary:active{
   scale: 0.9;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 .btn-danger {
@@ -59,19 +59,40 @@ body{
 }
 
 .btn-danger:hover{
-  background-color: #f02f1a;
-  color: #491511;
+  background-color: #c0908b;
+  color: #960a00;
   transition: 0.5s;
 }
 
 .btn-danger:active{
   scale: 0.9;
+  transition: 0.1s;
+}
+
+.btn-success {
+  background-color: #249252;
+  border: none;
+  box-shadow: 1px 1px 4px black;
+  --bs-btn-active-bg: #424242;
+  --bs-btn-active-color: #4dab74;
   transition: 0.5s;
+}
+
+.btn-success:hover{
+  background-color: #4dab74;
+  color: #005825;
+  transition: 0.5s;
+}
+
+.btn-success:active{
+  scale: 0.9;
+  transition: 0.1s;
 }
 
 .btn-warning {
   background-color: #cb9b3c;
   border: none;
+  color: #ffffff;
   box-shadow: 1px 1px 4px black;
   --bs-btn-active-bg: #424242;
   --bs-btn-active-color: #cb9b3c;
@@ -79,14 +100,14 @@ body{
 }
 
 .btn-warning:hover{
-  background-color: #ffe8b9;
-  color: #9e7c37;
+  background-color: #d8b265;
+  color: #704b00;
   transition: 0.5s;
 }
 
 .btn-warning:active{
   scale: 0.9;
-  transition: 0.5s;
+  transition: 0.1s;
 }
 
 
