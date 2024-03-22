@@ -180,7 +180,11 @@ background-color: #474340;
   }
 }
 
-/* CSS FOT HE AGENDA */
+/* CSS FOT THE AGENDA */
+.agenda_container {
+  margin: 3rem;
+}
+
 .separation_agenda{
   border-bottom: 1px solid grey;
   margin-bottom: 10px;
