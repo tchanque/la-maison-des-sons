@@ -79,7 +79,20 @@
     <!--<li> 
           <a class="nav_link" href="/users/sign_in">Log in</a> THIS LINK IS NOT USEFUL CAUSE IF WE ARE NOT LOG IN, WE STAY ON THE LOGIN PAGE 
         </li> -->
-          <% if user_signed_in? %>
+          <% if user_signed_in? && current_user.is_admin === true %>
+          <li>
+          <div class="dropdown">
+            <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.first_name %> <%= current_user.last_name %>
+            </button>
+            <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to "Mon profil", user_path(current_user), class: "nav_link" %> 
+            <%= link_to "Créer un user", new_user_path, class: "nav_link" %> 
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item nav_link" %>
+            </div>
+          </div>
+          </li>
+          <% elsif user_signed_in? %>
           <li>
           <div class="dropdown">
             <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
