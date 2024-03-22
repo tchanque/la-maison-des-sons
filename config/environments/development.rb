@@ -78,8 +78,6 @@ Rails.application.configure do
 
   config.assets.debug = true
 
-
-
   ActionMailer::Base.smtp_settings = {
     :user_name => ENV['MAILJET_LOGIN'],
     :password => ENV['MAILJET_PWD'],
@@ -89,4 +87,6 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
 }
+
+  config.action_mailer.perform_deliveries = true
 end

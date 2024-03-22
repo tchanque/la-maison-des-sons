@@ -8,5 +8,6 @@ class ApplicationController < ActionController::Base
   # HERE WE ADD SOME PERMISSION TO DEVISE TO UPDATE USER_PROFILE. Because devise accept only email, password and password_confirmation by default
     def configure_permitted_parameters
          devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :email, :description, :password, :current_password, :password_confirmation)}
+         devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :is_admin, :is_teacher, :is_subscriber, :description, :password, :password_confirmation)}
     end
 end

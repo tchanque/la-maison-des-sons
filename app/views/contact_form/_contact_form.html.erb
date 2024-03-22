@@ -1,0 +1,17 @@
+<%= form_with scope: :contact_form, url: contact_form_index_path, method: :post, local: true, class: "col-xxl-4 d-flex" do |form| %>
+          <div class="col-xxl-8">
+            <div class="form-group mt-3">
+              <%= form.label :email %>
+              <%= form.email_field :email, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= form.label :message %>
+              <%= form.text_area :message, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-xxl-4 d-flex justify-content-center align-items-center">
+            <p class="form-group">
+              <%= form.submit "Envoyer", class: "btn btn-secondary btn_primary_lmds btn-lg" %>
+            </p>
+          </div>
+<% end %>
