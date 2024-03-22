@@ -1,4 +1,5 @@
-<p style="color: green"><%= notice %></p>
+<br>
+<p class="lmds_success text-center"><%= notice %></p>
 <div class="container">
 <div class="p-4 p-md-5 mb-4 text-body-emphasis bg_img d-flex align-items-center text-center">
     <div class="col-lg-6 px-0 text-white bg_blur">
@@ -19,7 +20,7 @@
  <div>
   <p><i class="display-5 bi bi-person"></i> Pour toute question : <%= @event.creator.first_name %> <%= @event.creator.last_name %> </p>
   <p><i class="display-5 bi bi-music-note-beamed"></i> Instrument nécessaire : <%= @event.instrument %></p>
-  <p><i class="display-5 bi bi-currency-dollar"></i> Le prix ki ki vous faudra payer : <%= @event.price %></p>
+  <p><i class="display-5 bi bi-currency-dollar"></i> Le prix qu'il vous faudra payer : <%= @event.price %> €</p>
   <p><i class="display-5 bi bi-stopwatch"></i> Tout cela ne dure que : <%= @event.duration %> minutes</p>
   </div>
 </div>
