@@ -36,7 +36,8 @@
 <div class="container justify-content-center my-5">
   <div class="d-flex justify-content-center gap-3">
     <% if !@is_attending%>
-      <%= button_to "Participer", attendances_path, params: {event: @event}, class: "btn btn-success btn_size_card" %>
+      <% is_disabled = @event.available_seats > 0 ? false : true %>
+      <%= button_to "Participer", attendances_path, params: {event: @event}, class: "btn btn-success btn_size_card", disabled: is_disabled %>
     <% else %>
       <%= button_to "Se désinscrire", @attendance, method: :delete, class: "btn btn-danger btn_size_card" %>
     <% end %>
