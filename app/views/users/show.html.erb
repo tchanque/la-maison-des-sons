@@ -1,11 +1,10 @@
 <p style="margin: auto"><%= notice %></p>
-<div class="container d-flex flex-column justify-content-center align-items-center">
+<div class="container d-flex  justify-content-center align-items-center">
     <!-- Page title -->
 		<div class="col-12">
-			<div class="my-5 d-flex align-items-center gap-3 lmds_profile_border">
-				<h2>Mon Profil</h2>
-                <a href="/users/edit"><button type="button" class="btn mb-2 btn-primary btn_primary_lmds btn-lg">Editer</button></a>
-				<hr>
+			<div class="my-5 d-flex align-items-center gap-3">
+				<h2 class="w-75 text-center header_section">Mon profil</h2>
+                
 			</div>
     </div>
 </div>
@@ -31,9 +30,15 @@
           <p><% if current_user.description == nil || current_user.description == "" %>Dis-nous qui tu es<% else %> <%= current_user.description %> <% end %></p>
         </div>
       </div> <!-- END FORM DETAILS -->
+      <!-- START BUTTON -->
+      <div class="d-flex justify-content-end px-2">
+      <a href="/users/edit"><button type="button" class="btn mb-2 btn-primary btn_primary_lmds btn-lg">Editer</button></a>
+      </div> <!-- END BUTTON -->
     </div> <!-- END CARD GLOBALE -->
+    
     <div class="col-xxl-3 d-flex justify-content-center align-items-center"> <!-- START IMG -->
       <img src="https://i.ibb.co/5FNjCby/0ez4-j99w-170828-Photoroom-png-Photoroom.png" alt="Portée de notes de musiques devant un cercle">
     </div> <!-- END IMG -->
+    
   </div> 
 </div>     
