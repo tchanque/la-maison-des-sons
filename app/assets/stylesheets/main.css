@@ -326,6 +326,13 @@ background-color: #474340;
   color: red;
 }
 
+
+@media screen and (max-width: 1400px){
+  .contact_us{
+    display: none;
+  }
+}
+
 /* CSS FOR FORM EDIT AND NEW EVENT */
 
 .form_edit {

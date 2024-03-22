@@ -142,13 +142,13 @@
     <%= yield %>
 
 <div class="footer">
-  <div class="footer_haut d-flex justify-content-center align-items-center">
+  <div class="footer_haut d-flex justify-content-between align-items-center">
       <div class="col-xxl-2 d-flex justify-content-center align-items-center contact_us">
         <h5 class="text-md-right">Nous contacter</h5>
       </div>
         <%= render "/contact_form/contact_form" %>
-    <div class="col-xxl-6 d-flex justify-content-center align-items-center">
-      <div class="logo"><%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '300px') %></div>
+    <div class="col-xxl-2 d-flex justify-content-center align-items-center">
+      <div class="logo"><%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '150px') %></div>
     </div>
   </div>
   <div class="footer_bas d-flex justify-content-between">
