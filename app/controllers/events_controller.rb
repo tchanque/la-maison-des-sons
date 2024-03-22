@@ -3,7 +3,13 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = Event.all.sort{ |a, b| a.start_date <=> b.start_date }
+    @events = []
+    Event.all.each do |event|
+      if event.start_date.after? Date.today
+        @events << event
+    end
+  end
+    @events = @events.sort{ |a, b| a.start_date <=> b.start_date }
     @current_attendances = Attendance.all.where(attendee: current_user).sort{ |a, b| a.event.start_date <=> b.event.start_date }
   end
 
