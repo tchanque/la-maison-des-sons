@@ -1,12 +1,13 @@
-<h1>Modifier l'évènement</h1>
+<div class="d-flex flex-column align-items-center my-5" id="events">
+  <h1 class="w-75 text-center header_section">Modifier l'évènement</h1>
+</div>
 
-<div class="d-flex event_form justify-content-center">
+<div class="d-flex event_form justify-content-center mb-3">
 
   <%= render "form", event: @event %>
 
 </div>
 
-<div>
-  <%= link_to "Retour", @event %> |
-  <%= link_to "Accueil", events_path %>
+<div class="d-flex justify-content-center mb-3">
+  <%= link_to "Retour", @event, class: "btn btn-secondary" %>
 </div>
