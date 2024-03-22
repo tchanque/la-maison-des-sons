@@ -65,4 +65,14 @@ Rails.application.configure do
   # Permet de test sans action smtp
   # config.action_mailer.raise_delivery_errors = false
 
+  ActionMailer::Base.smtp_settings = {
+    :user_name => ENV['MAILJET_LOGIN'],
+    :password => ENV['MAILJET_PWD'],
+    :domain => 'monsite.fr',
+    :address => 'in-v3.mailjet.com',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+}
+
 end
