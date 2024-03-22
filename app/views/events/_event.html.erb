@@ -6,7 +6,7 @@
         <h5 class="card-title text-center"> <%=event.category.capitalize%> </br> </h5>
         <div class="row text-center">
           <h6> <i class="bi bi-lightning-charge-fill"></i> Niveau <%= event.level %> </h6>
-          <h6><i class="bi bi-person-circle"></i> Places disponibles : <%= event.available_seats %></h6>
+          <h6><i class="bi bi-person-circle"></i> Places disponibles : <%= event.available_seats %> / <%= event.max_seats %></h6>
           <h6> <i class="bi bi-calendar3-event"></i> <%= event.start_date.strftime("%d/%m %H:%M") %> </h6>
         </div>
 
