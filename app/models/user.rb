@@ -12,9 +12,9 @@ class User < ApplicationRecord
   after_create :welcome_email
 
   def welcome_email
-    # pass = SecureRandom.hex(6)
-    # update(password: pass, password_confirmation: pass)
-    # UserMailer.welcome_email(self, pass).deliver_now
+    pass = SecureRandom.hex(6)
+    update(password: pass, password_confirmation: pass)
+    UserMailer.welcome_email(self, pass).deliver_now
   end
 
 end
