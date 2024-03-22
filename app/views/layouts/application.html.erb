@@ -11,7 +11,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body data-turbo="false">
   <nav class="navbar navbar-expand-lg style_navbar">
   <div class="container-fluid">
     <a class="navbar-brand nav_link" href="/"> <%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '100px') %></a>
@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav justify-content-around w-100">
         <li class="nav-item">
-          <a class="nav_link" aria-current="page" href="/"> Accueil </a>
+          <%= link_to "Accueil", events_path, class: "nav_link" %>
         </li>
         <li>
         <a class="nav_link" href="#agenda"> Agenda </a>
@@ -87,7 +87,7 @@
             </button>
             <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
             <%= link_to "Mon profil", user_path(current_user), class: "nav_link" %> 
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item nav_link" %>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item nav_link" %>
             </div>
           </div>
           </li>
