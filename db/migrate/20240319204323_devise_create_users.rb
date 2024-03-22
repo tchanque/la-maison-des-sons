@@ -11,9 +11,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
       t.string :last_name
       t.text :description
 
-      t.boolean :is_admin
-      t.boolean :is_teacher
-      t.boolean :is_subscriber
+      t.boolean :is_admin, default: "false"
+      t.boolean :is_teacher, default: "false"
+      t.boolean :is_subscriber, default: "false"
 
       ## Recoverable
       t.string   :reset_password_token
