@@ -30,7 +30,7 @@ Présentation du MVP comprenant :
 Mise en place des features supplémentaires :
 - dashboard administrateur
 - gestion des images
-- gestion des status des membres et autorisations liées
+- gestion des statuts des membres et autorisations liées
 
 
 
