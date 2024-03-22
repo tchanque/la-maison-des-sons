@@ -5,7 +5,10 @@ class AttendancesController < ApplicationController
         new_attendance = Attendance.new(event: event, attendee: current_user)
 
         if new_attendance.save
-            respond_to
+            respond_to do |format|
+                format.html { redirect_to event, notice: "Vous êtes inscrit à l'évènement."}
+                format.json { head :no_content }
+            end
         end
 
     end
