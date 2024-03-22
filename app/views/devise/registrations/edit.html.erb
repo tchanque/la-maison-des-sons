@@ -2,8 +2,8 @@
 <div class="row">
 		<div class="col-12">
 			<!-- Page title -->
-			<div class="my-5 lmds_profile_border">
-      <h2>Editer mes infos</h2>
+			<div class="my-5">
+      <h2 class="w-75 text-center header_section">Editer mes infos</h2>
 			
 			</div>
 			<!-- Form START -->
@@ -14,7 +14,8 @@
 					<div class="col-xxl-8 mb-xxl-0">
 						<div class="bg-secondary-soft px-4 py-5 rounded">
 							<div class="row g-3">
-								<h4 class="mb-4 mt-0">Détails</h4>
+								<h4 class="mb-0 mt-0">Détails</h4>
+                <hr>
 								<!-- First Name -->
 								<div class="col-md-6">
                 <div class="field">
@@ -37,16 +38,16 @@
                 </div>
 								</div>
                 <!-- Description -->
-								<div class="col-md-6">
+								<div class="col-md-6 mb-5">
                   <div class="field">
                     <%= f.label :description, class: "form-label" %><br />
                     <%= f.text_field :description, class: "form-control", autofocus: true, autocomplete: "description" %>
                 </div>
 								</div>
                 <br>
-                <br>
-                <br>
+               
                 <h4 class="mb-0">Changer mon mot de passe</h4>
+                <hr>
                 <p class="mt-0"><i>(Laissez vide si vous ne souhaitez pas le modifier)</i></p>
                                 <!-- Old password -->
                                 <div class="col-md-6">
@@ -61,7 +62,14 @@
                                         <%= f.label :Confirmez_votre_mot_de_passe, class: "form-label" %><br />
                                         <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
                                     </div>
-                                </div>                               
+                                </div> 
+                                <!-- Confirm password -->
+                                
+                                  <div class="d-flex mt-3">
+                                    <div class="actions">
+                                      <%= f.submit "Valider", class: "btn btn-primary btn_primary_lmds" %>
+                                    </div>
+                                </div>                                     
 							</div> <!-- Row END -->
 						</div>
 					</div>
@@ -72,19 +80,7 @@
 							</div>
 						</div>
 					</div>
-          <!-- Confirm password -->
-                                <div class="col-md-12">
-                                    <div class="field">
-                                    <%= f.label :Mot_de_passe_actuel, class: "form-label" %> <i>(Nous avons besoin de votre mot de passe actuel pour confirmer vos changements)</i><br />
-                                    <%= f.password_field :current_password, class: "form-control", autocomplete: "current-password" %>
-                                  </div>
-
-                                  <div class="d-flex mt-3">
-                                    <div class="actions">
-                                      <%= f.submit "Valider", class: "btn btn-primary btn_primary_lmds" %>
-                                    </div>
-                                  </div>
-                                </div>          
+          
 				</div> <!-- Row END -->
 			</div> <!-- Row END -->
 		</form> <!-- Form END -->
