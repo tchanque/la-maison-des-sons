@@ -171,19 +171,6 @@ background-color: #474340;
   border-right: 1px solid #474340;
 }
 
-/* CSS FOR FORM EDIT AND NEW EVENT */
-.form_edit {
-  width: 25%;
-  transition: 1s;
-}
-
-@media screen and (max-width: 992px){
-  .form_edit {
-    width: 50%;
-    transition: 1s;
-  }
-}
-
 /* CSS FOT THE AGENDA */
 .agenda_container {
   margin: 3rem;
@@ -263,3 +250,18 @@ background-color: #474340;
   }
 }
 
+/* CSS FOR SENDING NEW PASSWORD */
+.form_recover_password {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: 1s;
+}
+
+@media screen and (max-width: 992px){
+  .form_recover_password {
+    width: 50%;
+    transition: 1s;
+  }
+}
