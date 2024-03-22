@@ -8,10 +8,88 @@ body{
   background-color: rgb(231, 231, 231);
 }
 
-.btn-secondary {
-  background-color: #50A3C7;
+.btn-primary{
+  background-color: #c85f4e;
+  border: none;
   box-shadow: 1px 1px 4px black;
+  --bs-btn-active-bg: #4b4b4b;
+  --bs-btn-active-color: #C85F4E;
+  transition: 0.5s;
 }
+
+.btn-primary:hover{
+  background-color: #FCD6B3;
+  color: #C85F4E;
+  transition: 0.5s;
+}
+
+.btn-primary:active{
+  scale: 0.9;
+  transition: 0.5s;
+}
+
+
+.btn-secondary {
+  background-color: #38748d;
+  border: none;
+  box-shadow: 1px 1px 4px black;
+  --bs-btn-active-bg: #4b4b4b;
+  --bs-btn-active-color: #59accf;
+  transition: 0.5s;
+}
+
+.btn-secondary:hover{
+  background-color: #9ec6d8;
+  color: #38748d;
+  transition: 0.5s;
+}
+
+.btn-secondary:active{
+  scale: 0.9;
+  transition: 0.5s;
+}
+
+.btn-danger {
+  background-color: #b3342b;
+  border: none;
+  box-shadow: 1px 1px 4px black;
+  --bs-btn-active-bg: #424242;
+  --bs-btn-active-color: #cf0c0c;
+  transition: 0.5s;
+}
+
+.btn-danger:hover{
+  background-color: #f02f1a;
+  color: #491511;
+  transition: 0.5s;
+}
+
+.btn-danger:active{
+  scale: 0.9;
+  transition: 0.5s;
+}
+
+.btn-warning {
+  background-color: #cb9b3c;
+  border: none;
+  box-shadow: 1px 1px 4px black;
+  --bs-btn-active-bg: #424242;
+  --bs-btn-active-color: #cb9b3c;
+  transition: 0.5s;
+}
+
+.btn-warning:hover{
+  background-color: #ffe8b9;
+  color: #9e7c37;
+  transition: 0.5s;
+}
+
+.btn-warning:active{
+  scale: 0.9;
+  transition: 0.5s;
+}
+
+
 
 .navbar-toggler{
   color: white;
