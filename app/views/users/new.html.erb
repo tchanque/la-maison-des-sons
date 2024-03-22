@@ -6,7 +6,7 @@
     <%= form_with(model: @user, url: create_user_path) do |f| %>
 
       <div class="mb-4">  
-       <h1 class="text-center lmds_title">Créer un utilisateur</h1>
+       <h2 class="header_section">Créer un utilisateur</h2>
       </div>  
       <!-- Email input -->
       <div class="form-outline mb-4">
@@ -49,7 +49,7 @@
 
       <!-- Submit button -->
       <div class="actions text-center">
-        <%= f.submit "Créer", class: "btn btn-primary btn_primary_lmds btn-block mb-4" %>
+        <%= f.submit "Créer", class: "btn btn-primary btn-block mb-4" %>
       </div>
     <% end %>
   </div>

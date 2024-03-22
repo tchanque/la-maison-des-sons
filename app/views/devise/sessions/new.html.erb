@@ -5,7 +5,7 @@
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
             <div class="mb-4">
-              <h1 class="text-center lmds_title">Se Connecter</h1>
+              <h2 class="text-center header_section">Se connecter</h2>
             </div>
 
               <!-- Email input -->
@@ -28,7 +28,7 @@
 
               <!-- connection button -->    
                 <div class="actions text-center justify-content-center mt-3">
-                  <%= f.submit "Se connecter", class: "btn btn-primary btn_primary_lmds btn-block mb-4" %>
+                  <%= f.submit "Se connecter", class: "btn btn-primary btn-block mb-4" %>
                 </div>
                 
               <!-- Forget Password link -->  
