@@ -87,7 +87,7 @@
             </button>
             <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
             <%= link_to "Mon profil", user_path(current_user), class: "nav_link" %> 
-            <%= link_to "Créer un user", new_user_path, class: "nav_link" %> 
+            <%= link_to "Créer un compte", new_user_path, class: "nav_link" %> 
             <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item nav_link" %>
             </div>
           </div>
