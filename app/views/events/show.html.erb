@@ -2,7 +2,7 @@
 <div class="container">
 <div class="p-4 p-md-5 mb-4 text-body-emphasis bg_img d-flex align-items-center text-center">
     <div class="col-lg-6 px-0 text-white bg_blur">
-      <h1 class="display-4 fst-italic"><%= @event.category.capitalize %></h1>
+      <h1 class="display-4 fst-italic"><%= @event.category.capitalize.tr("_", " ") %></h1>
     </div>
   </div>
 <section class="d-flex justify-content-around align-items-center bg_section">
@@ -41,7 +41,7 @@
     <% else %>
       <%= button_to "Se désinscrire", @attendance, method: :delete, class: "btn btn-danger btn_size_card" %>
     <% end %>
-    <%= link_to "Retour", events_path, class: "btn btn-secondary btn_size_card" %>
+    <%= link_to "Accueil", events_path, class: "btn btn-secondary btn_size_card" %>
   </div>
   
   <% if (@event.creator == current_user) || (current_user.is_admin) %>
