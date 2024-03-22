@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
-  default to: "ra.marcarini@gmail.com",
-  from: "contact@yopmail.com"
+  default to: ENV['MAILJET_DEFAULT_FROM'], # adresse de l'admin (admin@gmail.com) -- pour l'instant, mon adresse perso
+  from: "contact.test.lmds@gmail.com" # adresse intermédiaire (contact.test.lmds@gmail.com)
 
   def contact_message(email, message)
     @email = email
