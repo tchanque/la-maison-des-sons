@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: [:show, :destroy]
+  devise_for :users
+  resources :users, only: [:show, :new, :destroy]
+
+  post 'create_user' => 'users#create', as: :create_user
+
   resources :events
   resources :attendances, only: [:create, :destroy]
   resources :contact_form, only: %i[new create]
