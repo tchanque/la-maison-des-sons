@@ -9,7 +9,7 @@
 <div class="d-flex w-100 justify-content-center separation">
   <div>
   <p><i class="display-5 bi bi-lightning-charge-fill"></i> Le niveau requis est de : <%= @event.level %> </p>
-  <p><i class="display-5 bi bi-person-circle"></i> Places disponibles restantes : <%= @event.available_seats %></p>
+  <p><i class="display-5 bi bi-person-circle"></i> Places restantes : <%= @event.available_seats %> / <%= @event.max_seats %></p>
   <p><i class=" display-5 bi bi-calendar3-event"></i> Notre <%= @event.category %> commence le : <%= @event.start_date.strftime("%d/%m %H:%M") %> </p>
   <p><i class="display-5 bi bi-pin-map-fill"></i> L'adresse se trouve au : <%= @event.location %> </p>
   </div>

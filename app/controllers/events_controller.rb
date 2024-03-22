@@ -29,6 +29,8 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
+    params[:event][:available_seats] = params[:event][:max_seats]
+    puts "The event params are #{event_params}"
     @event = Event.new(event_params)
 
     respond_to do |format|
@@ -73,6 +75,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:creator_id, :category, :instrument, :level, :price, :start_date, :duration, :description, :location, :available_seats)
+      params.require(:event).permit(:creator_id, :category, :instrument, :level, :price, :start_date, :duration, :description, :location, :max_seats, :available_seats)
     end
 end
