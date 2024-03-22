@@ -212,7 +212,11 @@ background-color: #474340;
 .lmds_alert {
   color: #f44336;
   font-weight: 600;
-  text-decoration: underline;
+}
+
+.lmds_success {
+  color: #4DAB74;
+  font-weight: 600;
 }
 
 /* CSS FOR THE CARD IN THE INDEX */
