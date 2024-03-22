@@ -24,7 +24,7 @@
           <%= link_to "Accueil", events_path, class: "nav_link" %>
         </li>
         <li>
-        <a class="nav_link" href="#agenda"> Agenda </a>
+        <a class="nav_link" href="/#agenda"> Agenda </a>
         </li>
         <li>
         <% if user_signed_in? && current_user.is_admin === true || user_signed_in? && current_user.is_teacher ===true %>
@@ -35,19 +35,19 @@
             <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
             <ul class="justify-content-around">
             <li>
-            <a class="nav_link" href="/"> Atelier </a>
+            <a class="dropdown-item nav_link" href="/"> Atelier </a>
             </li>
             <li>
-            <a class="nav_link" href="/"> Concert </a>
+            <a class="dropdown-item nav_link" href="/"> Concert </a>
             </li>
             <li>
-            <a class="nav_link" href="/"> Permanance </a>
+            <a class="dropdown-item nav_link" href="/"> Permanance </a>
             </li>
             <li>
-            <a class="nav_link" href="/"> Scène ouverte </a>
+            <a class="dropdown-item nav_link" href="/"> Scène ouverte </a>
             </li>
             <li>
-            <%= link_to " Créer un évènement ", new_event_path, class: "nav_link" %>
+            <%= link_to " Créer un évènement ", new_event_path, class: "dropdown-item nav_link" %>
             </li>
             </ul>
             </div>
@@ -60,16 +60,16 @@
           <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
           <ul class="justify-content-around">
           <li>
-          <a class="nav_link" href="/"> Atelier </a>
+          <a class="nav_link dropdown-item" href="/"> Atelier </a>
           </li>
           <li>
-          <a class="nav_link" href="/"> Concert </a>
+          <a class="nav_link dropdown-item" href="/"> Concert </a>
           </li>
           <li>
-          <a class="nav_link" href="/"> Permanance </a>
+          <a class="nav_link dropdown-item" href="/"> Permanance </a>
           </li>
           <li>
-          <a class="nav_link" href="/"> Scène ouverte </a>
+          <a class="nav_link dropdown-item" href="/"> Scène ouverte </a>
           </li>
           </ul>
           </div>
@@ -82,25 +82,51 @@
           <% if user_signed_in? && current_user.is_admin === true %>
           <li>
           <div class="dropdown">
+          <% if current_user.first_name === "" || !current_user.first_name || current_user.last_name === "" || !current_user.last_name %>
+             <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mon compte
+             </button> 
+            <% else %> 
             <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.first_name %> <%= current_user.last_name %>
-            </button>
+            </button> 
+            <% end %>
             <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to "Mon profil", user_path(current_user), class: "nav_link" %> 
-            <%= link_to "Créer un compte", new_user_path, class: "nav_link" %> 
-            <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item nav_link" %>
+            <ul>
+            <li>
+            <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item nav_link" %> 
+            </li>
+            <li>
+            <%= link_to "Créer un compte", new_user_path, class: "dropdown-item nav_link" %> 
+            </li>
+            <li>
+            <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { confirm: "Vous allez être déconnecté", turbo_confirm: "Vous allez être déconnecté" }, class: "dropdown-item nav_link" %>
+            </li>
+            <ul>
             </div>
           </div>
           </li>
           <% elsif user_signed_in? %>
           <li>
           <div class="dropdown">
-            <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.first_name %> <%= current_user.last_name %>
-            </button>
+          <% if current_user.first_name === "" || !current_user.first_name || current_user.last_name === "" || !current_user.last_name %>
+          <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Mon compte
+          </button> 
+         <% else %> 
+         <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <%= current_user.first_name %> <%= current_user.last_name %>
+         </button> 
+         <% end %>
             <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to "Mon profil", user_path(current_user), class: "nav_link" %> 
-            <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item nav_link" %>
+            <ul>
+            <li>
+            <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item nav_link" %> 
+            </li>
+            <li>
+            <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { confirm: "Vous allez être déconnecté", turbo_confirm: "Vous allez être déconnecté" }, class: "dropdown-item nav_link" %>
+            </li>
+            </ul>
             </div>
           </div>
           </li>
