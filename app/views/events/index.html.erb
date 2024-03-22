@@ -1,5 +1,6 @@
-<p style="color: green"><%= notice %></p>
-
+<br>
+<p class="lmds_success text-center"><%= notice %></p>
+<p class="lmds_alert text-center"><%= alert %></p>
 
 <div class="d-flex flex-column align-items-center my-5" id="events">
   <h1 class="w-75 text-center header_section">Nos évènements</h1>
@@ -10,7 +11,7 @@
   </div>
 </div>
 
-<div class="d-flex flex-column align-items-center agenda_container">
+<div class="d-flex flex-column align-items-center agenda_container" id="agenda">
     <h1 class="w-75 text-center header_section align-items-center mb-5">Agenda</h1>
             <% @current_attendances.each do |attendance| %>
               <div class="container separation_agenda">

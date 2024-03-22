@@ -52,6 +52,7 @@ body{
   text-decoration: none;
   padding: 5px;
   transition: 0.5s;
+  font-weight: 400;
 }
 .nav_link:hover{
   background-color: #c85e4ea6;
@@ -85,6 +86,9 @@ background-color: #474340;
     z-index: 2;
     position: absolute;
     width: 100%;
+  }
+  .navbar-collapse .justify-content-around li{
+    margin-top: 10px;
   }
 }
   
@@ -130,7 +134,11 @@ background-color: #474340;
 .lmds_alert {
   color: #f44336;
   font-weight: 600;
-  text-decoration: underline;
+}
+
+.lmds_success {
+  color: #4DAB74;
+  font-weight: 600;
 }
 
 /* CSS FOR THE CARD IN THE INDEX */
