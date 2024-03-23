@@ -5,8 +5,8 @@ class ContactFormController < ApplicationController
   end
 
   def create
-    @email = params[:contact_form][:email]
-    @message = params[:contact_form][:message]
+    @email = params[:email]
+    @message = params[:message]
 
     ContactMailer.contact_message(@email, @message).deliver_now
     
