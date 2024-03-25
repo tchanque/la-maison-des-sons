@@ -168,6 +168,15 @@ body{
   background-color: transparent;
   border: none;
 }
+.dropdown_button_sort{
+  background-color:#c85f4e;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn_left{
+  margin-left: auto;
+}
 
 .custom_dropdown_menu{
   background-color: #00000067;
