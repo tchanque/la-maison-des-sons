@@ -3,14 +3,52 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
+
     @events = []
-    Event.all.each do |event|
-      if event.start_date.after? Date.today
-        @events << event
-    end
+    case params[:show_only]
+      when 'week'
+        Event.where(start_date: Date.today..(Date.today + 7.days)).each do |event|
+          if event.start_date.after? Date.today
+            @events << event
+            @events = @events.sort{ |a, b| a.start_date <=> b.start_date }
+          end
+        end
+      when 'month'
+        Event.where(start_date: Date.today..(Date.today + 30.days)).each do |event|
+          if event.start_date.after? Date.today
+            @events << event
+            @events = @events.sort{ |a, b| a.start_date <=> b.start_date }
+          end
+        end
+      when 'all'
+        Event.all.each do |event|
+          if event.start_date.after? Date.today
+            @events << event
+            @events = @events.sort{ |a, b| a.start_date <=> b.start_date }
+          end
+        end
+      else
+      Event.all.each do |event|
+        if event.start_date.after? Date.today
+          @events << event
+          @events = @events.sort{ |a, b| a.start_date <=> b.start_date }
+      end
   end
+end
+
+  case params[:sort]
+  when 'level'
+    @events = @events.sort{ |a, b| a.level <=> b.level }
+  when 'category'
+    @events = @events.sort{ |a, b| a.category <=> b.category }
+  when 'date'
     @events = @events.sort{ |a, b| a.start_date <=> b.start_date }
-    @current_attendances = Attendance.all.where(attendee: current_user).sort{ |a, b| a.event.start_date <=> b.event.start_date }
+  else
+    @events = @events.sort{ |a, b| a.start_date <=> b.start_date }
+    end
+
+    #Sort event for the agenda
+      @current_attendances = Attendance.all.where(attendee: current_user).sort{ |a, b| a.event.start_date <=> b.event.start_date }
   end
 
   # GET /events/1 or /events/1.json
