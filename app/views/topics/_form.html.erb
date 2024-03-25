@@ -1,0 +1,25 @@
+<div class="form_new">
+<%= form_with(model: @topic) do |form| %>
+
+    <div class="form-group">
+      <%= form.label "Titre"%>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label "Description"%>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="text-center mt-4">
+        <%= form.file_field :picture %>
+        <%= submit_tag "Charger la photo"%>
+    </div>
+
+    <div class="text-center mt-4">
+        <%= link_to "Retour", root_path, class: "btn btn-primary"%>
+        <%= form.submit class: "btn btn-primary", value: "Valider"%>
+    </div>
+
+  <% end %>
+  </div>

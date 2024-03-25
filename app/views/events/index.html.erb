@@ -2,6 +2,11 @@
 <p class="lmds_success text-center"><%= notice %></p>
 <p class="lmds_alert text-center"><%= alert %></p>
 
+
+<% @topics.each do |topic| %>
+  <%= render "/topics/topic", topic: topic %>
+<% end %>
+
 <div class="d-flex flex-column container align-items-center my-5" id="events">
   <h1 class="w-100 text-center header_section">Nos évènements</h1>
   <div class="dropdown btn_left">
