@@ -11,6 +11,7 @@ class Event < ApplicationRecord
     validates :category, presence: true
     validates :start_date, presence: true, if: :not_past_date?
     validates :location, presence: true
+    validates :price, numericality: { greater_than: 0 }
 
 
 def not_past_date?
