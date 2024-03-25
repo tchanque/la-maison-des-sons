@@ -2,15 +2,35 @@
 <p class="lmds_success text-center"><%= notice %></p>
 <p class="lmds_alert text-center"><%= alert %></p>
 
-<div class="d-flex flex-column align-items-center my-5" id="events">
-  <h1 class="w-75 text-center header_section">Nos évènements</h1>
-  <%= link_to "Trier par level", { sort: 'level' } %>
-  <%= link_to "Trier par catégorie", { sort: 'category' } %>
-  <%= link_to "Trier par date", { sort: 'date' } %>
-  
-  <%= link_to "Dans les 7 jours", { show_only: 'week' } %>
-  <%= link_to "Dans les 30 jours", { show_only: 'month' } %>
-  <%= link_to "Tout afficher", { show_only: 'all' } %>
+<div class="d-flex flex-column container align-items-center my-5" id="events">
+  <h1 class="w-100 text-center header_section">Nos évènements</h1>
+  <div class="dropdown btn_left">
+  <button class="nav_link dropdown_button_sort dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Filtre
+  </button> 
+    <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton"">  
+      <ul>
+        <li>
+          <%= link_to "Par niveau", { sort: 'level' }, class: "nav_link dropdown-item" %>
+        </li>
+        <li>
+          <%= link_to "Par catégorie", { sort: 'category' }, class: "nav_link dropdown-item" %>
+        </li>
+        <li>
+          <%= link_to "Par date", { sort: 'date' }, class: "nav_link dropdown-item" %>
+        </li>
+      <li>
+        <%= link_to "Dans les 7 jours", { show_only: 'week' }, class: "nav_link dropdown-item" %>
+      </li>
+      <li>
+        <%= link_to "Dans les 30 jours", { show_only: 'month' }, class: "nav_link dropdown-item" %>
+      </li>
+      <li>
+        <%= link_to "Tout afficher", { show_only: 'all' }, class: "nav_link dropdown-item" %>
+      </li>
+    </ul>
+  </div>
+  </div>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 m-3 g-5">
     <% @events.each do |event| %>
       <%= render event %>
