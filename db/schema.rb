@@ -81,9 +81,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_153056) do
     t.string "first_name"
     t.string "last_name"
     t.text "description"
-    t.boolean "is_admin"
-    t.boolean "is_teacher"
-    t.boolean "is_subscriber"
+    t.boolean "is_admin", default: false
+    t.boolean "is_teacher", default: false
+    t.boolean "is_subscriber", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

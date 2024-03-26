@@ -64,7 +64,7 @@ class UserDashboard < Administrate::BaseDashboard
     last_name
     email
     description
-    attendances
+
     is_admin
     is_subscriber
     is_teacher

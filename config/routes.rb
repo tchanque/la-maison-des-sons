@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :events
       
 
-      root to: "attendances#index"
+      root to: "users#index"
     end
 
   

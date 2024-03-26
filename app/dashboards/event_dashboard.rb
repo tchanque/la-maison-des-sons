@@ -43,19 +43,18 @@ class EventDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    attendances
-    attendees
-    available_seats
     category
-    creator
-    description
-    duration
     instrument
     level
-    location
-    max_seats
-    price
+    description
+    creator
     start_date
+    duration
+    location
+    price
+    attendances
+    available_seats
+    max_seats
     created_at
     updated_at
   ].freeze
