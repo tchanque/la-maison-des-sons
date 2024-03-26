@@ -1,5 +1,5 @@
 module Admin
-  class AttendancesController < Admin::ApplicationController
+  class TopicsController < Admin::ApplicationController
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
     #
@@ -7,15 +7,6 @@ module Admin
     #   super
     #   send_foo_updated_email(requested_resource)
     # end
-
-    def destroy
-      if requested_resource.destroy
-        flash[:notice] = translate_with_resource("destroy.success")
-      else
-        flash[:error] = requested_resource.errors.full_messages.join("<br/>")
-      end
-      redirect_to admin_event_path(requested_resource.event.id), status: :see_other
-    end
 
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`

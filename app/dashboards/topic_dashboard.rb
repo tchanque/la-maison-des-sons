@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class UserDashboard < Administrate::BaseDashboard
+class TopicDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,20 +8,8 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id: Field::Number,
-    attendances: Field::HasMany,
+    title: Field::String,
     description: Field::Text,
-    email: Field::String,
-    encrypted_password: Field::String,
-    events: Field::HasMany,
-    first_name: Field::String,
-    last_name: Field::String,
-    is_admin: Field::Boolean,
-    is_subscriber: Field::Boolean,
-    is_teacher: Field::Boolean,
-    remember_created_at: Field::DateTime,
-    reset_password_sent_at: Field::DateTime,
-    reset_password_token: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -32,42 +20,25 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    first_name
-    last_name
-    email
+    title
+    description
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    first_name
-    last_name
-    email
+    title
     description
-    attendances
-    is_admin
-    is_subscriber
-    is_teacher
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
     created_at
     updated_at
-
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    first_name
-    last_name
-    email
+    title
     description
-
-    is_admin
-    is_subscriber
-    is_teacher
   ].freeze
 
   # COLLECTION_FILTERS
@@ -86,11 +57,11 @@ class UserDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(user)
-    user.email
+    topic.title
   end
 
   def self.resource_name(_opts)
-    "Utilisateurs"
+    "Actualités"
   end
 
 end
