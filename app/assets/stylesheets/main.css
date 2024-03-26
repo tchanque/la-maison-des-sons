@@ -236,6 +236,63 @@ background-color: #474340;
   font-weight: 600;
 }
 
+
+
+/* CSS FOR THE CAROUSEL NEWS */
+
+.item{
+  position: relative;
+}
+
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel__item{
+  float: left;
+}
+
+.carousel__container{
+  transition: transform 0.3s;
+}
+
+.carousel__container::after{
+  content: '';
+  clear: both;
+  display: table;
+}
+
+/* btn next and prev */
+
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+  top: 50%;
+  margin-top: -20px;
+  right: 0px;
+  box-shadow: 0 15px 35px black;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.carousel__next:hover, 
+.carousel__prev:hover {
+  transform: scale(1.2);
+}
+
+.carousel__prev {
+  right: auto;
+  left: 0px;
+  background-color: blue;
+}
+
+
 /* CSS FOR THE CARD IN THE INDEX */
 
 .btn_size_card {
