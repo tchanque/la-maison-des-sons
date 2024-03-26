@@ -236,15 +236,16 @@ background-color: #474340;
   font-weight: 600;
 }
 
-
-
 /* CSS FOR THE CAROUSEL NEWS */
 
+/* This is used to center the pictures in the div */
 .item{
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
+/* Position the carousel and hide the overflow (slides aside) */
 .carousel {
   position: relative;
   overflow: hidden;
@@ -255,6 +256,9 @@ background-color: #474340;
 }
 
 .carousel__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.3s;
 }
 

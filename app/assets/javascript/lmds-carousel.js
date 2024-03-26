@@ -1,6 +1,3 @@
-console.log("hello")
-
-
 class Carousel {
     constructor (element, options ={}) {
         this.element = element
@@ -10,8 +7,8 @@ class Carousel {
         }, options)
         let children = [].slice.call(element.children)
         this.currentItem = 0
-        this.root = this.createDivWithClass('carousel')
-        this.container = this.createDivWithClass('carousel__container')
+        this.root = this.createDivWithClass('carousel');
+        this.container = this.createDivWithClass('carousel__container');
         this.root.appendChild(this.container)
         this.element.appendChild(this.root)
         this.items = children.map((child) => {
@@ -73,8 +70,8 @@ class Carousel {
 document.addEventListener('DOMContentLoaded', function () { // We wait the total load of the DOM before start the function.
 
     new Carousel(document.querySelector('#carousel1'), {
-        slideToScroll: 2,
-        slideVisible : 2
+        slideToScroll: 1,
+        slideVisible : 1
     })
 
 })
