@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :attendances
+  has_many :attendances, foreign_key: 'attendee_id'
   has_many :events, through: :attendances
 
   validates :password, presence: true, length: { minimum: 6 }, on: :create

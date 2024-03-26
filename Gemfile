@@ -14,6 +14,9 @@ gem 'dotenv'
 # Manage authentication 
 gem 'devise'
 
+# Manage admin panel
+gem 'administrate'
+
 # Manage pictures on an external server
 gem 'aws-sdk-s3', require: false
 
