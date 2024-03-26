@@ -255,6 +255,11 @@ background-color: #474340;
   float: left;
 }
 
+.item_image img{
+  width: 100%;
+  max-height: 600px;
+}
+
 .carousel__container{
   display: flex;
   justify-content: center;

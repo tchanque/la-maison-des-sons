@@ -7,48 +7,14 @@
   <h1 class="w-75 text-center header_section align-items-center mb-5">Actualités</h1>
 </div>
 
-<div id="carousel1">  
-    <div class="item d-flex-columns justify-content-center align-items-center">
-      <div class="item_image">
-        <img src='https://cdn.pixabay.com/photo/2024/03/09/07/14/wild-duck-8622063_960_720.jpg' alt="">
-      </div>
-    </div>
-
+<div id="carousel1">
+    <% @topics.each do |topic| %>
     <div class="item">
       <div class="item_image">
-        <img src='https://cdn.pixabay.com/photo/2024/03/09/07/14/wild-duck-8622063_960_720.jpg' alt="">
+        <%= image_tag topic.picture, alt: ""%>
       </div>
     </div>
-
-    <div class="item">
-      <div class="item_image">
-        <img src='https://cdn.pixabay.com/photo/2024/03/09/07/14/wild-duck-8622063_960_720.jpg' alt="">
-      </div>
-    </div>
-
-
-    <div class="item">
-      <div class="item_image">
-        <img src='https://cdn.pixabay.com/photo/2024/03/09/07/14/wild-duck-8622063_960_720.jpg' alt="">
-      </div>
-    </div>
-
-
-
-    <div class="item">
-      <div class="item_image">
-        <img src='https://cdn.pixabay.com/photo/2024/03/09/07/14/wild-duck-8622063_960_720.jpg' alt="">
-      </div>
-    </div>
-
-
-
-    <div class="item">
-      <div class="item_image">
-        <img src='https://cdn.pixabay.com/photo/2024/03/09/07/14/wild-duck-8622063_960_720.jpg' alt="">
-      </div>
-    </div>
-
+    <% end %>
 </div>
 
 
