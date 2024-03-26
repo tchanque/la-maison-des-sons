@@ -13,7 +13,7 @@ class ContactFormController < ApplicationController
     ContactMailer.contact_message(@email, @name, @subject, @message).deliver_now
     
     # Perform any necessary actions with the form data
-    flash[:success] = "Votre message a bien été envoyé"
+    flash[:success] = "Votre message a bien été envoyé."
     redirect_to :root
   end
 
