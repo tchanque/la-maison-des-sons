@@ -97,7 +97,13 @@
             <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item nav_link" %> 
             </li>
             <li>
+            <%= link_to "Tableau Admin", admin_root_path, class: "dropdown-item nav_link" %> 
+            </li>
+            <li>
             <%= link_to "Créer un compte", new_user_path, class: "dropdown-item nav_link" %> 
+            </li>
+            <li>
+            <%= link_to "Créer une actualité", new_topic_path, class: "dropdown-item nav_link" %>
             </li>
             <li>
             <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { confirm: "Vous allez être déconnecté", turbo_confirm: "Vous allez être déconnecté" }, class: "dropdown-item nav_link" %>
