@@ -7,7 +7,7 @@ class AttendancesController < ApplicationController
 
         respond_to do |format|
             if @new_attendance.save
-                format.html { redirect_to event_url(@event), notice: "Votre participation a bien été prise en compte."}
+                format.html { redirect_to "/events#agenda", notice: "Votre participation a bien été prise en compte."}
                 format.json { render :show, status: :created, location: @event }
             else
                 format.html { render :new, status: :unprocessable_entity }
