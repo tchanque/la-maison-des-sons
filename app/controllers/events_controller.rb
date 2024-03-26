@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-
+    @topics = Topic.all
     @events = []
     case params[:show_only]
       when 'week'

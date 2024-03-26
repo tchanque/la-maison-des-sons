@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :topics
   namespace :admin do
       resources :users
       resources :attendances
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
 
       root to: "attendances#index"
     end
+
   
   devise_for :users, controllers: {
     registrations: 'users/registrations'
