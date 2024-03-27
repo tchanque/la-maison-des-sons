@@ -283,10 +283,7 @@ background-color: #474340;
 
 @media screen and (max-width: 992px) { 
   .item{
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
   .overlay-text{
     width: auto;
@@ -321,8 +318,6 @@ background-color: #474340;
  {
    background-color: #c85f4e;
  }
- 
-
 
 .carousel__container{
   transition: transform 0.3s;
