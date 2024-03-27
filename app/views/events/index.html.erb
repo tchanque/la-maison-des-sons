@@ -72,13 +72,13 @@
     <h1 class="w-75 text-center header_section align-items-center mb-5">Agenda</h1>
             <% @current_attendances.each do |attendance| %>
               <div class="container separation_agenda">
-              <div class="row row-striped">
-                <div class="col-2 text-right">
+              <div class="row row-striped card_agenda">
+                <div class="col-2 date_agenda">
                   <h1 class="display-4"><span class="badge"><%= attendance.event.start_date.strftime("%d") %></span></h1>
                   <h2><%= l attendance.event.start_date, format: "%b" %></h2>
                 </div>
                 <div class="col-10">
-                <div class="d-flex justify-content-between align-items-center pt-3">
+                <div class="d-flex titl_btn justify-content-between align-items-center pt-3">
                   <h3 class="text-uppercase"><strong><%= attendance.event.category %>  (<%= attendance.event.instrument %>)</strong></h3>
                   <%= link_to "Voir plus", event_path(attendance.event), class: "btn btn-secondary mb-2" %>
                   </div>

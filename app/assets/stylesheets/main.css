@@ -416,6 +416,28 @@ background-color: #474340;
   background-color: #C85F4E;
 }
 
+.text_agenda{
+  text-align: justify;
+}
+
+@media screen and (max-width: 550px) {
+
+  .titl_btn{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card_agenda{
+      flex-direction: column;
+  }
+
+  .date_agenda{
+    display: flex;
+  }
+  
+}
+
 
 /* USER SHOW */
 .lmds_background {
