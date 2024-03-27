@@ -28,8 +28,8 @@ class Carousel {
     }
 
     createNavigation () {
-        let nextButton = this.createDivWithClass('carousel__next')
-        let prevButton = this.createDivWithClass('carousel__prev')
+        let nextButton = this.createDivWithClass('carousel__next bi bi-arrow-right-circle')
+        let prevButton = this.createDivWithClass('carousel__prev bi bi-arrow-left-circle')
         this.root.appendChild(nextButton)
         this.root.appendChild(prevButton)
         nextButton.addEventListener('click', this.next.bind(this))

@@ -253,29 +253,52 @@ background-color: #474340;
 
 .carousel__item{
   float: left;
-  height: 650px;
+  min-height: 650px;
+  padding-left: 100px ;
+  padding-right: 100px;
 }
 
 /* CSS style applied to the image in the caroussel slide */
 .item_image img{
   width: 100%;
   max-height: 550px;
-  transform: translate(10%); /* Push the image to the right to keep all the things center ( before we pull to the left the overlay text 20% but we loose the center */
+  transform: translate(5%); /* Push the image to the right to keep all the things center ( before we pull to the left the overlay text 20% but we loose the center */
+  transition: 0.3s;
 }
 
 /* CSS style applied to the text in the caroussel slide */
 .overlay-text {
-  transform: translate(-10%); /* Push the text to the left, complementary with the translate(10%) from the item_image img (see above) */
+  transform: translate(-5); /* Push the text to the left, complementary with the translate(10%) from the item_image img (see above) */
   background-color: #ca1b006e; 
   color: #fff; 
   padding: 10px 20px; 
   font-size: 16px; 
   height: 600px;
-  width: 575px;
+  width: 500px;
   box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
   overflow-y: auto; /* will remove the scroll bar if not needed */
   backdrop-filter: blur(5px) saturate(60%);
-  border-radius: 10px;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 992px) { 
+  .item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .overlay-text{
+    width: auto;
+    height: 15em;
+    transform: translate(0%, -20%);
+    transition: 0.3s;
+  }
+  .item_image img{
+    width: 350px;
+    transform: translate(0%);
+    transition: 0.3s;
+  }
 }
 
 /*
@@ -302,10 +325,13 @@ background-color: #474340;
 
 
 .carousel__container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: transform 0.3s;
+}
+
+.carousel__item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel__container::after{
@@ -321,12 +347,12 @@ background-color: #474340;
   position: absolute;
   width: 40px;
   height: 40px;
-  background-color: red;
+  font-size: 36px;
+  text-align: center;
   border-radius: 50%;
   top: 50%;
-  margin-top: -20px;
+  /* margin-top: -20px; */
   right: 0px;
-  box-shadow: 0 15px 35px black;
   cursor: pointer;
   transition: transform 0.3s;
 }
@@ -335,11 +361,13 @@ background-color: #474340;
 .carousel__prev:hover {
   transform: scale(1.2);
 }
-
+.carousel__next{
+  margin-right: 10px;
+}
 .carousel__prev {
   right: auto;
   left: 0px;
-  background-color: blue;
+  margin-left: 10px;
 }
 
 
@@ -411,15 +439,12 @@ background-color: #474340;
 .footer_haut {
   background-color: #474340;
   color: #ffff;
-  height: 10em;
+  height: 18em;
+  
 }
 
-.footer_haut, a, .footer_link {
-  text-decoration: none;
-}
-
-.ul_footer {
-  list-style: none;
+.footer_haut h5 {
+  border-bottom: 1px solid white;
 }
 
 .footer_bas {
