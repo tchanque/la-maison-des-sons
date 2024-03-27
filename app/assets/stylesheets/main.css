@@ -222,6 +222,12 @@ background-color: #474340;
 
 /* SIGN_UP / SIGN_IN */
 
+
+.full_screen_signup{
+  height: 38vh;
+}
+
+
 .lmds_title {
   color: #474340;
 }
@@ -235,6 +241,8 @@ background-color: #474340;
   color: #4DAB74;
   font-weight: 600;
 }
+
+
 
 /* CSS FOR THE CAROUSEL NEWS (CALLED TOPICS IN THE DB) */
 
@@ -452,6 +460,13 @@ background-color: #474340;
 
 
 /* FOOTER */
+
+.footer{
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+}
+
 
 .footer_haut {
   background-color: #474340;
