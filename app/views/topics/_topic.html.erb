@@ -1,9 +1,2 @@
-<div>
-<%= topic.title %>
-<% if topic.picture.attached? %>
-    <%= image_tag topic.picture, class:"card-img-top card_catalogue", alt: 'picture of topic' %>
-<%else%>
-    <p> No image attached </p>
-<%end %>
-<%= topic.description %>
+<div id="<%= dom_id topic %>">
 </div>

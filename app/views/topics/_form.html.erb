@@ -1,37 +1,34 @@
-<div class="form_new">
-<%= form_with(model: @topic) do |form| %>
+<%= form_with(model: topic) do |form| %>
+  <% if topic.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
 
-    <% if @topic.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(@topic.errors.count, "éléments") %> sont manquants ou incorrects:</h2>
-
-        <ul>
-          <% @topic.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= form.label "Titre"%>
-      <%= form.text_field :title, class: "form-control" %>
+      <ul>
+        <% topic.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
-
-    <div class="form-group">
-      <%= form.label "Description"%>
-      <%= form.text_area :description, class: "form-control" %>
-    </div>
-
-    <div class="text-center mt-4">
-        <%= form.file_field :picture %>
-        <%= submit_tag "Charger la photo"%>
-    </div>
-
-    <div class="text-center mt-4">
-        <%= link_to "Retour", root_path, class: "btn btn-primary"%>
-        <%= form.submit class: "btn btn-primary", value: "Valider"%>
-    </div>
-
   <% end %>
-  </div>
+
+<div class="form-group">
+        <%= form.label "Titre"%>
+        <%= form.text_field :title, class: "form-control", autofocus: true, autocomplete: "title" %>
+      </div>
+  
+      <div class="form-group">
+        <%= form.label "Description"%>
+        <%= form.text_area :description, class: "form-control" %>
+      </div>
+  
+      <div class="text-center mt-4">
+          <%= form.file_field :picture %>
+       
+      </div>
+  
+      <div class="text-center mt-4">
+          <%= link_to "Retour", root_path, class: "btn btn-primary"%>
+          <%= form.submit class: "btn btn-primary", value: "Valider"%>
+      </div>
+
+<% end %>
