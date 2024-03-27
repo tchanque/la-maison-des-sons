@@ -17,6 +17,9 @@ gem 'devise'
 # Manage admin panel
 gem 'administrate'
 
+#manage translation
+gem 'rails-i18n'
+
 # Manage pictures on an external server
 gem 'aws-sdk-s3', require: false
 

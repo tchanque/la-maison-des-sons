@@ -19,12 +19,12 @@ class UserDashboard < Administrate::BaseDashboard
     is_admin: Field::Boolean,
     is_subscriber: Field::Boolean,
     is_teacher: Field::Boolean,
-    end_date: Field::DateTime,
+    end_date: Field::DateTime.with_options(format: "%d/%m/%Y"),
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
     reset_password_token: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    created_at: Field::DateTime.with_options(format: "%d/%m/%Y"),
+    updated_at: Field::DateTime.with_options(format: "%d/%m/%Y"),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -50,13 +50,15 @@ class UserDashboard < Administrate::BaseDashboard
     is_subscriber
     is_teacher
     end_date
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
     created_at
     updated_at
 
   ].freeze
+
+  # voir si on garde dans le user show ou pas
+  # remember_created_at
+  # reset_password_sent_at
+  # reset_password_token
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
