@@ -9,14 +9,19 @@ class Event < ApplicationRecord
 
     validates :creator, presence: true
     validates :category, presence: true
-    validates :start_date, presence: true, if: :not_past_date?
+    validates :start_date, presence: true, if: :valid_date?
     validates :location, presence: true
     validates :price, numericality: { greater_than: 0 }
 
 
-def not_past_date?
-  if self.start_date < Date.today
-    errors.add(:La_date, 'ne peut pas être passée.')
+    def valid_date?
+      return errors.add(:La_date, 'doit être renseignée.') && false unless start_date.present?
+  
+      if start_date < Date.today
+        errors.add(:La_date, 'ne peut pas être passée.')
+        return false
+      end
+  
+      return true
   end
-end
 end

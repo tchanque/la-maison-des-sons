@@ -1,7 +1,7 @@
 <%= form_with(model: topic) do |form| %>
   <% if topic.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+    <div class="missing_info">
+      <h2><%= pluralize(topic.errors.count, "error") %> manquants ou incorrects :</h2>
 
       <ul>
         <% topic.errors.each do |error| %>
@@ -22,13 +22,14 @@
       </div>
   
       <div class="text-center mt-4">
-          <%= form.file_field :picture %>
+        <%= form.label :picture, "Ajouter une image" %>
+        <%= form.file_field :picture %>
        
       </div>
   
       <div class="text-center mt-4">
-          <%= link_to "Retour", root_path, class: "btn btn-primary"%>
-          <%= form.submit class: "btn btn-primary", value: "Valider"%>
+        <%= link_to "Accueil", root_path, class: "btn btn-primary"%>
+        <%= form.submit class: "btn btn-primary", value: "Valider"%>
       </div>
 
 <% end %>
