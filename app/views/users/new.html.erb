@@ -8,7 +8,7 @@
   <div class="card-body py-5 px-md-5">
     <%= form_with(model: @user, url: create_user_path) do |f| %>
      <% if @user.errors.any? %>
-    <div style="color: red">
+      <div class="missing_info">
       <h2><%= pluralize(@user.errors.count, "éléments") %> sont manquants ou incorrects:</h2>
 
       <ul>

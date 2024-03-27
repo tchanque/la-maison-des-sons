@@ -475,11 +475,15 @@ background-color: #474340;
   }
 }
 
-/* CSS FOR FORM EDIT AND NEW EVENT */
+/* CSS FOR FORM EDIT AND NEW */
 
 .form_edit {
   width: 25%;
   transition: 1s;
+}
+
+.missing_info {
+  color: red;
 }
 
 @media screen and (max-width: 992px){

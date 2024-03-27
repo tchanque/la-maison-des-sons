@@ -1,9 +1,9 @@
-<div class="form_new">
-<%= form_with(model: @topic) do |form| %>
+<div class="form_edit">
+  <%= form_with(model: @topic) do |form| %>
 
     <% if @topic.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(@topic.errors.count, "éléments") %> sont manquants ou incorrects:</h2>
+      <div class= "missing_info">
+        <h2><%= pluralize(@topic.errors.count, "éléments") %> manquants ou incorrects:</h2>
 
         <ul>
           <% @topic.errors.each do |error| %>
@@ -23,13 +23,13 @@
       <%= form.text_area :description, class: "form-control" %>
     </div>
 
-    <div class="text-center mt-4">
-        <%= form.file_field :picture %>
-        <%= submit_tag "Charger la photo"%>
+    <div class="mt-2">
+      <%= form.label :picture, "Ajouter une image" %>
+      <%= form.file_field :picture %>
     </div>
 
     <div class="text-center mt-4">
-        <%= link_to "Retour", root_path, class: "btn btn-primary"%>
+        <%= link_to "Accueil", root_path, class: "btn btn-primary"%>
         <%= form.submit class: "btn btn-primary", value: "Valider"%>
     </div>
 

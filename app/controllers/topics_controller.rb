@@ -18,7 +18,7 @@ class TopicsController < ApplicationController
   end
 
   def index
-    redirect_to root_path, notice: "Votre actualité a été ajoutée avec succès." 
+    redirect_to root_path
   end
 
   def destroy
