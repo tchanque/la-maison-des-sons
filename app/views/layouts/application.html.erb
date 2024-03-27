@@ -149,13 +149,35 @@
 
 <div class="footer">
   <div class="footer_haut d-flex justify-content-between align-items-center">
-      <div class="col-xxl-2 d-flex justify-content-center align-items-center contact_us">
-        <h5 class="text-md-right">Nous contacter</h5>
+      <div class="col-xxl-4 d-flex justify-content-center align-items-center contact_us">
+        <a href="/contact_form/show"><h5 class="text-md-right footer_link">Nous contacter</h5></a>
       </div>
-        <%= render "/contact_form/contact_form" %>
-    <div class="col-xxl-2 d-flex justify-content-center align-items-center">
-      <div class="logo"><%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '150px') %></div>
+    <div class="col-xxl-4 d-flex justify-content-center align-items-center">
+      <div class="logo"><%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '200px') %></div>
     </div>
+    <div class="col-xxl-4">
+      <div class="d-flex flex-column align-items-center">
+      <h5>SUIVEZ-NOUS</h5>
+      <ul class="ul_footer">
+        <div class="d-flex">
+          <i class="bi bi-github"></i>
+          <li class="nav-item"><a href="https://github.com/Damien-Generet" class="nav-link px-2 footer_link">Damien Generet</a></li>
+        </div>
+        <div class="d-flex">
+          <i class="bi bi-github"></i>
+          <li class="nav-item"><a href="https://github.com/tchanque" class="nav-link px-2 footer_link">Thomas Audevie</a></li>
+        </div>
+        <div class="d-flex">
+          <i class="bi bi-github"></i>
+          <li class="nav-item"><a href="https://github.com/evarellapucky" class="nav-link px-2 footer_link">Alexia Scherer</a></li>
+        </div>
+        <div class="d-flex">
+          <i class="bi bi-github"></i>
+          <li class="nav-item"><a href="https://github.com/Marcaraph" class="nav-link px-2 footer_link">Raphaël Marcarini</a></li>
+        </div>
+      </ul>
+      </div>
+    </div>  
   </div>
   <div class="footer_bas d-flex justify-content-between">
     <div class="links col-xxl-6 d-flex justify-content-center">

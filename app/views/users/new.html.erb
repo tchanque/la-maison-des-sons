@@ -4,7 +4,7 @@
 <% if user_signed_in? && current_user.is_admin ===true %>
 
 <div class="col-lg mb-5 mt-5 mb-lg-0 d-flex justify-content-center">
-<div class="card">
+<div class="card mb-5">
   <div class="card-body py-5 px-md-5">
     <%= form_with(model: @user, url: create_user_path) do |f| %>
      <% if @user.errors.any? %>

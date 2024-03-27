@@ -1,39 +1,26 @@
-<%= form_with scope: :contact_form, url: contact_form_index_path, method: :post, local: true, class: "col-md-8 " do |form| %>
-  <div class="d-flex justify-content-center">
-    <div class="col-md-4 m-1">
-  <div>
-    <label class="form-label" for="name">Name</label>
-    <input class="form-control" id="name" name="name" type="text" required />
-  </div>
-  <div>
-    <label class="form-label" for="email">Email</label>
-    <input class="form-control" id="email" name="email" type="email" required />
-  </div>
-  </div>
-  
-  <div class="col-md-4 m-1">
-  <div>
-    <label class="form-label" for="subject">Subject</label>
-    <select class="form-control" id="subject" name="subject" required>
-      <option value="" selected disabled>Choose a Subject</option>
-      <optgroup label="Option Group">
-        <option value="subject-one">Subject One</option>
-        <option value="subject-two">Subject Two</option>
-        <option value="subject-three">Subject Three</option>
-      </optgroup>
-      <option value="subject-four">Subject Four</option>
-      <option value="subject-five">Subject Five</option>
-      <option value="subject-six">Subject Six</option>
-    </select>
-  </div>
-  <div>
-    <label class="form-label" for="message">Message</label>
-    <textarea class="form-control" id="message" name="message" required></textarea>
-  </div>
-  <div class="m-1">
+<%= form_with scope: :contact_form, url: contact_form_index_path, method: :post, local: true, class: "col-md-12 " do |form| %>
+  <div class="d-flex justify-content-center my-2">
+    <div class="col-md-4">
+      <div>
+        <label class="form-label" for="name">Nom</label>
+        <input class="form-control" id="name" name="name" type="text" required />
+      </div>
+      <div>
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" id="email" name="email" type="email" required />
+      </div>
+      <div>
+        <label class="form-label" for="subject">Objet</label>
+        <input class="form-control" id="subject" name="subject" type="text" required />
+      </div>
+      <div>
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-control" id="message" name="message" required></textarea>
+      </div>
+    </div>
+  </div>  
+  <div class="d-flex justify-content-center my-5">
     <%= form.submit "Envoyer", class: "btn btn-primary btn-lg" %>
-  </div>
-  </div>
   </div>
 </form>
 <% end %> 
