@@ -186,9 +186,9 @@ fr:
       topic:
         title: 'Titre'
         description: 'Contenu'
-      attendances:
+      attendance:
         attendee: 'Inscrit'
-        event: 'évènement'        
+        event: 'Evènement'        
         
   number:
     currency:
