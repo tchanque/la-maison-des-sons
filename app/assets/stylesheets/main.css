@@ -236,6 +236,136 @@ background-color: #474340;
   font-weight: 600;
 }
 
+/* CSS FOR THE CAROUSEL NEWS (CALLED TOPICS IN THE DB) */
+
+/* This is used to center the pictures in the div */
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Position the carousel and hide the overflow (slides aside) */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel__item{
+  float: left;
+  min-height: 650px;
+  padding-left: 100px ;
+  padding-right: 100px;
+}
+
+/* CSS style applied to the image in the caroussel slide */
+.item_image img{
+  width: 100%;
+  max-height: 550px;
+  transform: translate(5%); /* Push the image to the right to keep all the things center ( before we pull to the left the overlay text 20% but we loose the center */
+  transition: 0.3s;
+}
+
+/* CSS style applied to the text in the caroussel slide */
+.overlay-text {
+  transform: translate(-5); /* Push the text to the left, complementary with the translate(10%) from the item_image img (see above) */
+  background-color: #ca1b006e; 
+  color: #fff; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  height: 600px;
+  width: 500px;
+  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+  overflow-y: auto; /* will remove the scroll bar if not needed */
+  backdrop-filter: blur(5px) saturate(60%);
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 992px) { 
+  .item{
+    flex-direction: column;
+  }
+  .overlay-text{
+    width: auto;
+    height: 15em;
+    transform: translate(0%, -20%);
+    transition: 0.3s;
+  }
+  .item_image img{
+    width: 350px;
+    transform: translate(0%);
+    transition: 0.3s;
+  }
+}
+
+/*
+ *  SCROLLBAR TOPIC
+ */
+
+ .overlay-text::-webkit-scrollbar-track
+ {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+   background-color: #F5F5F5;
+ }
+ 
+.overlay-text::-webkit-scrollbar
+ {
+   width: 5px;
+   background-color: #F5F5F5;
+ }
+ 
+ .overlay-text::-webkit-scrollbar-thumb
+ {
+   background-color: #c85f4e;
+ }
+
+.carousel__container{
+  transition: transform 0.3s;
+}
+
+.carousel__item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel__container::after{
+  content: '';
+  clear: both;
+  display: table;
+}
+
+/* btn next and prev */
+
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  font-size: 36px;
+  text-align: center;
+  border-radius: 50%;
+  top: 50%;
+  /* margin-top: -20px; */
+  right: 0px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.carousel__next:hover, 
+.carousel__prev:hover {
+  transform: scale(1.2);
+}
+.carousel__next{
+  margin-right: 10px;
+}
+.carousel__prev {
+  right: auto;
+  left: 0px;
+  margin-left: 10px;
+}
+
+
 /* CSS FOR THE CARD IN THE INDEX */
 
 .btn_size_card {
@@ -304,15 +434,12 @@ background-color: #474340;
 .footer_haut {
   background-color: #474340;
   color: #ffff;
-  height: 10em;
+  height: 18em;
+  
 }
 
-.footer_haut, a, .footer_link {
-  text-decoration: none;
-}
-
-.ul_footer {
-  list-style: none;
+.footer_haut h5 {
+  border-bottom: 1px solid white;
 }
 
 .footer_bas {

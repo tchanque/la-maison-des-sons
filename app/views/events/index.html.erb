@@ -3,9 +3,28 @@
 <p class="lmds_alert text-center"><%= alert %></p>
 
 
-<% @topics.each do |topic| %>
-  <%= render "/topics/topic", topic: topic %>
-<% end %>
+<div class="d-flex flex-column align-items-center" id="news">
+  <h1 class="w-75 text-center header_section align-items-center mb-5">Actualités</h1>
+</div>
+
+<div id="carousel1">
+    <% @topics.each do |topic| %>
+    <div class="item">
+      <div class="item_image">
+        <%= image_tag topic.picture, alt: ""%>
+      </div>
+      <div class="overlay-text d-flex flex-column align-items-center">
+        <div class="caroussel_title_topic mb-3">
+          <h2><%= topic.title %></h2> 
+        </div>
+        <div class="caroussel_description_topic">
+          <%= topic.description.gsub(/[\r\n]/,'<br />').html_safe %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>
+
 
 <div class="d-flex flex-column container align-items-center my-5" id="events">
   <h1 class="w-100 text-center header_section">Nos évènements</h1>
