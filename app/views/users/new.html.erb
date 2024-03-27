@@ -9,7 +9,7 @@
     <%= form_with(model: @user, url: create_user_path) do |f| %>
      <% if @user.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "éléments") %> sont manquants ou incorrects:</h2>
 
       <ul>
         <% @user.errors.each do |error| %>
