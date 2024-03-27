@@ -411,12 +411,15 @@ background-color: #474340;
 .footer_haut {
   background-color: #474340;
   color: #ffff;
-  height: 18em;
-  
+  height: 10em;
 }
 
-.footer_haut h5 {
-  border-bottom: 1px solid white;
+.footer_haut, a, .footer_link {
+  text-decoration: none;
+}
+
+.ul_footer {
+  list-style: none;
 }
 
 .footer_bas {

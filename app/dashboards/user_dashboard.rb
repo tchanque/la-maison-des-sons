@@ -19,6 +19,7 @@ class UserDashboard < Administrate::BaseDashboard
     is_admin: Field::Boolean,
     is_subscriber: Field::Boolean,
     is_teacher: Field::Boolean,
+    end_date: Field::DateTime,
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
     reset_password_token: Field::String,
@@ -48,6 +49,7 @@ class UserDashboard < Administrate::BaseDashboard
     is_admin
     is_subscriber
     is_teacher
+    end_date
     remember_created_at
     reset_password_sent_at
     reset_password_token
@@ -64,10 +66,10 @@ class UserDashboard < Administrate::BaseDashboard
     last_name
     email
     description
-
     is_admin
     is_subscriber
     is_teacher
+    end_date
   ].freeze
 
   # COLLECTION_FILTERS

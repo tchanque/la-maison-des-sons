@@ -4,6 +4,10 @@ class ContactFormController < ApplicationController
     
   end
 
+  def show
+    
+  end
+
   def create
     @email = params[:email]
     @message = params[:message]
