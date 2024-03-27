@@ -156,6 +156,40 @@ fr:
       create: Créer un(e) %{model}
       submit: Enregistrer ce(tte) %{model}
       update: Modifier ce(tte) %{model}
+    label:
+      user:
+        first_name: 'Prénom'
+        last_name: 'Nom de famille'
+        email: 'Mail'
+        description: 'Présentation'
+        attendances: 'Inscriptions'
+        is_admin: 'est administrateur'
+        is_teacher: 'est professeur'
+        is_subscriber: 'est élève inscrit'
+        end_date: "Fin d'abonnement"
+        created_at: 'Créé le'
+        updated_at: 'Modifié le'  
+      event:
+        level: 'niveau'
+        attendees: 'Inscrits'
+        start_date: 'Date'
+        category: "Type d'évènement"
+        creator: 'Organisateur'
+        duration: 'Durée'
+        location: 'Lieu'
+        price: 'prix'
+        attendances: 'Inscriptions'
+        available_seats: 'Places disponibles'
+        max_seats: 'Nombre de places maximum'
+        created_at: 'Créé le'
+        updated_at: 'Modifié le' 
+      topic:
+        title: 'Titre'
+        description: 'Contenu'
+      attendances:
+        attendee: 'Inscrit'
+        event: 'évènement'        
+        
   number:
     currency:
       format:
@@ -217,5 +251,5 @@ fr:
     formats:
       default: "%d %B %Y %Hh %Mmin %Ss"
       long: "%A %d %B %Y %Hh%M"
-      short: "%d %b %Hh%M"
+      short: "%d %b %H:%M"
     pm: pm
