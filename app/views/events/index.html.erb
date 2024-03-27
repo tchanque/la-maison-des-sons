@@ -10,17 +10,21 @@
 <div id="carousel1">
     <% @topics.each do |topic| %>
     <div class="item">
-      <div class="item_image">
-        <%= image_tag topic.picture, alt: ""%>
-      </div>
-      <div class="overlay-text d-flex flex-column align-items-center">
-        <div class="caroussel_title_topic mb-3">
-          <h2><%= topic.title %></h2> 
+        <div class="item_image">
+          <% if topic.picture.attached? %>
+            <%= image_tag topic.picture, alt: ""%>
+          <% else %>
+            <%= image_tag "https://media.istockphoto.com/id/1477858506/fr/photo/nouvelles-en-ligne-par-t%C3%A9l%C3%A9phone-lire-le-journal-%C3%A0-partir-du-site-web-publication-num%C3%A9rique.jpg?s=2048x2048&w=is&k=20&c=nN5-ODFUP8195-5AOafnQpSWyh0Qqp47LitCBaXtz2s=", alt: ""%>
+          <% end %>
         </div>
-        <div class="caroussel_description_topic">
-          <%= topic.description.gsub(/[\r\n]/,'<br />').html_safe %>
+        <div class="overlay-text d-flex flex-column align-items-center">
+          <div class="caroussel_title_topic mb-3">
+            <h2><%= topic.title %></h2> 
+          </div>
+          <div class="caroussel_description_topic">
+            <%= topic.description.gsub(/[\r\n]/,'<br />').html_safe %>
+          </div>
         </div>
-      </div>
     </div>
     <% end %>
 </div>

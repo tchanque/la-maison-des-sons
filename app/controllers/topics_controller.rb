@@ -17,6 +17,10 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
 
+  def index
+    redirect_to root_path, notice: "Votre actualité a été ajoutée avec succès." 
+  end
+
   def destroy
   end
 
