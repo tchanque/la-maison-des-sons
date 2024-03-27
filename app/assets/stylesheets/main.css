@@ -469,10 +469,25 @@ background-color: #474340;
 }
 
 
-@media screen and (max-width: 1400px){
-  .contact_us{
+@media screen and (max-width: 790px){
+  .logo{
     display: none;
   }
+
+  .media_link{
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .terms{
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .footer_bas{
+    height: 10em;
+  }
+
 }
 
 /* CSS FOR FORM EDIT AND NEW EVENT */
