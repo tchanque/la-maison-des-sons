@@ -57,8 +57,6 @@ class Carousel {
 
     }
 
-
-
     createDivWithClass(className) {
         let div = document.createElement('div')
         div.setAttribute('class', className)

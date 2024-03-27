@@ -13,6 +13,14 @@
       <div class="item_image">
         <%= image_tag topic.picture, alt: ""%>
       </div>
+      <div class="overlay-text d-flex flex-column align-items-center">
+        <div class="caroussel_title_topic mb-3">
+          <h2><%= topic.title %></h2> 
+        </div>
+        <div class="caroussel_description_topic">
+          <%= topic.description.gsub(/[\r\n]/,'<br />').html_safe %>
+        </div>
+      </div>
     </div>
     <% end %>
 </div>
