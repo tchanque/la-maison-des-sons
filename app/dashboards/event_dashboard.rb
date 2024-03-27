@@ -21,9 +21,9 @@ class EventDashboard < Administrate::BaseDashboard
     location: Field::String,
     max_seats: Field::Number,
     price: Field::Number,
-    start_date: Field::DateTime,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    start_date: Field::DateTime.with_options(format: "%d/%m/%Y %H:%M"),
+    created_at: Field::DateTime.with_options(format: "%d/%m/%Y %H:%M"),
+    updated_at: Field::DateTime.with_options(format: "%d/%m/%Y %H:%M"),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -94,7 +94,7 @@ class EventDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(event)
-    "#{event.category} #{event.instrument} #{event.start_date}"
+    "#{event.category} #{event.instrument} #{event.start_date.strftime("%d/%m/%Y %H:%M")}"
   end
 
   def self.resource_name(_opts)

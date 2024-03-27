@@ -13,6 +13,7 @@ module LaMaisonDesSons
 
     # Code to translate Devise messages into French
     config.i18n.default_locale = :fr
+    config.i18n.available_locales = [:fr, :en]
     
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
