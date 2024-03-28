@@ -1,5 +1,4 @@
 document.getElementById('event_category').onchange = function () {
-    let events_without_instruments = ["Scène ouverte", "Concert"];
 
     this.instrument_form = document.getElementById('instrument_form');
     this.instrument_input = document.getElementById('event_instrument');
@@ -13,7 +12,7 @@ document.getElementById('event_category').onchange = function () {
     this.level_form = document.getElementById('level_form');
     this.level_input = document.getElementById('event_level');
 
-    if (events_without_instruments.includes(this.value)) {
+    if (Event::MUSIC_SHOWS.includes(this.value)) {
         this.instrument_form.setAttribute("hidden", true);
         this.instrument_input.value = "";
 
