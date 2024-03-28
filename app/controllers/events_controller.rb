@@ -103,8 +103,16 @@ end
 
   # DELETE /events/1 or /events/1.json
   def destroy
-    @event.destroy!
+# initialize information that we need to send a email to all the attendees of the event gonna be delete
+      @event_attendance = Attendance.where(event: @event)
+      @event_attendance.each do |attendance|
+      @user = attendance.attendee
+      @email = attendance.attendee.email
 
+      UserMailer.event_delete(@user, @event).deliver_now
+    end
+
+  @event.destroy!
     respond_to do |format|
       format.html { redirect_to events_url, notice: "L'évènement a été supprimé avec succès." }
       format.json { head :no_content }
