@@ -61,14 +61,11 @@
   </div>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 m-3 g-5">
     <% @events.each do |event| %>
-      <% if Event::MUSIC_SHOWS.include?(@event.category) %>
-        <%= render partial: 'show_music_show', locals: {event: @event} %>
-    <% else %>
-        <%= render partial: 'show_music_class', locals: {event: @event} %>
-      <% end %>
-      <% if event.type %>
-      <%= render event %>
+      <% if Event::MUSIC_SHOWS.include?(event.category) %>
+        <%= render partial: 'index_music_show', locals: {event: event} %>
       <% else %>
+        <%= render partial: 'index_music_class', locals: {event: event} %>
+      <% end %>
     <% end %>
   </div>
 </div>

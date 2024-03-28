@@ -12,7 +12,9 @@ document.getElementById('event_category').onchange = function () {
     this.level_form = document.getElementById('level_form');
     this.level_input = document.getElementById('event_level');
 
-    if (Event::MUSIC_SHOWS.includes(this.value)) {
+    let music_shows = ["Concert", "Scène ouverte"]
+
+    if (music_shows.includes(this.value)) {
         this.instrument_form.setAttribute("hidden", true);
         this.instrument_input.value = "";
 
