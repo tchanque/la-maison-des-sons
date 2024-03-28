@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-    CATEGORIES = ["Atelier", "Concert", "Permanence", "Stage", "Scène Ouverte"]
+    CATEGORIES = ["Atelier", "Concert", "Permanence", "Stage", "Scène ouverte"]
     INSTRUMENTS = ["", "Basse", "Batterie", "Chant", "Guitare", "Harmonie", "MAO", "Piano", "Ukulelé"]
     LEVEL = [1, 2, 3, 4, 5]
 
