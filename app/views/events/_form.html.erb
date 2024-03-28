@@ -59,7 +59,7 @@
 
     <div class="form-group">
       <%= form.label "Places disponibles"%>
-      <%= form.number_field :max_seats, class: "form-control" %>
+      <%= form.number_field :max_seats, class: "form-control", disabled: !form.object.new_record? %>
     </div>
 
     <div class="form-group">

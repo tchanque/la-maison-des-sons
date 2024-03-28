@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  after_create :active_sub
+  #after_create :active_sub
   # before_action :configure_sign_in_params, only: [:create]
   # GET /resource/sign_in
   # def new
@@ -25,10 +25,10 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  def active_sub
-    if current_user && current_user.end_date && DateTime.now > current_user.end_date
-      current_user.update(is_subscriber: false)
-    end
-  end
+  # def active_sub
+  #   if current_user && current_user.end_date && DateTime.now > current_user.end_date
+  #     current_user.update(is_subscriber: false)
+  #   end
+  # end
 
 end
