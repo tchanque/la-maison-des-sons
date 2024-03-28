@@ -454,7 +454,7 @@ background-color: #474340;
 
 /* USER SHOW */
 .lmds_background {
-  border-radius: 5px 50px 5px 50px;
+  border-radius: 15px 15px 15px 15px;
   background-color: #fcd6b3;
   box-shadow: 1px 1px 10px black;
 }
@@ -463,6 +463,23 @@ background-color: #474340;
   border-bottom: 1px solid #474340;
 }
 
+.user_avatar {
+  width: 15rem;
+  height: 15rem;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 50%;
+  object-position: center;
+}
+
+.avatar_zone {
+  border-left: 2px solid #e7e7e7;
+  padding-top: 2em;
+}
+
+.avatar_text {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 
 /* FOOTER */
 
