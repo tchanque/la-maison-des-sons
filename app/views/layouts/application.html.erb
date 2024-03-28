@@ -81,7 +81,6 @@
     <!--<li> 
           <a class="nav_link" href="/users/sign_in">Log in</a> THIS LINK IS NOT USEFUL CAUSE IF WE ARE NOT LOG IN, WE STAY ON THE LOGIN PAGE 
         </li> -->
-        <button id="opendys-toggle-btn" class="nav_link dropdown_button">Activer Opendys</button>
           <% if user_signed_in? && current_user.is_admin === true %>
           <li>
           <div class="dropdown">
@@ -147,7 +146,7 @@
 <div class="px-4 py-5 text-center bg_hero">
 <!-- THIS DIV IS THE CONTAINER OF THE HERO ( the hero image is define in the css background-img) -->
 </div>
-
+<button id="opendys-toggle-btn" class="btn-primary opendys">Opendys OFF</button>
     <%= yield %>
 
 <div class="footer">
