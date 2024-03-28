@@ -17,14 +17,14 @@ function desactivateOpenDys() {
 document.getElementById("opendys-toggle-btn").addEventListener("click", function() {
   let buttonText = this.innerText;
 
-  if (buttonText === "Opendys OFF") {
+  if (buttonText === "Opendys ON") {
     activateOpenDys();
-    this.innerText = "Opendys ON";
+    this.innerText = "Opendys OFF";
     this.classList.remove("btn-primary")
     this.classList.add("btn-success")
   } else {
     desactivateOpenDys();
-    this.innerText = "Opendys OFF";
+    this.innerText = "Opendys ON";
     this.classList.remove("btn-success")
     this.classList.add("btn-primary")
   }
