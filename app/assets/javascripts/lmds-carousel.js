@@ -24,7 +24,7 @@ class Carousel {
     setStyle () {
         let ratio = this.items.length / this.options.slideVisible
         this.container.style.width = (ratio * 100) + "%"
-        this.items.forEach(item => item.style.width = ((100 / this.options.slideVisible) / ratio) + "%" )// CALCUL LA LARGEUR D'UNE SLIDE POUR QU'ELLE FASSE 100ù de la largeur du container / par le nombre de d'item)
+        this.items.forEach(item => item.style.width = ((100 / this.options.slideVisible) / ratio) + "%" )// CALCUL LA LARGEUR D'UNE SLIDE POUR QU'ELLE FASSE 100% de la largeur du container / par le nombre de d'item)
     }
 
     createNavigation () {
