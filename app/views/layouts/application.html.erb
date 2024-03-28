@@ -15,6 +15,7 @@
   </head>
 
   <body data-turbo="false">
+  <% if user_signed_in? %> 
   <nav class="navbar navbar-expand-lg style_navbar">
   <div class="container-fluid">
     <a class="navbar-brand nav_link" href="/"> <%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '100px') %></a>
@@ -28,61 +29,34 @@
         </li>
         <li>
         <a class="nav_link" href="/#agenda"> Agenda </a>
-        </li>
-        <li>
-        <% if user_signed_in? && current_user.is_admin === true || user_signed_in? && current_user.is_teacher ===true %>
-          <div class="dropdown">
-            <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Évènements
-            </button>
-            <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <ul class="justify-content-around">
-            <li>
-            <a class="dropdown-item nav_link" href="/"> Atelier </a>
-            </li>
-            <li>
-            <a class="dropdown-item nav_link" href="/"> Concert </a>
-            </li>
-            <li>
-            <a class="dropdown-item nav_link" href="/"> Permanance </a>
-            </li>
-            <li>
-            <a class="dropdown-item nav_link" href="/"> Scène ouverte </a>
-            </li>
-            <li>
-            <%= link_to " Créer un évènement ", new_event_path, class: "dropdown-item nav_link" %>
-            </li>
-            </ul>
-            </div>
-          </div>
-          <% else %>
+        </li> 
+        <% if user_signed_in? && current_user.is_admin === true || user_signed_in? && current_user.is_teacher ===true && current_user.is_admin === true %>
           <div class="dropdown">
           <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Évènements
-          </button>
-          <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <ul class="justify-content-around">
-          <li>
-          <a class="nav_link dropdown-item" href="/"> Atelier </a>
-          </li>
-          <li>
-          <a class="nav_link dropdown-item" href="/"> Concert </a>
-          </li>
-          <li>
-          <a class="nav_link dropdown-item" href="/"> Permanance </a>
-          </li>
-          <li>
-          <a class="nav_link dropdown-item" href="/"> Scène ouverte </a>
-          </li>
-          </ul>
-          </div>
+          Admin
+         </button> 
+         <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+         <ul>
+            <li>
+            <%= link_to "Tableau Admin", admin_root_path, class: "dropdown-item nav_link" %> 
+            </li>
+            <li>
+            <%= link_to "Créer un compte", new_user_path, class: "dropdown-item nav_link" %> 
+            </li>
+            <li>
+            <%= link_to "Créer un évènement", new_event_path, class: "dropdown-item nav_link" %>
+            </li>
+            <li>
+            <%= link_to "Créer une actualité", new_topic_path, class: "dropdown-item nav_link" %>
+            </li>
+         </ul>
         </div>
-          <% end %>
+        </div>
+        <% elsif user_signed_in? && current_user.is_teacher ===true %>
+        <li>
+          <%= link_to "Créer un évènement", new_event_path, class: "dropdown-item nav_link" %>
         </li>
-    <!--<li> 
-          <a class="nav_link" href="/users/sign_in">Log in</a> THIS LINK IS NOT USEFUL CAUSE IF WE ARE NOT LOG IN, WE STAY ON THE LOGIN PAGE 
-        </li> -->
-        <button id="opendys-toggle-btn" class="nav_link dropdown_button">Activer Opendys</button>
+        <% end %>
           <% if user_signed_in? && current_user.is_admin === true %>
           <li>
           <div class="dropdown">
@@ -99,15 +73,6 @@
             <ul>
             <li>
             <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item nav_link" %> 
-            </li>
-            <li>
-            <%= link_to "Tableau Admin", admin_root_path, class: "dropdown-item nav_link" %> 
-            </li>
-            <li>
-            <%= link_to "Créer un compte", new_user_path, class: "dropdown-item nav_link" %> 
-            </li>
-            <li>
-            <%= link_to "Créer une actualité", new_topic_path, class: "dropdown-item nav_link" %>
             </li>
             <li>
             <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { confirm: "Vous allez être déconnecté", turbo_confirm: "Vous allez être déconnecté" }, class: "dropdown-item nav_link" %>
@@ -145,10 +110,11 @@
     </div>
   </div>
 </nav>
+<% end %>
 <div class="px-4 py-5 text-center bg_hero">
 <!-- THIS DIV IS THE CONTAINER OF THE HERO ( the hero image is define in the css background-img) -->
 </div>
-
+<button id="opendys-toggle-btn" class="btn-primary opendys">Opendys ON</button>
     <%= yield %>
 
 <div class="footer">
