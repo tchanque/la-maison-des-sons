@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-10">
                 <div class="d-flex titl_btn justify-content-between align-items-center pt-3">
-                  <h3 class="text-uppercase"><strong><%= attendance.event.category %>  (<%= attendance.event.instrument %>)</strong></h3>
+                  <h3 class="text-uppercase"><strong><%= attendance.event.category.capitalize.tr('_', ' ') %>  (<%= attendance.event.instrument %>)</strong></h3>
                   <%= link_to "Voir plus", event_path(attendance.event), class: "btn btn-secondary mb-2" %>
                   </div>
                     <ul class="list-inline">
@@ -87,7 +87,7 @@
                       <li class="list-inline-item"><i class="bi bi-clock" aria-hidden="true"></i> <%= l attendance.event.start_date, format: "%H:%M" %></li>
                       <li class="list-inline-item"><i class="bi bi-pin-map" aria-hidden="true"></i> <%= attendance.event.location %></li>
                     </ul>
-                  <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <p> <%=attendance.event.description%></p>
                 </div>
               </div>
             </div>

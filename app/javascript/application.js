@@ -2,4 +2,5 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "../assets/javascript/lmds-carousel"
+import "../assets/javascript/form-events"
 import "../assets/javascripts/opendys"

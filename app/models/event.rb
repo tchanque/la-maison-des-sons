@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
-    CATEGORIES = ["atelier", "concert", "permanence", "stage", "scène_ouverte"]
+    CATEGORIES = ["Atelier", "Concert", "Permanence", "Stage", "Scène Ouverte"]
+    INSTRUMENTS = ["", "Basse", "Batterie", "Chant", "Guitare", "Harmonie", "MAO", "Piano", "Ukulelé"]
     LEVEL = [1, 2, 3, 4, 5]
 
     belongs_to :creator, class_name: "User", dependent: :destroy
