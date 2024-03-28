@@ -282,13 +282,13 @@ background-color: #474340;
 /* CSS style applied to the text in the caroussel slide */
 .overlay-text {
   transform: translate(-5); /* Push the text to the left, complementary with the translate(10%) from the item_image img (see above) */
-  background-color: #ca1b006e; 
-  color: #fff; 
+  background-color: #791a0bb7; 
+  color: #ffffff;
   padding: 10px 20px; 
   font-size: 16px; 
   height: 600px;
   width: 500px;
-  box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 10px 10px 4px #0000003f;
   overflow-y: auto; /* will remove the scroll bar if not needed */
   backdrop-filter: blur(5px) saturate(60%);
   transition: 0.3s;

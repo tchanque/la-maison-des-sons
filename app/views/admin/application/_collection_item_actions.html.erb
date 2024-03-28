@@ -21,12 +21,3 @@
 
 <% end %>  
 
-<% if existing_action?(collection_presenter.resource_name, :destroy) %>
-  <td><%= link_to(
-    t("administrate.actions.destroy"),
-    [namespace, resource],
-    class: "link link--danger",
-    method: :delete,
-    data: { turbo_confirm: t("administrate.actions.confirm") }
-  ) if accessible_action?(resource, :destroy) %></td>
-<% end %>
