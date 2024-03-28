@@ -14,6 +14,7 @@
   </head>
 
   <body data-turbo="false">
+  <% if user_signed_in? %> 
   <nav class="navbar navbar-expand-lg style_navbar">
   <div class="container-fluid">
     <a class="navbar-brand nav_link" href="/"> <%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '100px') %></a>
@@ -108,6 +109,7 @@
     </div>
   </div>
 </nav>
+<% end %>
 <div class="px-4 py-5 text-center bg_hero">
 <!-- THIS DIV IS THE CONTAINER OF THE HERO ( the hero image is define in the css background-img) -->
 </div>
