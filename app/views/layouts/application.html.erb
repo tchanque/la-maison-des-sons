@@ -12,6 +12,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= javascript_include_tag 'opendys' %>
+    <title><%= yield :title %> | La Maison des Sons</title>
+    <meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : "Vous permet d'accéder à l'espace membre de l'association pour y découvrir les dernières actualités, les événements prévus, avec la possibilité de s'y inscrire." %>">
   </head>
 
   <body data-turbo="false">
