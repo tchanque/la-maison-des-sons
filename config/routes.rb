@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   resources :topics
   namespace :admin do
       resources :users
@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users, only: [:show, :new, :destroy]
+  resources :users, only: [:show, :new, :destroy] do
+    resources :avatars, only: [:create]
+  end
 
   post 'create_user' => 'users#create', as: :create_user
 

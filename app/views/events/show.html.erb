@@ -1,3 +1,8 @@
+<head>
+  <% content_for :title, "Page d'affichage de l'évènement." %>
+  <% content_for :meta_description, "Vous permet de visualiser la page de l'évènement avec toutes les informations le concernant." %>
+</head>
+
 <br>
 <p class="lmds_success text-center"><%= notice %></p>
 <div>
@@ -6,5 +11,4 @@
   <% else %>
     <%= render partial: 'show_music_class', locals: {event: @event} %>
   <% end %>
-
 </div>
