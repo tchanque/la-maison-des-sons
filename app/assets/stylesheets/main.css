@@ -238,7 +238,7 @@ background-color: #474340;
 }
 
 .lmds_alert {
-  color: #f44336;
+  color: #d20000;
   font-weight: 600;
 }
 
@@ -596,6 +596,10 @@ background-color: #474340;
     width: 50%;
     transition: 1s;
   }
+}
+
+.blue_links {
+  color: #015ce7;
 }
 
 /* CSS FOR SENDING NEW PASSWORD */
