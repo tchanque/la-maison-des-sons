@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       resources :events
       resources :topics
       
-
       root to: "users#index"
     end
 

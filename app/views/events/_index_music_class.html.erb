@@ -16,7 +16,7 @@
       <div class="card-body">
         <h5 class="card-title text-center"> <%= event.category %> - <%=event.instrument%></h5>
         <div class="row text-center">
-          <h6> <i class="bi bi-person-circle"></i> Prof: <%= event.creator.first_name %> </h6>
+          <h6> <i class="bi bi-person-circle"></i> Prof: <%= event.creator.first_name.truncate(10) %> </h6>
           <h6>Places dispo : <%= event.available_seats %> / <%= event.max_seats %></h6>
         </div>
           <p class="card-footer bg-transparent">

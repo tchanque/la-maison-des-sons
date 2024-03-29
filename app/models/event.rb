@@ -16,7 +16,6 @@ class Event < ApplicationRecord
     validates :price, numericality: { greater_than_or_equal_to: 0 }
     validates :max_seats, numericality: { greater_than_or_equal_to: 0 }
 
-
     def valid_date?
       return errors.add(:La_date, 'doit être renseignée.') && false unless start_date.present?
   

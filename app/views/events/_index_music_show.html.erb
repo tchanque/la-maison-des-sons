@@ -11,7 +11,7 @@
         <h5 class="card-title text-center"> <%=event.category %> </br> </h5>
         <div class="row text-center">
           <h6 class="truncate"> <i class="bi bi-pin-map-fill"></i> <%= event.location.truncate(20) %> </h6>
-          <h6 class="truncate"> <%= event.description.truncate(20) %> </h6>
+          <h6 class="truncate"> <%= event.description == "" ? "Venez nombreux!" : event.description.truncate(20) %> </h6>
         </div>
           <p class="card-footer bg-transparent">
             <div class="btn-group d-flex justify-content-around my-3", role="group">
