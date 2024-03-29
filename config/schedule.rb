@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 set :output, "log/cron.log"
-set :environment, "development"
+set :environment, "production"
 every 1.day, as: '2:00 am'  do
     rake 'subscription:check'
 end

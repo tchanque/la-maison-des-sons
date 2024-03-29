@@ -5,6 +5,7 @@
 
 <br>
 <p class="lmds_success text-center"><%= notice %></p>
+<p class="lmds_alert text-center"><%= alert %></p>
 <div>
   <% if Event::MUSIC_SHOWS.include?(@event.category) %>
     <%= render partial: 'show_music_show', locals: {event: @event} %>
