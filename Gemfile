@@ -14,8 +14,17 @@ gem 'dotenv'
 # Manage authentication 
 gem 'devise'
 
+# Manage admin panel
+gem 'administrate'
+
+#manage translation
+gem 'rails-i18n'
+
 # Manage pictures on an external server
 gem 'aws-sdk-s3', require: false
+
+# Manage canonical url
+gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
@@ -90,3 +99,5 @@ group :test do
 end
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "whenever", "~> 1.0"

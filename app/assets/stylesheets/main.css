@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.cdnfonts.com/css/open-dyslexic');   
 
 /* CHANGE PARAMETERS OF SOME CLASS IN BOOTSTRAP */
 body{
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
   color: #474340;
   background-color: rgb(231, 231, 231);
+}
+
+.opendys{
+  position: absolute;
+  right: 0px;
 }
 
 .btn-primary{
@@ -222,12 +227,18 @@ background-color: #474340;
 
 /* SIGN_UP / SIGN_IN */
 
+
+.full_screen_signup{
+  height: 38vh;
+}
+
+
 .lmds_title {
   color: #474340;
 }
 
 .lmds_alert {
-  color: #f44336;
+  color: #d20000;
   font-weight: 600;
 }
 
@@ -236,7 +247,160 @@ background-color: #474340;
   font-weight: 600;
 }
 
+
+
+/* CSS FOR THE CAROUSEL NEWS (CALLED TOPICS IN THE DB) */
+
+/* This is used to center the pictures in the div */
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Position the carousel and hide the overflow (slides aside) */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel__item{
+  float: left;
+  min-height: 650px;
+  padding-left: 100px ;
+  padding-right: 100px;
+}
+
+/* CSS style applied to the image in the caroussel slide */
+.item_image img{
+  width: 100%;
+  max-height: 550px;
+  transform: translate(5%); /* Push the image to the right to keep all the things center ( before we pull to the left the overlay text 20% but we loose the center */
+  transition: 0.3s;
+}
+
+/* CSS style applied to the text in the caroussel slide */
+.overlay-text {
+  transform: translate(-5); /* Push the text to the left, complementary with the translate(10%) from the item_image img (see above) */
+  background-color: #791a0bb7; 
+  color: #ffffff;
+  padding: 10px 20px; 
+  font-size: 16px; 
+  height: 600px;
+  width: 500px;
+  box-shadow: 10px 10px 4px #0000003f;
+  overflow-y: auto; /* will remove the scroll bar if not needed */
+  backdrop-filter: blur(5px) saturate(60%);
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 992px) { 
+  .item{
+    flex-direction: column;
+  }
+  .overlay-text{
+    width: auto;
+    height: 15em;
+    transform: translate(0%, -20%);
+    transition: 0.3s;
+  }
+  .item_image img{
+    width: 350px;
+    transform: translate(0%);
+    transition: 0.3s;
+  }
+}
+
+/*
+ *  SCROLLBAR TOPIC
+ */
+
+ .overlay-text::-webkit-scrollbar-track
+ {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+   background-color: #F5F5F5;
+ }
+ 
+.overlay-text::-webkit-scrollbar
+ {
+   width: 5px;
+   background-color: #F5F5F5;
+ }
+ 
+ .overlay-text::-webkit-scrollbar-thumb
+ {
+   background-color: #c85f4e;
+ }
+
+.carousel__container{
+  transition: transform 0.3s;
+}
+
+.carousel__item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel__container::after{
+  content: '';
+  clear: both;
+  display: table;
+}
+
+/* btn next and prev */
+
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  font-size: 36px;
+  text-align: center;
+  border-radius: 50%;
+  top: 50%;
+  /* margin-top: -20px; */
+  right: 0px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.carousel__next:hover, 
+.carousel__prev:hover {
+  transform: scale(1.2);
+}
+.carousel__next{
+  margin-right: 10px;
+}
+.carousel__prev {
+  right: auto;
+  left: 0px;
+  margin-left: 10px;
+}
+
+
 /* CSS FOR THE CARD IN THE INDEX */
+.level_div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #474747;
+  color: white;
+  border-color: white;
+  border: 1px solid;
+  border-radius: 3%;
+  backdrop-filter: blur(100px);
+}
+
+.date_badge {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
 
 .btn_size_card {
   width: 140px !important;
@@ -250,6 +414,19 @@ background-color: #474340;
 
 
 /* CSS FOR THE SHOW EVENT */
+@media screen and (max-width: 790px) {
+  .bg_section{
+    flex-direction: column;
+  }
+}
+
+.event_information_block{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-left: 25%;
+}
 
 .bg_img{
   background-image: url('https://media.istockphoto.com/id/1478375497/fr/photo/des-amis-dansent-au-festival.jpg?s=2048x2048&w=is&k=20&c=fIz_Fn7SexMUa4giD1K_wK81Z64clzlK5YjMToVb1d8=');
@@ -260,14 +437,11 @@ background-color: #474340;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.466);
+  transition: 0.3s
 }
 
 .bg_blur{
   backdrop-filter: blur(10px);
-}
-
-.separation{
-  border-right: 1px solid #474340;
 }
 
 /* CSS FOT THE AGENDA */
@@ -286,10 +460,32 @@ background-color: #474340;
   background-color: #C85F4E;
 }
 
+.text_agenda{
+  text-align: justify;
+}
+
+@media screen and (max-width: 550px) {
+
+  .titl_btn{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card_agenda{
+      flex-direction: column;
+  }
+
+  .date_agenda{
+    display: flex;
+  }
+  
+}
+
 
 /* USER SHOW */
 .lmds_background {
-  border-radius: 5px 50px 5px 50px;
+  border-radius: 15px 15px 15px 15px;
   background-color: #fcd6b3;
   box-shadow: 1px 1px 10px black;
 }
@@ -298,18 +494,45 @@ background-color: #474340;
   border-bottom: 1px solid #474340;
 }
 
+.user_avatar {
+  width: 15rem;
+  height: 15rem;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 50%;
+  object-position: center;
+}
+
+.avatar_zone {
+  border-left: 2px solid #e7e7e7;
+  padding-top: 2em;
+}
+
+.avatar_text {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 
 /* FOOTER */
+
+.footer{
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+}
+
 
 .footer_haut {
   background-color: #474340;
   color: #ffff;
-  height: 18em;
-  
+  height: 10em;
 }
 
-.footer_haut h5 {
-  border-bottom: 1px solid white;
+.footer_haut, a, .footer_link {
+  text-decoration: none;
+}
+
+.ul_footer {
+  list-style: none;
 }
 
 .footer_bas {
@@ -336,17 +559,36 @@ background-color: #474340;
 }
 
 
-@media screen and (max-width: 1400px){
-  .contact_us{
+@media screen and (max-width: 790px){
+  .logo{
     display: none;
   }
+
+  .media_link{
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .terms{
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .footer_bas{
+    height: 10em;
+  }
+
 }
 
-/* CSS FOR FORM EDIT AND NEW EVENT */
+/* CSS FOR FORM EDIT AND NEW */
 
 .form_edit {
   width: 25%;
   transition: 1s;
+}
+
+.missing_info {
+  color: red;
 }
 
 @media screen and (max-width: 992px){
@@ -354,6 +596,10 @@ background-color: #474340;
     width: 50%;
     transition: 1s;
   }
+}
+
+.blue_links {
+  color: #015ce7;
 }
 
 /* CSS FOR SENDING NEW PASSWORD */

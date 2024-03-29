@@ -1,0 +1,13 @@
+<head>
+  <% content_for :title, "Modification actualité" %>
+  <% content_for :meta_description, "Vous permet de modifier l'actualité." %>
+</head>
+
+<div class="d-flex flex-column align-items-center" id="news">
+  <h2 class="w-75 text-center header_section align-items-center my-5">Modifier l'actualité</h2>
+</div>
+<div class= "d-flex justify-content-center my-4">
+  <%= render "form", topic: @topic %>
+</div>
+
+

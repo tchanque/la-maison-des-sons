@@ -1,48 +1,71 @@
+<head>
+  <% content_for :title, "Mon profil" %>
+  <% content_for :meta_description, "Vous permet d'afficher les informations du profil utilisateur." %>
+</head>
 
 <br>
 <p class="lmds_success text-center"><%= notice %></p>
-<br>
 <div class="container d-flex flex-column justify-content-center align-items-center">
 
     <!-- Page title -->
 		<div class="col-12">
 			<div class="my-5 d-flex align-items-center gap-3">
-				<h2 class="w-75 text-center header_section">Mon profil</h2>
+				<h2 class="w-100 text-center header_section">Mon profil</h2>
                 
 			</div>
     </div>
 </div>
-<div class="container">
-  <div class="d-flex justify-content-between align-items-center">	
-    <div class="col-xxl-6 lmds_background h-100"> <!-- CARD GLOBALE -->
-      <div class="col-xxl-12"> <!-- START FORM DETAILS -->
-        <div class="col-xxl-12 p-3">
+<div class="container mb-5">
+  <div class="d-flex justify-content-center">	
+    <!-- CARD DETAILS -->
+    <div class="col-md-10 lmds_background h-100 d-flex justify-content-center mb-5"> 
+      <div class="col-md-8"> 
+        <!-- START FORM DETAILS -->
+        <div class="col-md-12 p-3">
           <h4>Détails :</h4>
         </div>
-        <div class="row col-xxl-12 d-flex p-3">
-          <div class="col-xxl-6 d-flex flex-column">
+        <div class="row col-md-12 d-flex p-3">
+          <div class="col-md-6 d-flex flex-column">
             <label class="form-label">Prénom :</label>
             <p><% if current_user.first_name == nil || current_user.first_name == "" %>On ne connaît pas ton prénom<% else %> <%= current_user.first_name %> <% end %></p>
           </div>
-          <div class="col-xxl-6 d-flex flex-column">
+          <div class="col-md-6 d-flex flex-column">
             <label class="form-label">Nom :</label>
             <p><% if current_user.last_name == nil || current_user.last_name == "" %>On ne connaît pas ton nom<% else %> <%= current_user.last_name %> <% end %></p>
           </div>
         </div> 
-        <div class="col-xxl-12 d-flex flex-column p-3">
+        <div class="col-md-12 d-flex flex-column p-3">
           <label class="form-label">Description :</label>
           <p><% if current_user.description == nil || current_user.description == "" %>Dis-nous qui tu es<% else %> <%= current_user.description %> <% end %></p>
         </div>
-      </div> <!-- END FORM DETAILS -->
-      <!-- START BUTTON -->
-      <div class="d-flex justify-content-end px-2">
-      <a href="/users/edit"><button type="button" class="btn mb-2 btn-primary btn-lg">Editer</button></a>
-      </div> <!-- END BUTTON -->
-    </div> <!-- END CARD GLOBALE -->
-    
-    <div class="col-xxl-3 d-flex justify-content-center align-items-center"> <!-- START IMG -->
-      <img src="https://i.ibb.co/5FNjCby/0ez4-j99w-170828-Photoroom-png-Photoroom.png" alt="Portée de notes de musiques devant un cercle">
-    </div> <!-- END IMG -->
-    
+        <br>
+        <br>
+        <!-- START BUTTON -->
+        <div class="d-flex justify-content-center px-2">
+          <a href="/users/edit"><button type="button" class="btn btn-primary">Editer</button></a>
+        </div> 
+        <!-- END BUTTON -->
+      </div> 
+      <!-- END FORM DETAILS -->
+      <!-- START IMG -->
+      <div class="col-md-4 d-flex flex-column align-items-center avatar_zone"> 
+        <%if current_user.avatar.attached?%>
+          <%= image_tag current_user.avatar, alt: 'avatar', class: "user_avatar" %>
+        <%else%>
+          <div class="user_avatar d-flex flex-column justify-content-center">
+            <p class="text-center avatar_text">Il n'y a pas encore d'avatar lié à cet utilisateur</p>
+          </div>
+        <%end%>
+        
+        <%= form_tag user_avatars_path(current_user), multipart: true do |f| %>
+          <div class="d-flex flex-column align-items-center text-center mt-3 mb-5">             
+            <%= file_field_tag :avatar %>
+            <%= submit_tag "Créer / Modifier", class: "btn btn-primary mt-2 w-50" %>
+          </div>
+        <% end %> 
+      </div>
+      <!-- END IMG -->
+    </div> 
+    <!-- END CARD DETAILS -->
   </div> 
 </div>     

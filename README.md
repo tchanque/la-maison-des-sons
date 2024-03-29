@@ -10,19 +10,13 @@ l'appli n'est accessible que pour les membres authentifiés.
 Ces identifiants servent à tester les fonctionnalités du site en fonction des statuts.
 
 **Admin**  
-Admin mail : mvpadmin@thp.be  
-admin password: admin123  
-=> peuvent créer des utilisateurs, créer/modifier/supprimer des événements**
+Ils peuvent créer des utilisateurs, créer/modifier/supprimer des événements**
 
-**Professeur**  
-Teacher mail : mvpteacher@thp.be  
-Teacher password : teacher123  
-=> peuvent créer des événements et modifier/supprimer leurs événements
+**Professeur**    
+Ils peuvent créer des événements et modifier/supprimer leurs événements
 
 **Elève**  
-Member mail : mvpmember@thp.be  
-Member password : member123  
-=> peuvent s'inscrire à un événement ou se désinscrire
+Ils peuvent s'inscrire à un événement ou se désinscrire
 
 ## Présentation du projet :
 

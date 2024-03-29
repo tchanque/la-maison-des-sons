@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-
+    @topics = Topic.all
     @events = []
     case params[:show_only]
       when 'week'
@@ -48,7 +48,15 @@ end
     end
 
     #Sort event for the agenda
-      @current_attendances = Attendance.all.where(attendee: current_user).sort{ |a, b| a.event.start_date <=> b.event.start_date }
+    @current_attendances = []
+    user_attendances = Attendance.all.where(attendee: current_user)
+    user_attendances.each do |attendance|
+      if attendance.event.start_date.after? Date.today
+        @current_attendances << attendance
+        @current_attendances = @current_attendances.sort{ |a, b| a.event.start_date <=> b.event.start_date }
+      end
+    end
+      # @current_attendances = Attendance.all.where(attendee: current_user).sort{ |a, b| a.event.start_date <=> b.event.start_date }
   end
 
   # GET /events/1 or /events/1.json
@@ -79,7 +87,7 @@ end
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to event_url(@event), notice: "Votre évènement a été créé avec succès" }
+        format.html { redirect_to event_url(@event), notice: "Votre évènement a été créé avec succès." }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -92,7 +100,7 @@ end
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to event_url(@event), notice: "Votre évènement a été modifié avec succès" }
+        format.html { redirect_to event_url(@event), notice: "Votre évènement a été modifié avec succès." }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -103,8 +111,16 @@ end
 
   # DELETE /events/1 or /events/1.json
   def destroy
-    @event.destroy!
+# initialize information that we need to send a email to all the attendees of the event gonna be delete
+      @event_attendance = Attendance.where(event: @event)
+      @event_attendance.each do |attendance|
+      @user = attendance.attendee
+      @email = attendance.attendee.email
 
+      UserMailer.event_delete(@user, @event).deliver_now
+    end
+
+  @event.destroy!
     respond_to do |format|
       format.html { redirect_to events_url, notice: "L'évènement a été supprimé avec succès." }
       format.json { head :no_content }

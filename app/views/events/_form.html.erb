@@ -16,25 +16,25 @@
       <%= form.label "Type"%>
       <!-- Ici, on ajoute les valeurs possibles les types d'event, d'apres l'array CATEGORIES défini dans le model de Event -->
       <!-- Par défaut, la valeur pré-remplie est celle de l'event, grâce à @event.category, pour éviter de passer la première valeur de l'array CATEGORIES par défault, et qui équivaut à Atelier -->
-      <%= form.select :category, options_for_select(Event::CATEGORIES.map{|category| category.capitalize.tr('_', ' ')}, @event.category), {}, class: "form-select" %>
+      <%= form.select :category, options_for_select(Event::CATEGORIES, @event.category), {}, class: "form-select" %>
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group", id="instrument_form">
       <%= form.label "Instrument"%>
-      <%= form.text_field :instrument, class: "form-control" %>
+      <%= form.select :instrument, options_for_select(Event::INSTRUMENTS, @event.instrument), {}, class: "form-select" %>
     </div>
 
-    <div class="form-group"">
+    <div class="form-group", id="level_form">
       <%= form.label "Niveau"%>
       <!-- Ici, on ajoute les valeurs possibles pour les niveaux, d'apres l'array LEVEL défini dans le model de Event -->
       <!-- Par défaut, la valeur pré-remplie est celle de l'event, grâce à @event.level, pour éviter de passer la première valeur de l'array LEVEL par défault, et qui équivaut à 1 -->
-      <%= form.select :level, options_for_select(Event::LEVEL, @event.level), {}, class: "form-select" %>
+      <%= form.select :level, options_for_select(Event::LEVEL, @event.level || 1), {}, class: "form-select" %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group", id="price_form">
       <%= form.label "Prix"%>
-      <%= form.number_field :price, class: "form-control" %>
+      <%= form.number_field :price, min: "0", value: "0", class: "form-control" %>
     </div>
 
     <div class="form-group">
@@ -57,9 +57,14 @@
       <%= form.text_field :location, class: "form-control" %>
     </div>
 
-    <div class="form-group">
-      <%= form.label "Places disponibles"%>
-      <%= form.number_field :max_seats, class: "form-control" %>
+    <div class="form-group", id="max_seats_form">
+      <% if form.object.new_record? %>
+        <%= form.label "Places disponibles"%>  
+        <%= form.number_field :max_seats, min: "0", value: "0", class: "form-control" %>
+      <% else %>
+        <%= form.label "Places disponibles non modifiable"%>  
+        <%= form.number_field :max_seats, min: "0", value: "0", class: "form-control", disabled: !form.object.new_record?%>
+      <% end %>  
     </div>
 
     <div class="form-group">
@@ -72,3 +77,5 @@
     </div>
   <% end %>
   </div>
+
+  <%= javascript_include_tag 'form-events' %>

@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
-    CATEGORIES = ["atelier", "concert", "permanence", "stage", "scène_ouverte"]
-    LEVEL = [1, 2, 3, 4, 5]
+    CATEGORIES = ["Atelier", "Concert", "Permanence", "Stage", "Scène ouverte"]
+    MUSIC_SHOWS = ["Concert", "Scène ouverte"]
+    INSTRUMENTS = ["", "Basse", "Batterie", "Chant", "Guitare", "Harmonie", "MAO", "Piano", "Ukulelé"]
+    LEVEL = [0, 1, 2, 3, 4, 5]
 
     belongs_to :creator, class_name: "User"
     
@@ -9,13 +11,22 @@ class Event < ApplicationRecord
 
     validates :creator, presence: true
     validates :category, presence: true
-    validates :start_date, presence: true, if: :not_past_date?
+    validates :start_date, presence: true, if: :valid_date?
     validates :location, presence: true
+    validates :price, numericality: { greater_than_or_equal_to: 0 }
+    validates :max_seats, numericality: { greater_than_or_equal_to: 0 }
 
-
-def not_past_date?
-  if self.start_date < Date.today
-    errors.add(:La_date, 'ne peut pas être passée.')
+    def valid_date?
+      return errors.add(:La_date, 'doit être renseignée.') && false unless start_date.present?
+  
+      if start_date < Date.today
+        errors.add(:La_date, 'ne peut pas être passée.')
+        return false
+      end
+  
+      return true
   end
-end
+
+
+
 end
