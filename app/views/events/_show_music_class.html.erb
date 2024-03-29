@@ -53,8 +53,8 @@
 <div class="container justify-content-center my-5">
   <div class="d-flex justify-content-center gap-3">
     <% if !@is_attending%>
-      <% is_disabled = event.available_seats > 0 ? false : true %>
-      <% is_disabled = current_user.is_admin == false && current_user.is_teacher == false && current_user.is_subscriber == false %>
+      <% has_availibility = event.available_seats > 0 ? true : false %>
+      <% is_disabled = !has_availibility || (current_user.is_admin == false && current_user.is_teacher == false && current_user.is_subscriber == false) %>
       <%= button_to "Participer", attendances_path, params: {event: event}, class: "btn btn-success btn_size_card", disabled: is_disabled %>
     <% else %>
       <%= button_to "Se désinscrire", @attendance, method: :delete, class: "btn btn-danger btn_size_card"%>
