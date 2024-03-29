@@ -17,18 +17,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let musicShows = ["Concert", "Scène ouverte"];
 
+        console.log(eventCategory.value);
+
         if (musicShows.includes(eventCategory.value)) {
             instrumentForm.setAttribute("hidden", true);
             instrumentInput.value = "";
-
+        
             maxSeatsForm.setAttribute("hidden", true);
             maxSeatsInput.value = 0;
+        
+            priceForm.setAttribute("hidden", true);
+            priceInput.value = 0;
+        
+            levelForm.setAttribute("hidden", true);
+            levelInput.value = 0;
 
+        } else if (eventCategory.value === "Permanence") {
+            // Permanence => pas payant
             priceForm.setAttribute("hidden", true);
             priceInput.value = 0;
 
-            levelForm.setAttribute("hidden", true);
-            levelInput.value = 0;
+            instrumentForm.removeAttribute("hidden");
+            maxSeatsForm.removeAttribute("hidden");
+            levelForm.removeAttribute("hidden");
+
+            // Atelier, Stage => payant
         } else {
             instrumentForm.removeAttribute("hidden");
             maxSeatsForm.removeAttribute("hidden");
