@@ -53,7 +53,7 @@ all_events = []
     # pre-generate the number of seats (max)
     max_seats = rand(5..15)
     all_events << Event.create(creator: User.where(is_teacher: true).or(User.where(is_admin: true)).all.sample,
-     category: Event::CATEGORIES.sample, instrument: Event::INSTRUMENTS.sample, level: rand(1..5), price: rand(0..25),
+     category: Event::CATEGORIES.sample, instrument: Event::INSTRUMENTS.slice(1..).sample, level: rand(1..5), price: rand(0..25),
       start_date: Faker::Date.forward(days: 90), duration: rand(60..120), location: Faker::Address.street_address,
       description: Faker::Lorem.sentence(word_count: 15), max_seats: max_seats, available_seats: max_seats)
 end
