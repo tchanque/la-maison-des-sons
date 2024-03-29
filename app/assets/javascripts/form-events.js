@@ -1,37 +1,45 @@
-document.getElementById('event_category').onchange = function () {
+// This javascript code will adapt the form and hide certain fields depending on the value of the event_category
+// If the event category is set as Concert or Scene Ouverte, then we should not show the following fields : instrument, price, max seats and level
+// otherwise, we show all the fields
 
-    this.instrument_form = document.getElementById('instrument_form');
-    this.instrument_input = document.getElementById('event_instrument');
+document.addEventListener("DOMContentLoaded", function() {
+    // Define the function containing your script
+    function handleEventCategoryChange() {
+        let eventCategory = document.getElementById('event_category');
+        let instrumentForm = document.getElementById('instrument_form');
+        let instrumentInput = document.getElementById('event_instrument');
+        let maxSeatsForm = document.getElementById('max_seats_form');
+        let maxSeatsInput = document.getElementById('event_max_seats');
+        let priceForm = document.getElementById('price_form');
+        let priceInput = document.getElementById('event_price');
+        let levelForm = document.getElementById('level_form');
+        let levelInput = document.getElementById('event_level');
 
-    this.max_seats_form = document.getElementById('max_seats_form');
-    this.max_seats_input = document.getElementById('event_max_seats');
+        let musicShows = ["Concert", "Scène ouverte"];
 
-    this.price_form = document.getElementById('price_form');
-    this.price_input = document.getElementById('event_price');
-    
-    this.level_form = document.getElementById('level_form');
-    this.level_input = document.getElementById('event_level');
+        if (musicShows.includes(eventCategory.value)) {
+            instrumentForm.setAttribute("hidden", true);
+            instrumentInput.value = "";
 
-    let music_shows = ["Concert", "Scène ouverte"]
+            maxSeatsForm.setAttribute("hidden", true);
+            maxSeatsInput.value = 0;
 
-    if (music_shows.includes(this.value)) {
-        this.instrument_form.setAttribute("hidden", true);
-        this.instrument_input.value = "";
+            priceForm.setAttribute("hidden", true);
+            priceInput.value = 0;
 
-        this.max_seats_form.setAttribute("hidden", true);
-        this.max_seats_input.value = 0;
-
-        this.price_form.setAttribute("hidden", true);
-        this.price_input.value = 0;
-
-        this.level_form.setAttribute("hidden", true);
-        this.level_input.value = 0;
+            levelForm.setAttribute("hidden", true);
+            levelInput.value = 0;
+        } else {
+            instrumentForm.removeAttribute("hidden");
+            maxSeatsForm.removeAttribute("hidden");
+            priceForm.removeAttribute("hidden");
+            levelForm.removeAttribute("hidden");
+        }
     }
 
-    else {
-        this.instrument_form.removeAttribute("hidden");
-        this.max_seats_form.removeAttribute("hidden");
-        this.price_form.removeAttribute("hidden");
-        this.level_form.removeAttribute("hidden");
-    };
-};
+    // Call the function when the page loads
+    handleEventCategoryChange();
+
+    // Call the function when the event_category div changes
+    document.getElementById('event_category').addEventListener('change', handleEventCategoryChange);
+});
