@@ -35,7 +35,7 @@
       <% is_disabled = current_user.is_admin == false && current_user.is_teacher == false && current_user.is_subscriber == false %>
       <%= button_to "Participer", attendances_path, params: {event: event}, class: "btn btn-success btn_size_card", disabled: is_disabled %>
     <% else %>
-      <%= button_to "Se désinscrire", @attendance, method: :delete, class: "btn btn-danger btn_size_card"%>
+      <%= button_to "Se désinscrire", @attendance, method: :delete, class: "btn btn-danger btn_size_card", data: { turbo_confirm: "Voulez-vous vraiment vous désinscrire ?" } %>
     <% end %>
     <%= link_to "Accueil", events_path, class: "btn btn-secondary btn_size_card", data: { turbolink: false }  %>
   </div>
