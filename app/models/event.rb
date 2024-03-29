@@ -2,7 +2,7 @@ class Event < ApplicationRecord
     CATEGORIES = ["atelier", "concert", "permanence", "stage", "scène_ouverte"]
     LEVEL = [1, 2, 3, 4, 5]
 
-    belongs_to :creator, class_name: "User", dependent: :destroy
+    belongs_to :creator, class_name: "User"
     
     has_many :attendances, dependent: :destroy
     has_many :attendees, through: :attendances
@@ -24,4 +24,7 @@ class Event < ApplicationRecord
   
       return true
   end
+
+
+
 end
