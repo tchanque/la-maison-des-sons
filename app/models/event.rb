@@ -4,7 +4,7 @@ class Event < ApplicationRecord
     INSTRUMENTS = ["", "Basse", "Batterie", "Chant", "Guitare", "Harmonie", "MAO", "Piano", "Ukulelé"]
     LEVEL = [0, 1, 2, 3, 4, 5]
 
-    belongs_to :creator, class_name: "User", dependent: :destroy
+    belongs_to :creator, class_name: "User"
     
     has_many :attendances, dependent: :destroy
     has_many :attendees, through: :attendances
@@ -26,4 +26,7 @@ class Event < ApplicationRecord
   
       return true
   end
+
+
+
 end
