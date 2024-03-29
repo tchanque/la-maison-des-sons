@@ -380,6 +380,27 @@ background-color: #474340;
 
 
 /* CSS FOR THE CARD IN THE INDEX */
+.level_div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #474747;
+  color: white;
+  border-color: white;
+  border: 1px solid;
+  border-radius: 3%;
+  backdrop-filter: blur(100px);
+}
+
+.date_badge {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
 
 .btn_size_card {
   width: 140px !important;
@@ -393,6 +414,19 @@ background-color: #474340;
 
 
 /* CSS FOR THE SHOW EVENT */
+@media screen and (max-width: 790px) {
+  .bg_section{
+    flex-direction: column;
+  }
+}
+
+.event_information_block{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-left: 25%;
+}
 
 .bg_img{
   background-image: url('https://media.istockphoto.com/id/1478375497/fr/photo/des-amis-dansent-au-festival.jpg?s=2048x2048&w=is&k=20&c=fIz_Fn7SexMUa4giD1K_wK81Z64clzlK5YjMToVb1d8=');
@@ -403,14 +437,11 @@ background-color: #474340;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.466);
+  transition: 0.3s
 }
 
 .bg_blur{
   backdrop-filter: blur(10px);
-}
-
-.separation{
-  border-right: 1px solid #474340;
 }
 
 /* CSS FOT THE AGENDA */

@@ -1,0 +1,30 @@
+<div class="col">
+    <div class="card custom_card">
+      <div class="position-relative">
+        <img src="https://media.istockphoto.com/id/1478375497/fr/photo/des-amis-dansent-au-festival.jpg?s=2048x2048&w=is&k=20&c=fIz_Fn7SexMUa4giD1K_wK81Z64clzlK5YjMToVb1d8=" class="card-img-top"
+          alt="Hollywood Sign on The Hill" />
+        <div class="date_badge">
+          <span class="badge">
+            <h5 class="d-flex pt-2"><%= event.start_date.strftime("%d/%m à %Hh%M") %></h5>
+          </span>
+        </div>
+        <div class="level_div">
+          <i class="bi bi-lightning-charge-fill"></i>
+          <h6 class="mb-0 mx-1">Niveau <%= event.level %> </h6>
+        </div>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title text-center"> <%= event.category %></h4>
+        <h5 class="card-title text-center"> <%= event.instrument %></h5>
+        <div class="row text-center">
+          <h6> <i class="bi bi-person-circle"></i> Prof: <%= event.creator.first_name.truncate(10) %> </h6>
+          <h6>Places dispo : <%= event.available_seats %> / <%= event.max_seats %></h6>
+        </div>
+          <p class="card-footer bg-transparent">
+          <div class="btn-group d-flex justify-content-around my-3", role="group">
+          <%= button_to "Voir plus", event_path(event), method: :get, class: "btn btn-secondary btn_size_card" %>
+        </div>
+        </p>
+      </div>
+    </div>
+  </div>

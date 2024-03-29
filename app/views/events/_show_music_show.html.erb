@@ -1,0 +1,50 @@
+<div class="container">
+<div class="p-4 p-md-5 mb-4 text-body-emphasis bg_img d-flex align-items-center text-center">
+    <div class="col-lg-6 px-0 text-white bg_blur">
+      <h1 class="display-4 fst-italic"><%= event.category %></h1>
+    </div>
+  </div>
+<section class="d-flex justify-content-around align-items-center bg_section">
+    <div class="d-flex-column justify-content-between w-100">
+      <div class="event_information_block">
+        <i class="display-6 bi bi-calendar3-event"></i>
+        <p class="mb-0 mx-4"> Commence le <%= event.start_date.strftime("%d/%m à %Hh%M")%> </p>
+      </div>
+    </div>
+
+    <div class="d-flex-column justify-content-between w-100">
+      <div class="event_information_block">
+        <i class="display-6 bi bi-pin-map-fill"></i>
+        <p class="mb-0 mx-4"> <%= event.location %> </p>
+      </div>
+    </div>
+
+</section>
+
+<div class="separation_top d-flex flex-column justify-content-center align-items-center my-5">
+<h3>Description</h3>
+<p class="lead my-3"><%= event.description %></p>
+</div>
+</div>
+
+
+<div class="container justify-content-center my-5">
+  <div class="d-flex justify-content-center gap-3">
+    <% if !@is_attending%>
+      <% is_disabled = event.available_seats > 0 ? false : true %>
+      <% is_disabled = current_user.is_admin == false && current_user.is_teacher == false && current_user.is_subscriber == false %>
+      <%= button_to "Participer", attendances_path, params: {event: event}, class: "btn btn-success btn_size_card", disabled: is_disabled %>
+    <% else %>
+      <%= button_to "Se désinscrire", @attendance, method: :delete, class: "btn btn-danger btn_size_card", data: { turbo_confirm: "Voulez-vous vraiment vous désinscrire ?" } %>
+    <% end %>
+    <%= link_to "Accueil", events_path, class: "btn btn-secondary btn_size_card", data: { turbolink: false }  %>
+  </div>
+  
+  <% if (event.creator == current_user) || (current_user.is_admin) %>
+    <div class="d-flex justify-content-center gap-3 mt-2">
+      <%= link_to "Modifier", edit_event_path(event), class: "btn btn-warning btn_size_card" %>
+      <%= button_to "Supprimer", event, method: :delete, class: "btn btn-danger btn_size_card", data: { turbolink: false } %>
+    </div>
+  <% end %>
+</div>
+

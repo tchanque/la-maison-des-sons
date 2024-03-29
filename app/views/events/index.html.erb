@@ -66,7 +66,11 @@
   </div>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 m-3 g-5">
     <% @events.each do |event| %>
-      <%= render event %>
+      <% if Event::MUSIC_SHOWS.include?(event.category) %>
+        <%= render partial: 'index_music_show', locals: {event: event} %>
+      <% else %>
+        <%= render partial: 'index_music_class', locals: {event: event} %>
+      <% end %>
     <% end %>
   </div>
 </div>
@@ -74,27 +78,35 @@
 <!-- AGENDA -->
 
 <div class="d-flex flex-column align-items-center agenda_container" id="agenda">
-    <h1 class="w-75 text-center header_section align-items-center mb-5">Agenda</h1>
-            <% @current_attendances.each do |attendance| %>
-              <div class="container separation_agenda">
-              <div class="row row-striped card_agenda">
-                <div class="col-2 date_agenda">
-                  <h1 class="display-4"><span class="badge"><%= attendance.event.start_date.strftime("%d") %></span></h1>
-                  <h2><%= l attendance.event.start_date, format: "%b" %></h2>
-                </div>
-                <div class="col-10">
-                <div class="d-flex titl_btn justify-content-between align-items-center pt-3">
-                  <h3 class="text-uppercase"><strong><%= attendance.event.category %>  (<%= attendance.event.instrument %>)</strong></h3>
-                  <%= link_to "Voir plus", event_path(attendance.event), class: "btn btn-secondary mb-2" %>
-                  </div>
-                    <ul class="list-inline">
-                      <li class="list-inline-item"><i class="bi bi-calendar" aria-hidden="true"></i> <%=  l attendance.event.start_date, format: "%A" %></li>
-                      <li class="list-inline-item"><i class="bi bi-clock" aria-hidden="true"></i> <%= l attendance.event.start_date, format: "%H:%M" %></li>
-                      <li class="list-inline-item"><i class="bi bi-pin-map" aria-hidden="true"></i> <%= attendance.event.location %></li>
-                    </ul>
-                  <p>Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-              </div>
+  <h1 class="w-75 text-center header_section align-items-center mb-5">Agenda</h1>
+    <% @current_attendances.each do |attendance| %>
+      <div class="container separation_agenda">
+        <div class="row row-striped card_agenda">
+          <div class="col-2 date_agenda">
+            <h1 class="display-4"><span class="badge"><%= attendance.event.start_date.strftime("%d") %></span></h1>
+            <h2><%= (l attendance.event.start_date, format: "%b").capitalize %></h2>
+          </div>
+          <div class="col-10">
+            <div class="d-flex titl_btn justify-content-between align-items-center pt-3">
+              <!-- Next line returns empty string for instrument if the event is a music show, otherwise returns the instrument for the class -->
+              <% is_music_show = Event::MUSIC_SHOWS.include?(attendance.event.category) %>
+              <% instrument = is_music_show ? "" : attendance.event.instrument %>
+              <h3 class="text-uppercase"><strong><%= attendance.event.category %> <%= instrument %></strong></h3>
+              <%= link_to "Voir plus", event_path(attendance.event), class: "btn btn-secondary mb-2" %>
             </div>
-           <% end %>
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="bi bi-calendar" aria-hidden="true"></i> <%=  (l attendance.event.start_date, format: "%A").capitalize %></li>
+              <li class="list-inline-item"><i class="bi bi-clock" aria-hidden="true"></i> <%= l attendance.event.start_date, format: "%Hh%M" %></li>
+              <li class="list-inline-item"><i class="bi bi-pin-map" aria-hidden="true"></i> <%= attendance.event.location %></li>
+              <% if !is_music_show%>
+                <li class="list-inline-item"><i class="bi bi-person" aria-hidden="true"></i> <%= attendance.event.creator.first_name %></li>
+              <% end %>
+            </ul>
+            <p> <%=attendance.event.description%></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
 </div>
+
+<%= javascript_include_tag 'lmds-carousel' %>
