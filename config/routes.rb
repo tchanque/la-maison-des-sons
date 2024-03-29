@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       resources :attendances
       resources :events
       resources :topics
-      resources :avatars
 
       root to: "users#index"
     end
