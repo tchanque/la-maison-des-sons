@@ -395,6 +395,13 @@ background-color: #474340;
   backdrop-filter: blur(100px);
 }
 
+.date_badge {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
 .btn_size_card {
   width: 140px !important;
 }
