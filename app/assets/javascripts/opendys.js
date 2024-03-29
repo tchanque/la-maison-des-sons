@@ -35,6 +35,8 @@ window.onload = function () {
   let storedFontFamily = sessionStorage.getItem("fontFamily");
   if (storedFontFamily) {
     document.body.style.fontFamily = storedFontFamily;
-    document.getElementById("opendys-toggle-btn").innerText = "Desactiver Opendys";
+    document.getElementById("opendys-toggle-btn").innerText = "Opendys OFF";
+    document.getElementById("opendys-toggle-btn").classList.remove("btn-primary")
+    document.getElementById("opendys-toggle-btn").classList.add("btn-success");
   }
 };
