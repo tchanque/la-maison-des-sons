@@ -35,15 +35,15 @@
       <% is_disabled = current_user.is_admin == false && current_user.is_teacher == false && current_user.is_subscriber == false %>
       <%= button_to "Participer", attendances_path, params: {event: event}, class: "btn btn-success btn_size_card", disabled: is_disabled %>
     <% else %>
-      <%= button_to "Se désinscrire", @attendance, method: :delete, class: "btn btn-danger btn_size_card" %>
+      <%= button_to "Se désinscrire", @attendance, method: :delete, class: "btn btn-danger btn_size_card"%>
     <% end %>
-    <%= link_to "Accueil", events_path, class: "btn btn-secondary btn_size_card" %>
+    <%= link_to "Accueil", events_path, class: "btn btn-secondary btn_size_card", data: { turbolink: false }  %>
   </div>
   
   <% if (event.creator == current_user) || (current_user.is_admin) %>
     <div class="d-flex justify-content-center gap-3 mt-2">
       <%= link_to "Modifier", edit_event_path(event), class: "btn btn-warning btn_size_card" %>
-      <%= button_to "Supprimer", event, method: :delete, class: "btn btn-danger btn_size_card" %>
+      <%= button_to "Supprimer", event, method: :delete, class: "btn btn-danger btn_size_card", data: { turbolink: false } %>
     </div>
   <% end %>
 </div>
