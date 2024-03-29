@@ -23,5 +23,4 @@ set :output, "log/cron.log"
 set :environment, "development"
 every 1.day, as: '2:00 am'  do
     rake 'subscription:check'
-    # runner "User.check_subscriptions", :environment => "development"
 end
