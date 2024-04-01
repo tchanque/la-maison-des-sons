@@ -17,9 +17,9 @@
 </div>
 
 <div class="container mt-5 mb-5">
-    <div class="user_profile row d-flex align-items-end">
-        <div class="col-md-4">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+    <div class="user_profile d-flex p-3">
+        <div class="col-md-4 d-flex justify-content-center align-items-end">
+          <div class="d-flex flex-column align-items-center">
             <% if current_user.avatar.attached? %>
               <%= image_tag current_user.avatar, alt: 'avatar', class: "user_avatar", id: "avatar_image" %>
             <% else %>
@@ -32,10 +32,10 @@
                 <%= file_field_tag :avatar, id: "avatar_input", class:"d-none" %>
                 <%= submit_tag "Enregistrer", class: "btn btn-primary mt-2" %>
               </div>
-            <% end %> 
+            <% end %>
           </div>
         </div>
-        <div class="col-md-8 d-flex justify-content-center align-items-center">
+        <div class="col-md-8 d-flex justify-content-center align-items-end">
             <div class="p-3 py-5">
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="label">Prénom</label><input type="text" class="form-control" placeholder=<%=current_user.first_name%> ></div>
