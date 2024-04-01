@@ -512,6 +512,38 @@ background-color: #474340;
   padding-right: 0.5rem;
 }
 
+/* Below is copied from the theme https://bbbootstrap.com/snippets/bootstrap-5-myprofile-90806631 */
+.user_profile {
+  background-color: #fcd6b3;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 5px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #c85f4e
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
 /* FOOTER */
 
 .footer{
