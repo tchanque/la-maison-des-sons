@@ -537,7 +537,7 @@ background-color: #474340;
   opacity: 1;
 }
 
-.img_wrap:hover #avatar_image{
+.img_wrap:hover #user_avatar{
   opacity: 0.8;
 }
 
