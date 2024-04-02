@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="col-md-8 d-flex justify-content-center align-items-end user_details_column">
-            <div class="col-md-10 p-3 py-5">
+            <div class="col-md-10 p-3 py-5 user_details_text">
                 <div class="row mt-2">
                     <div class="col-md-6">
                       <label class="label">Prénom:</label>
@@ -72,8 +72,9 @@
                       <!-- <input type="text" class="form-control" disabled placeholder= <%= current_user.description %> > -->
                     </div>
                 </div>
+
                 <div class="row mt-3 d-flex justify-content-center align-items-center">
-                  <a href="/users/edit", class="text-center"><button type="button" class="btn btn-primary">Editer</button></a>
+                  <%= link_to "Editer", edit_user_registration_path, class: "btn btn-primary btn_size_card" %>
                 </div>
             </div>
         </div>

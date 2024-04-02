@@ -562,7 +562,17 @@ background-color: #474340;
 
   .user_details_column {
     border-left: none;
-  };
+  }
+}
+
+@media screen and (max-width: 777px) {
+  .user_details_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 /* FOOTER */
@@ -571,7 +581,6 @@ footer{
   margin-top: auto;
   width: 100%;
 }
-
 
 .footer_haut {
   background-color: #474340;
