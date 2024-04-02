@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/open-dyslexic');   
 
+html {
+}
+
 /* CHANGE PARAMETERS OF SOME CLASS IN BOOTSTRAP */
 body{
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
   color: #474340;
   background-color: rgb(231, 231, 231);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .opendys{
@@ -14,7 +20,7 @@ body{
 }
 
 .btn-primary{
-  background-color: #c85f4e;
+  background-color: #791a0bb7;
   border: none;
   box-shadow: 1px 1px 4px black;
   --bs-btn-active-bg: #4b4b4b;
@@ -173,9 +179,10 @@ body{
   border: none;
 }
 .dropdown_button_sort{
-  background-color:#c85f4e;
+  background-color:#791a0bb7;
   border-radius: 5px;
   border: none;
+  padding: 0.5em;
 }
 
 .btn_left{
@@ -412,6 +419,12 @@ background-color: #474340;
 }
 
 
+
+.custom_card div span {
+  background-color: #000000b0;
+}
+
+
 /* CSS FOR THE SHOW EVENT */
 @media screen and (max-width: 790px) {
   .bg_section{
@@ -443,7 +456,7 @@ background-color: #474340;
   backdrop-filter: blur(10px);
 }
 
-/* CSS FOT THE AGENDA */
+/* CSS FOR THE AGENDA */
 .agenda_container {
   margin: 3rem;
 }
@@ -456,7 +469,8 @@ background-color: #474340;
 }
 
 .badge{
-  background-color: #C85F4E;
+  background-color: #c85f4e;
+  backdrop-filter: blur(15px);
 }
 
 .text_agenda{
@@ -558,9 +572,8 @@ background-color: #474340;
 
 /* FOOTER */
 
-.footer{
-  position: relative;
-  bottom: 0px;
+footer{
+  margin-top: auto;
   width: 100%;
 }
 
