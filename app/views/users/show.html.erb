@@ -25,7 +25,9 @@
                 <%= image_tag current_user.avatar, alt: 'avatar', class: "user_avatar", id: "user_avatar" %>
                 <p class="img_description">Change ton avatar</p>
               <% else %>
-                <div class="user_avatar" id="user_avatar"></div>
+                
+                <%= image_tag("icon_no_avatar.jpg", alt: "no_avatar", class: "user_avatar", id: "user_avatar")%>
+                <!-- <div class="user_avatar" id="user_avatar"></div> -->
                 <p class="img_description">Ajoute ta photo</p>
               <% end %>
             </div>
