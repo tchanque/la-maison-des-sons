@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   
-  # after_create :welcome_email
+  after_create :welcome_email
 
   def welcome_email
     pass = SecureRandom.hex(6)

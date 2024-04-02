@@ -13,3 +13,7 @@
     <%= render partial: 'show_music_class', locals: {event: @event} %>
   <% end %>
 </div>
+
+<script type="application/ld+json">
+      <%= event_jsonld(@event) %>
+</script>
