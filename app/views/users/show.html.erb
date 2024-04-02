@@ -40,27 +40,36 @@
           </div>
         </div>
         <div class="col-md-8 d-flex justify-content-center align-items-end user_details_column">
-            <div class="p-3 py-5">
+            <div class="col-md-10 p-3 py-5">
                 <div class="row mt-2">
                     <div class="col-md-6">
-                      <label class="label">Prénom</label>
-                      <input type="text" class="form-control" disabled placeholder=<%=current_user.first_name%> > 
+                      <label class="label">Prénom:</label>
+                      <p>
+                        <% if current_user.first_name == nil || current_user.first_name == "" %> Ton prénom n'est pas renseigné <% else %> <%= current_user.first_name %> <% end %>
+                      </p>
                     </div>
                     <div class="col-md-6">
-                      <label class="label">Nom</label>
-                      <input type="text" class="form-control" disabled placeholder=<%=current_user.last_name%>> 
+                      <label class="label">Nom:</label>
+                      <p>
+                        <% if current_user.last_name == nil || current_user.last_name == "" %> Ton nom n'est pas renseigné <% else %> <%= current_user.last_name %> <% end %>
+                      </p>
+                      </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                      <label class="label">Email:</label>
+                      <p>
+                       <%= current_user.email %>
+                      </p>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12">
-                      <label class="label">Email</label>
-                      <input type="text" class="form-control" disabled placeholder=<%=current_user.email%>>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12">
-                      <label class="label">Description</label>
-                      <input type="text" class="form-control" disabled placeholder=<%=current_user.description%>>
+                      <label class="label">Description:</label>
+                      <p>
+                        <% if current_user.description == nil || current_user.description == "" %>Ta description est vide <% else %> <%= current_user.description %> <% end %>
+                      </p>
+                      <!-- <input type="text" class="form-control" disabled placeholder= <%= current_user.description %> > -->
                     </div>
                 </div>
                 <div class="row mt-3 d-flex justify-content-center align-items-center">

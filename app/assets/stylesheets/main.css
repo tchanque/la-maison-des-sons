@@ -553,11 +553,6 @@ background-color: #474340;
   border-radius: 5px;
 }
 
-.form-control:focus {
-  box-shadow: none;
-  border-color: #c85f4e
-}
-
 @media screen and (max-width: 992px) {
   .user_profile {
     flex-direction: column;

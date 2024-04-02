@@ -12,6 +12,3 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("avatar_form").style.display = "block";
   });
 });
-
-const input = document.getElementById("file-upload");
-input.addEventListener('change', previewPhoto);
