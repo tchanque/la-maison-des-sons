@@ -52,17 +52,17 @@
         <li>
           <%= link_to "Par date", { sort: 'date' }, class: "nav_link dropdown-item" %>
         </li>
-      <li>
-        <%= link_to "Dans les 7 jours", { show_only: 'week' }, class: "nav_link dropdown-item" %>
-      </li>
-      <li>
-        <%= link_to "Dans les 30 jours", { show_only: 'month' }, class: "nav_link dropdown-item" %>
-      </li>
-      <li>
-        <%= link_to "Tout afficher", { show_only: 'all' }, class: "nav_link dropdown-item" %>
-      </li>
-    </ul>
-  </div>
+        <li>
+          <%= link_to "Dans les 7 jours", { show_only: 'week' }, class: "nav_link dropdown-item" %>
+        </li>
+        <li>
+          <%= link_to "Dans les 30 jours", { show_only: 'month' }, class: "nav_link dropdown-item" %>
+        </li>
+        <li>
+          <%= link_to "Tout afficher", { show_only: 'all' }, class: "nav_link dropdown-item" %>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 m-3 g-5">
     <% @events.each do |event| %>
@@ -76,7 +76,6 @@
 </div>
 
 <!-- AGENDA -->
-
 <div class="d-flex flex-column align-items-center agenda_container" id="agenda">
   <h1 class="w-75 text-center header_section align-items-center mb-5">Agenda</h1>
     <% @current_attendances.each do |attendance| %>
