@@ -15,57 +15,72 @@
 			</div>
     </div>
 </div>
-<div class="container mb-5">
-  <div class="d-flex justify-content-center">	
-    <!-- CARD DETAILS -->
-    <div class="col-md-10 lmds_background h-100 d-flex justify-content-center mb-5"> 
-      <div class="col-md-8"> 
-        <!-- START FORM DETAILS -->
-        <div class="col-md-12 p-3">
-          <h4>Détails :</h4>
+
+<div class="container mt-5 mb-5">
+    <div class="user_profile d-flex p-3">
+        <div class="col-md-4 d-flex justify-content-center align-items-end">
+          <div class="d-flex flex-column align-items-center">
+            <div class="img_wrap", id="img_wrap">
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar, alt: 'avatar', class: "user_avatar", id: "user_avatar" %>
+                <p class="img_description">Change ton avatar</p>
+              <% else %>
+                
+                <%= image_tag("icon_no_avatar.jpg", alt: "no_avatar", class: "user_avatar", id: "user_avatar")%>
+                <!-- <div class="user_avatar" id="user_avatar"></div> -->
+                <p class="img_description">Ajoute ta photo</p>
+              <% end %>
+            </div>
+
+            <% # Below is the form to submit the uploaded image %>
+            <%= form_tag user_avatars_path(current_user), id: "avatar_form", multipart: true do |f| %>
+              <div class="d-flex flex-column align-items-center text-center mt-3 mb-5">             
+                <%= file_field_tag :avatar, id: "avatar_input", class:"d-none" %>
+                <%= submit_tag "Enregistrer", class: "btn btn-primary mt-2" %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <div class="row col-md-12 d-flex p-3">
-          <div class="col-md-6 d-flex flex-column">
-            <label class="form-label">Prénom :</label>
-            <p><% if current_user.first_name == nil || current_user.first_name == "" %>On ne connaît pas ton prénom<% else %> <%= current_user.first_name %> <% end %></p>
-          </div>
-          <div class="col-md-6 d-flex flex-column">
-            <label class="form-label">Nom :</label>
-            <p><% if current_user.last_name == nil || current_user.last_name == "" %>On ne connaît pas ton nom<% else %> <%= current_user.last_name %> <% end %></p>
-          </div>
-        </div> 
-        <div class="col-md-12 d-flex flex-column p-3">
-          <label class="form-label">Description :</label>
-          <p><% if current_user.description == nil || current_user.description == "" %>Dis-nous qui tu es<% else %> <%= current_user.description %> <% end %></p>
+        <div class="col-md-8 d-flex justify-content-center align-items-end user_details_column">
+            <div class="col-md-10 p-3 py-5 user_details_text">
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                      <label class="label">Prénom:</label>
+                      <p>
+                        <% if current_user.first_name == nil || current_user.first_name == "" %> Ton prénom n'est pas renseigné <% else %> <%= current_user.first_name %> <% end %>
+                      </p>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label">Nom:</label>
+                      <p>
+                        <% if current_user.last_name == nil || current_user.last_name == "" %> Ton nom n'est pas renseigné <% else %> <%= current_user.last_name %> <% end %>
+                      </p>
+                      </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                      <label class="label">Email:</label>
+                      <p>
+                       <%= current_user.email %>
+                      </p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                      <label class="label">Description:</label>
+                      <p>
+                        <% if current_user.description == nil || current_user.description == "" %>Ta description est vide <% else %> <%= current_user.description %> <% end %>
+                      </p>
+                      <!-- <input type="text" class="form-control" disabled placeholder= <%= current_user.description %> > -->
+                    </div>
+                </div>
+
+                <div class="row mt-3 d-flex justify-content-center align-items-center">
+                  <%= link_to "Editer", edit_user_registration_path, class: "btn btn-primary btn_size_card" %>
+                </div>
+            </div>
         </div>
-        <br>
-        <br>
-        <!-- START BUTTON -->
-        <div class="d-flex justify-content-center px-2">
-          <a href="/users/edit"><button type="button" class="btn btn-primary">Editer</button></a>
-        </div> 
-        <!-- END BUTTON -->
-      </div> 
-      <!-- END FORM DETAILS -->
-      <!-- START IMG -->
-      <div class="col-md-4 d-flex flex-column align-items-center avatar_zone"> 
-        <%if current_user.avatar.attached?%>
-          <%= image_tag current_user.avatar, alt: 'avatar', class: "user_avatar" %>
-        <%else%>
-          <div class="user_avatar d-flex flex-column justify-content-center">
-            <p class="text-center avatar_text">Il n'y a pas encore d'avatar lié à cet utilisateur</p>
-          </div>
-        <%end%>
-        
-        <%= form_tag user_avatars_path(current_user), multipart: true do |f| %>
-          <div class="d-flex flex-column align-items-center text-center mt-3 mb-5">             
-            <%= file_field_tag :avatar %>
-            <%= submit_tag "Créer / Modifier", class: "btn btn-primary mt-2 w-50" %>
-          </div>
-        <% end %> 
-      </div>
-      <!-- END IMG -->
-    </div> 
-    <!-- END CARD DETAILS -->
-  </div> 
-</div>     
+    </div>
+</div>
+
+<%= javascript_include_tag 'user-profile' %>

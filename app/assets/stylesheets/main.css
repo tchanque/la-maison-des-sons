@@ -39,7 +39,6 @@ body{
   transition: 0.1s;
 }
 
-
 .btn-secondary {
   background-color: #38748d;
   border: none;
@@ -496,34 +495,92 @@ background-color: #474340;
   
 }
 
-
 /* USER SHOW */
-.lmds_background {
-  border-radius: 15px 15px 15px 15px;
-  background-color: #fcd6b3;
-  box-shadow: 1px 1px 10px black;
-}
 
-.lmds_profile_border {
-  border-bottom: 1px solid #474340;
-}
+
 
 .user_avatar {
   width: 15rem;
   height: 15rem;
-  box-shadow: 1px 1px 10px black;
-  border-radius: 50%;
-  object-position: center;
+  margin: auto;
+  object-fit: cover;
 }
 
-.avatar_zone {
+.user_details_column{
   border-left: 2px solid #e7e7e7;
-  padding-top: 2em;
 }
 
-.avatar_text {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+.img_wrap {
+  position: relative;
+  text-align: center;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  margin-top: 2rem;
+  box-shadow: 1px 1px 10px black;
+  overflow: hidden;
+  background-image: url("/app/assets/images/icon_no_avatar.jpg");
+  background-position: center;
+  opacity: 0.7;
+}
+
+.img_description {
+  position: absolute;
+  /* Center the text horizontally and vertically */
+  top: 50%; 
+  left: 50%;
+  /* centers it precisely, adjusting it back by 50% of its own width & height */
+  transform: translate(-50%, -50%); 
+  color: rgb(54, 52, 52);
+  visibility: hidden;
+  text-align: center;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+/* Add a pointer when hovering the image div */
+.img_wrap:hover {
+  cursor: pointer;
+}
+
+/* Display the text "add an image" when hovering the image */
+.img_wrap:hover .img_description {
+  visibility: visible;
+}
+
+/* Make the image or the placeholder a bit lighter when hovering */
+.img_wrap:hover #user_avatar{
+  opacity: 0.6;
+}
+
+/* Below is copied from the theme https://bbbootstrap.com/snippets/bootstrap-5-myprofile-90806631 */
+.user_profile {
+  background-color: #fcd6b3;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 992px) {
+  .user_profile {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user_details_column {
+    border-left: none;
+  }
+}
+
+@media screen and (max-width: 777px) {
+  .user_details_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 /* FOOTER */
@@ -532,7 +589,6 @@ footer{
   margin-top: auto;
   width: 100%;
 }
-
 
 .footer_haut {
   background-color: #474340;
