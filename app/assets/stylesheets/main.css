@@ -33,7 +33,6 @@ body{
   transition: 0.1s;
 }
 
-
 .btn-secondary {
   background-color: #38748d;
   border: none;
@@ -482,7 +481,6 @@ background-color: #474340;
   
 }
 
-
 /* USER SHOW */
 .lmds_background {
   border-radius: 15px 15px 15px 15px;
@@ -510,6 +508,15 @@ background-color: #474340;
 .avatar_text {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.img_wrap {
+  position: relative;
+}
+
+
+#avatar_image:hover {
+  opacity: 0.5;
 }
 
 /* Below is copied from the theme https://bbbootstrap.com/snippets/bootstrap-5-myprofile-90806631 */

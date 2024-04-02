@@ -24,7 +24,7 @@
               <%= image_tag current_user.avatar, alt: 'avatar', class: "user_avatar", id: "avatar_image" %>
             <% else %>
               <div class="user_avatar d-flex flex-column justify-content-center" id="avatar_image">
-                <p class="text-center avatar_text">Ajoute ta photo!</p>
+                <p class="text-center avatar_text">Ajoute ta photo <br> en cliquant ici</p>
               </div>
             <% end %>
             <%= form_tag user_avatars_path(current_user), id: "avatar_form", multipart: true do |f| %>
@@ -38,12 +38,21 @@
         <div class="col-md-8 d-flex justify-content-center align-items-end">
             <div class="p-3 py-5">
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="label">Prénom</label><input type="text" class="form-control" placeholder=<%=current_user.first_name%> ></div>
-                    <div class="col-md-6"><label class="label">Nom</label><input type="text" class="form-control" placeholder=<%=current_user.last_name%>> </div>
+                    <div class="col-md-6">
+                      <label class="label">Prénom</label>
+                      <input type="text" class="form-control" placeholder=<%=current_user.first_name%> disabled> 
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label">Nom</label>
+                      <input type="text" class="form-control" placeholder=<%=current_user.last_name%> disabled> 
+                    </div>
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="label">Description</label><input type="text" class="form-control" placeholder=<%=current_user.description%> ></div>
+                    <div class="col-md-12">
+                      <label class="label">Description</label>
+                      <input type="text" class="form-control" disabled placeholder=<%=current_user.description%>>
+                    </div>
                 </div>
                 <div class="row mt-3 d-flex justify-content-center align-items-center">
                   <a href="/users/edit", class="text-center"><button type="button" class="btn btn-primary">Editer</button></a>
@@ -53,19 +62,4 @@
     </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  var avatarImage = document.getElementById("avatar_image");
-  var avatarInput = document.getElementById("avatar_input");
-
-  // Trigger file input click when image is clicked
-  avatarImage.addEventListener("click", function() {
-    avatarInput.click();
-  });
-
-  // Show the form when a file is selected
-  avatarInput.addEventListener("change", function() {
-    document.getElementById("avatar_form").style.display = "block";
-  });
-});
-</script>
+<%= javascript_include_tag 'user-profile' %>
