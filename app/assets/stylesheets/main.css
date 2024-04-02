@@ -493,11 +493,12 @@ background-color: #474340;
 }
 
 .user_avatar {
-  width: 15rem;
-  height: 15rem;
+  width: 12rem;
+  height: 12rem;
   box-shadow: 1px 1px 10px black;
   border-radius: 50%;
   object-position: center;
+  margin-top: 2rem;
 }
 
 .avatar_zone {
@@ -512,11 +513,32 @@ background-color: #474340;
 
 .img_wrap {
   position: relative;
+  text-align: center;
 }
 
+.img_description {
+  position: absolute;
+  /* Center the text horizontally and vertically */
+  top: 50%; 
+  left: 50%;
+  /* centers it precisely, adjusting it back by 50% of its own width & height */
+  transform: translate(-50%, -50%); 
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  text-align: center;
 
-#avatar_image:hover {
-  opacity: 0.5;
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+.img_wrap:hover .img_description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img_wrap:hover #avatar_image{
+  opacity: 0.8;
 }
 
 /* Below is copied from the theme https://bbbootstrap.com/snippets/bootstrap-5-myprofile-90806631 */
