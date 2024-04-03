@@ -1,10 +1,11 @@
-<div class="container">
-<div class="p-4 p-md-5 mb-4 text-body-emphasis bg_img d-flex align-items-center text-center">
-    <div class="col-lg-6 px-0 text-white bg_blur">
-      <h1 class="display-4 fst-italic"><%= event.category %></h1>
+<div class="container d-flex-column justify-content-center align-items-center">
+  <div class="div_event_show w-100 m-auto">
+    <%= image_tag(event.get_image_filename, alt: "the event image", class: "event_bg_img") %>
+    <div class="text-white bg_blur text-center">
+      <h1 class="display-4 fst-italic px-5"><%= event.category %></h1>
     </div>
   </div>
-<section class="d-flex justify-content-around align-items-center bg_section">
+  <section class="d-flex justify-content-around align-items-center bg_section">
     <div class="d-flex-column justify-content-between w-100">
       <div class="event_information_block">
         <i class="display-6 bi bi-calendar3-event"></i>
@@ -18,15 +19,13 @@
         <p class="mb-0 mx-4"> <%= event.location %> </p>
       </div>
     </div>
+  </section>
 
-</section>
-
-<div class="separation_top d-flex flex-column justify-content-center align-items-center my-5">
-<h3>Description</h3>
-<p class="lead my-3"><%= event.description %></p>
+  <div class="separation_top d-flex flex-column justify-content-center align-items-center my-5">
+    <h3>Description</h3>
+    <p class="lead my-3"><%= event.description %></p>
+  </div>
 </div>
-</div>
-
 
 <div class="container justify-content-center my-5">
   <div class="d-flex justify-content-center gap-3">

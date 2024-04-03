@@ -398,7 +398,6 @@ background-color: #474340;
   border: none;
 }
 
-/* BACKGROUND COLOR FOR DATE/TIME BADGE */
 .custom_card div span {
   background-color: #000000b0;
 }
@@ -412,28 +411,49 @@ background-color: #474340;
   }
 }
 
+.bg_section {
+  padding-top: 5rem;
+}
+
 .event_information_block {
   display: flex;
   justify-content: start;
   align-items: center;
   margin-bottom: 2rem;
-  padding-left: 25%;
+  padding-left: 15%;
 }
 
-.bg_img {
-  background-image: url('https://media.istockphoto.com/id/1478375497/fr/photo/des-amis-dansent-au-festival.jpg?s=2048x2048&w=is&k=20&c=fIz_Fn7SexMUa4giD1K_wK81Z64clzlK5YjMToVb1d8=');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.div_event_show {
+  display: flex;
+  align-items: center;
+  text-align: center;
   height: 400px;
+  width: 600px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.466);
   transition: 0.3s
 }
 
+.event_bg_img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.event_bg_img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .bg_blur {
   backdrop-filter: blur(10px);
+  display: flex;
+  position: absolute;
+  text-align: center;
 }
 
 /* CSS FOR THE AGENDA */
