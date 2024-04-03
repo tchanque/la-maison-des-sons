@@ -1,7 +1,8 @@
-<div class="container">
-  <div class="p-4 p-md-5 mb-4 text-body-emphasis d-flex align-items-center text-center bg_img", style="background-image: url(/assets/<%= event.get_image_filename %>)">
-      <div class="col-lg-6 px-0 text-white bg_blur">
-      <h1 class="display-4 fst-italic"><%= event.category %></h1>
+<div class="container d-flex-column justify-content-center align-items-center">
+  <div class="div_event_show w-100 m-auto">
+    <%= image_tag(event.get_image_filename, alt: "the event image", class: "event_bg_img") %>
+    <div class="text-white bg_blur text-center">
+      <h1 class="display-4 fst-italic px-5"><%= event.category %></h1>
     </div>
   </div>
   <section class="d-flex justify-content-around align-items-center bg_section">
