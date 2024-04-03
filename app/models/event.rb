@@ -26,8 +26,16 @@ class Event < ApplicationRecord
       end
   
       return true
-  end
+    end
 
-
+    def get_image_filename
+      # instance method of event, returns the path to the image for the event
+      # depending on the category and instrument
+      if MUSIC_SHOWS.include?(self.category)
+        "#{self.category.downcase.tr(" ", "_")}.jpeg"
+      else
+        "#{self.instrument.downcase.tr(" ", "_")}.jpeg"
+      end
+    end
 
 end

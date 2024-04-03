@@ -17,7 +17,6 @@
       <!-- Ici, on ajoute les valeurs possibles les types d'event, d'apres l'array CATEGORIES défini dans le model de Event -->
       <!-- Par défaut, la valeur pré-remplie est celle de l'event, grâce à @event.category, pour éviter de passer la première valeur de l'array CATEGORIES par défault, et qui équivaut à Atelier -->
       <%= form.select :category, options_for_select(Event::CATEGORIES, @event.category), {}, class: "form-select" %>
-
     </div>
 
     <div class="form-group", id="instrument_form">
