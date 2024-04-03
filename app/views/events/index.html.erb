@@ -1,4 +1,4 @@
-<head>
+<head> <!-- Add meta_description to the view -->
   <% content_for :title, "Accueil" %>
   <% content_for :meta_description, "Vous permet de visualiser tous les évènements proposés par l'association." %>
 </head>
@@ -19,7 +19,7 @@
           <% if topic.picture.attached? %>
             <%= image_tag topic.picture, alt: ""%>
           <% else %>
-            <%= image_tag "https://media.istockphoto.com/id/1477858506/fr/photo/nouvelles-en-ligne-par-t%C3%A9l%C3%A9phone-lire-le-journal-%C3%A0-partir-du-site-web-publication-num%C3%A9rique.jpg?s=2048x2048&w=is&k=20&c=nN5-ODFUP8195-5AOafnQpSWyh0Qqp47LitCBaXtz2s=", alt: ""%>
+            <%= image_tag "https://media.istockphoto.com/id/1477858506/fr/photo/nouvelles-en-ligne-par-t%C3%A9l%C3%A9phone-lire-le-journal-%C3%A0-partir-du-site-web-publication-num%C3%A9rique.jpg?s=2048x2048&w=is&k=20&c=nN5-ODFUP8195-5AOafnQpSWyh0Qqp47LitCBaXtz2s=", alt: "Un téléphone affichant des news"%>
           <% end %>
         </div>
         <div class="overlay-text d-flex flex-column align-items-center">

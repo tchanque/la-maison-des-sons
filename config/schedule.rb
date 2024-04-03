@@ -19,6 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
+# rake to check if a user is still subscribed every day at 2 am
 set :output, "log/cron.log"
 set :environment, "production"
 every 1.day, as: '2:00 am'  do

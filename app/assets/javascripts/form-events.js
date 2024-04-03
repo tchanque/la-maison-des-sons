@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
             levelInput.value = 0;
 
         } else if (eventCategory.value === "Permanence") {
-            // Permanence => pas payant
+            // Permanence => Free
             priceForm.setAttribute("hidden", true);
             priceInput.value = 0;
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             maxSeatsForm.removeAttribute("hidden");
             levelForm.removeAttribute("hidden");
 
-            // Atelier, Stage => payant
+            // Atelier, Stage => Not Free
         } else {
             instrumentForm.removeAttribute("hidden");
             maxSeatsForm.removeAttribute("hidden");
