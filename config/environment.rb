@@ -4,6 +4,7 @@ require_relative "application"
 # Initialize the Rails application.
 Rails.application.initialize!
 
+# Add base ActionMailer
 ActionMailer::Base.smtp_settings = {
   :user_name => ENV['MAILJET_LOGIN'],
   :password => ENV['MAILJET_PWD'],

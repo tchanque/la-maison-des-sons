@@ -1,4 +1,4 @@
-<head>
+<head> <!-- Add meta_description to the view -->
   <% content_for :title, "Mon profil" %>
   <% content_for :meta_description, "Vous permet d'afficher les informations du profil utilisateur." %>
 </head>
@@ -32,7 +32,7 @@
               <% end %>
             </div>
 
-            <% # Below is the form to submit the uploaded image %>
+            <% # Form to submit the uploaded image %>
             <%= form_tag user_avatars_path(current_user), id: "avatar_form", multipart: true do |f| %>
               <div class="d-flex flex-column align-items-center text-center mt-3 mb-5">             
                 <%= file_field_tag :avatar, id: "avatar_input", class:"d-none" %>

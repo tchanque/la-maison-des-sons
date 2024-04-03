@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   def index
     @topics = Topic.all
     @events = []
+    # Select the index with different settings
     case params[:show_only]
       when 'week'
         Event.where(start_date: Date.today..(Date.today + 7.days)).each do |event|
@@ -35,7 +36,7 @@ class EventsController < ApplicationController
       end
   end
 end
-
+  # Select the index with different settings
   case params[:sort]
   when 'level'
     @events = @events.sort{ |a, b| a.level <=> b.level }

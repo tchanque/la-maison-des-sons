@@ -62,6 +62,7 @@ class AttendanceDashboard < Administrate::BaseDashboard
   #   "Attendance ##{attendance.id}"
   # end
   
+  # Allow to rename the column in the admin dashboard
   def self.resource_name(_opts)
     "Inscriptions"
   end

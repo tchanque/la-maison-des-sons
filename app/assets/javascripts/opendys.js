@@ -3,14 +3,14 @@ let initialFont = document.body.style.fontFamily;
 function activateOpenDys() {
   document.body.style.fontFamily = "Open-dyslexic, sans-serif";
   console.log("OpenDys a été activé.");
-  // Stockage de la font
+  // Font storage
   sessionStorage.setItem("fontFamily", document.body.style.fontFamily);
 }
 
 function desactivateOpenDys() {
   document.body.style.fontFamily = initialFont;
   console.log("OpenDys a été désactivé.");
-  // Suppression du stockage
+  // Delete storage
   sessionStorage.removeItem("fontFamily");
 }
 
@@ -30,7 +30,7 @@ document.getElementById("opendys-toggle-btn").addEventListener("click", function
   }
 });
 
-// Vérification de la font stockée au chargement d'une page
+// Checking of the stored font when a page is loaded
 window.onload = function () {
   let storedFontFamily = sessionStorage.getItem("fontFamily");
   if (storedFontFamily) {
