@@ -25,10 +25,5 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  # def active_sub
-  #   if current_user && current_user.end_date && DateTime.now > current_user.end_date
-  #     current_user.update(is_subscriber: false)
-  #   end
-  # end
 
 end

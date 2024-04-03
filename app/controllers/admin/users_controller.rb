@@ -7,10 +7,13 @@ module Admin
     #   super
     #   send_foo_updated_email(requested_resource)
     # end
+
+    # Add a different redirect when a user is created by an admin
     def create
       super
       redirect_to new_user_path
     end
+    
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
     # actions.

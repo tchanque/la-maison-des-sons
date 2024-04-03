@@ -1,4 +1,4 @@
-<head>
+<head> <!-- Add meta_description to the view -->
   <% content_for :title, "Création utilisateur" %>
   <% content_for :meta_description, "Vous permet de créer un nouvel utilisateur." %>
 </head>
@@ -9,74 +9,69 @@
 <% if user_signed_in? && current_user.is_admin ===true %>
 
 <div class="col-lg mb-5 mt-5 mb-lg-0 d-flex justify-content-center">
-<div class="card mb-5">
-  <div class="card-body py-5 px-md-5">
-    <%= form_with(model: @user, url: create_user_path) do |f| %>
-     <% if @user.errors.any? %>
-    <div class="missing_info">
-      <h2><%= pluralize(@user.errors.count, "éléments") %> sont manquants ou incorrects:</h2>
-
-      <ul>
-        <% @user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+  <div class="card mb-5">
+    <div class="card-body py-5 px-md-5">
+      <%= form_with(model: @user, url: create_user_path) do |f| %>
+        <% if @user.errors.any? %>
+          <div class="missing_info">
+            <h2><%= pluralize(@user.errors.count, "éléments") %> sont manquants ou incorrects:</h2>
+          <ul>
+            <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="mb-4">  
+        <h2 class="header_section">Créer un utilisateur</h2>
+        </div>  
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          <%= f.label :email, class: "form-label" %>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          <%= f.label :Mot_de_passe, class: "form-label" %>
+          <em>(6 caractères minimum)</em>
+        </div>
+
+        <!-- Password confirmation input -->
+        <div class="form-outline mb-4">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          <%= f.label :Confirmez_le_mot_de_passe, class: "form-label" %>
+        </div>
+
+        <!-- Is_admin input -->
+        <div class="form-outline mb-4">
+          <%= f.check_box :is_admin, class: "form-check-input"%>
+          <%= f.label :Compte_administrateur, class: "form-check-label" %>
+        </div>
+
+        <!-- Is_teacher input -->
+        <div class="form-outline mb-4">
+          <%= f.check_box :is_teacher, class: "form-check-input" %>
+          <%= f.label :Compte_professeur, class: "form-check-label" %>
+        </div>
+      
+        <!-- Is_subscriber input -->
+        <div class="form-outline mb-4">
+          <%= f.check_box :is_subscriber, class: "form-check-input" %>
+          <%= f.label :Elève_abonné, class: "form-check-label" %>
+        </div>
+
+        <!-- Submit button -->
+        <div class="actions text-center">
+          <%= f.submit "Créer", class: "btn btn-primary btn-block mb-4" %>
+        </div>
+      <% end %>
     </div>
-    <% end %>
-
-      <div class="mb-4">  
-       <h2 class="header_section">Créer un utilisateur</h2>
-      </div>  
-      <!-- Email input -->
-      <div class="form-outline mb-4">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-        <%= f.label :email, class: "form-label" %>
-      </div>
-
-      <!-- Password input -->
-      <div class="form-outline mb-4">
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-        
-        <%= f.label :Mot_de_passe, class: "form-label" %>
-        <em>(6 caractères minimum)</em>
-
-      </div>
-
-      <!-- Password confirmation input -->
-      <div class="form-outline mb-4">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-        <%= f.label :Confirmez_le_mot_de_passe, class: "form-label" %>
-      </div>
-
-      <!-- Is_admin input -->
-      <div class="form-outline mb-4">
-        <%= f.check_box :is_admin, class: "form-check-input"%>
-        <%= f.label :Compte_administrateur, class: "form-check-label" %>
-      </div>
-
-      <!-- Is_teacher input -->
-      <div class="form-outline mb-4">
-        <%= f.check_box :is_teacher, class: "form-check-input" %>
-        <%= f.label :Compte_professeur, class: "form-check-label" %>
-      </div>
-    
-      <!-- Is_subscriber input -->
-      <div class="form-outline mb-4">
-        <%= f.check_box :is_subscriber, class: "form-check-input" %>
-        <%= f.label :Elève_abonné, class: "form-check-label" %>
-      </div>
-
-      <!-- Submit button -->
-      <div class="actions text-center">
-        <%= f.submit "Créer", class: "btn btn-primary btn-block mb-4" %>
-      </div>
-    <% end %>
   </div>
 </div>
-</div>
-</div>
-</div>
-</div>
 <% else %>
-<h1> TU N'AS PAS LE DROIT D'ÊTRE ICI ! <h1>
+<h1>TU N'AS PAS LE DROIT D'ÊTRE ICI !</h1>
 <% end %>

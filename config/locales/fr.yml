@@ -155,7 +155,7 @@ fr:
     submit:
       create: Créer un(e) %{model}
       submit: Enregistrer ce(tte) %{model}
-      update: Modifier ce(tte) %{model}
+      update: Modifier ce(tte) %{model} 
     label:
       user:
         first_name: 'Prénom'
@@ -165,19 +165,19 @@ fr:
         attendances: 'Inscriptions'
         is_admin: 'est administrateur'
         is_teacher: 'est professeur'
-        is_subscriber: 'est élève inscrit'
+        is_subscriber: 'est abonné'
         end_date: "Fin d'abonnement"
         created_at: 'Créé le'
         updated_at: 'Modifié le'  
       event:
-        level: 'niveau'
+        level: 'Niveau'
         attendees: 'Inscrits'
         start_date: 'Date'
         category: "Type d'évènement"
         creator: 'Organisateur'
         duration: 'Durée'
         location: 'Lieu'
-        price: 'prix'
+        price: 'Prix'
         attendances: 'Inscriptions'
         available_seats: 'Places disponibles'
         max_seats: 'Nombre de places maximum'
