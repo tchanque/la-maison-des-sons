@@ -1,8 +1,7 @@
 <div class="col">
     <div class="card custom_card">
       <div class="position-relative">
-        <img src="https://media.istockphoto.com/id/1478375497/fr/photo/des-amis-dansent-au-festival.jpg?s=2048x2048&w=is&k=20&c=fIz_Fn7SexMUa4giD1K_wK81Z64clzlK5YjMToVb1d8=" class="card-img-top"
-          alt="Hollywood Sign on The Hill" />
+        <%= image_tag(event.get_image_filename, alt: "Event's image", class: "card-img-top") %>
         <div class="date_badge">
           <span class="badge">
             <h5 class="d-flex pt-2"><%= event.start_date.strftime("%d/%m à %Hh%M") %></h5>
