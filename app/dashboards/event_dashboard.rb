@@ -93,10 +93,12 @@ class EventDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how events are displayed
   # across all pages of the admin dashboard.
   #
+  # Allow to modify the event display in the admin dashboard
   def display_resource(event)
     "#{event.category} #{event.instrument} #{event.start_date.strftime("%d/%m/%Y %H:%M")}"
   end
 
+  # Allow to rename the column in the admin dashboard
   def self.resource_name(_opts)
     "Evènements"
   end

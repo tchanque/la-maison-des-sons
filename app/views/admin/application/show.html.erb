@@ -24,6 +24,7 @@ as well as a link to its edit page.
   </h1>
 
   <div>
+  <!-- Redirect to the admin dashboard -->
     <% if display_resource_name(page.resource_name) == "Utilisateurs" %>
       <%= link_to(
         t("administrate.actions.edit_resource", name: page.page_title),
@@ -32,6 +33,7 @@ as well as a link to its edit page.
       ) if accessible_action?(page.resource, :edit) %>
     <% end %>
     
+    <!-- Redirect to the app -->
     <% if display_resource_name(page.resource_name) == "Evènements" %>
       <%= link_to(
         t("administrate.actions.edit_resource", name: page.page_title),
@@ -40,6 +42,7 @@ as well as a link to its edit page.
       ) if accessible_action?(page.resource, :edit) %>
     <% end %>  
 
+    <!-- Redirect to the app -->
     <% if display_resource_name(page.resource_name) == "Actualités" %>
       <%= link_to(
         t("administrate.actions.edit_resource", name: page.page_title),

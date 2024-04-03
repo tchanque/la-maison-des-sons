@@ -12,7 +12,6 @@ class UserMailer < ApplicationMailer
   def event_delete(user, event)
     @user = user
     @event = event
-    puts "fffffffffffffffffFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
     mail(to: @user.email, subject: "#{@event.category} n'aura pas lieu !")
   end
 

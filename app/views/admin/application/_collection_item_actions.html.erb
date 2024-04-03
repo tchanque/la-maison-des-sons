@@ -1,3 +1,4 @@
+<!-- Redirect to the event/show on the app -->
 <% if display_resource_name(page.resource_name) == "Evènements" %>
   <% if existing_action?(collection_presenter.resource_name, :edit) %>  
   <td><%= link_to(
@@ -7,7 +8,7 @@
   ) if accessible_action?(resource, :edit) %></td>
   <% end %>  
 
-
+<!-- Redirect to the user/update on the admin dashboard -->
 <% elsif display_resource_name(page.resource_name) == "Utilisateurs"  %>
   <% if existing_action?(collection_presenter.resource_name, :edit) %>
     <td><%= link_to(

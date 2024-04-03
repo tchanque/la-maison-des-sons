@@ -1,4 +1,4 @@
-<head>
+<head> <!-- Add meta_description to the view -->
   <% content_for :title, "Me connecter" %>
   <% content_for :meta_description, "Vous permet de vous connecter à votre espace membre en rentrant le mot de passe envoyé par mail." %>
 </head>
@@ -6,42 +6,40 @@
 <br>
 <p class="lmds_alert text-center"><%= alert %></p>
 
-        <div class="mb-5 mt-5 mb-lg-0 d-flex justify-content-center">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="mb-4">
-              <h2 class="text-center header_section">Se connecter</h2>
-            </div>
+<div class="mb-5 mt-5 mb-lg-0 d-flex justify-content-center">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="mb-4">
+      <h2 class="text-center header_section">Se connecter</h2>
+    </div>
+    
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      <%= f.label :email, class: "form-label" %>
+    </div>
 
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-                <%= f.label :email, class: "form-label" %>
-              </div>
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      <%= f.label :Mot_de_passe, class: "form-label" %>
+    </div>
+
+    <!-- Remember Me checkbox -->
+    <div class="form-check d-flex justify-content-center mt-3">
+      <%= f.check_box :remember_me, class: "form-check-input" %>
+      <%= f.label :Se_rappeler_de_moi, class: "form-check-label" %>
+    </div>
+    <!-- Connection button -->    
+    <div class="actions text-center justify-content-center mt-3">
+      <%= f.submit "Se connecter", class: "btn btn-primary btn-block mb-4" %>
+    </div>
         
-              <!-- Password input -->
-              <div class="form-outline mb-4">
-                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-                <%= f.label :Mot_de_passe, class: "form-label" %>
-              </div>
-        
-              <!-- Remember Me checkbox -->
-                  <div class="form-check d-flex justify-content-center mt-3">
-                    <%= f.check_box :remember_me, class: "form-check-input" %>
-                    <%= f.label :Se_rappeler_de_moi, class: "form-check-label" %>
-                  </div>
-
-              <!-- connection button -->    
-                <div class="actions text-center justify-content-center mt-3">
-                  <%= f.submit "Se connecter", class: "btn btn-primary btn-block mb-4" %>
-                </div>
-                
-              <!-- Forget Password link -->  
-                <div class="d-flex justify-content-center">
-                  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                  <%= link_to "Mot de passe oublié?", new_password_path(resource_name), class: "blue_links" %><br />
-                  <% end %>
-                </div>
-        <% end %>  
-      </div>
-
+    <!-- Forget Password link -->  
+    <div class="d-flex justify-content-center">
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Mot de passe oublié?", new_password_path(resource_name), class: "blue_links" %><br />
+      <% end %>
+    </div>
+  <% end %>  
+</div>

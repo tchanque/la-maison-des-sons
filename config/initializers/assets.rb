@@ -12,3 +12,4 @@ Rails.application.config.assets.version = "1.0"
 
 Rails.application.config.assets.precompile += %w(form-events.js)
 Rails.application.config.assets.precompile += %w(lmds-carousel.js)
+Rails.application.config.assets.precompile += %w(user-profile.js)
