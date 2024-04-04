@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,62 +20,86 @@
   <body data-turbo="false">
   <% if user_signed_in? %> 
   <nav class="navbar navbar-expand-lg style_navbar">
-  <div class="container-fluid">
-    <a class="navbar-brand nav_link" href="/"> <%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '100px') %></a>
-    <button id="opendys-toggle-btn" class="btn-primary opendys text-white">Opendys ON</button>
-    <button class="navbar-toggler border_burger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav justify-content-around w-100">
-        <li class="nav-item">
-          <%= link_to "Accueil", events_path, class: "nav_link" %>
-        </li>
-        <li>
-        <a class="nav_link" href="/#agenda"> Agenda </a>
-        </li> 
-        <% if user_signed_in? && current_user.is_admin === true || user_signed_in? && current_user.is_teacher ===true && current_user.is_admin === true %>
-        <li>
-            <div class="dropdown">
-            <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Admin
-          </button> 
-          <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <ul>
-              <li>
-              <%= link_to "Tableau Admin", admin_root_path, class: "dropdown-item nav_link" %> 
-              </li>
-              <li>
-              <%= link_to "Créer un compte", new_user_path, class: "dropdown-item nav_link" %> 
-              </li>
-              <li>
-              <%= link_to "Créer un évènement", new_event_path, class: "dropdown-item nav_link" %>
-              </li>
-              <li>
-              <%= link_to "Créer une actualité", new_topic_path, class: "dropdown-item nav_link" %>
-              </li>
-          </ul>
-          </div>
-          </div>
-        </li>
-        <% elsif user_signed_in? && current_user.is_teacher ===true %>
-        <li>
-          <%= link_to "Créer un évènement", new_event_path, class: "dropdown-item nav_link" %>
-        </li>
-        <% end %>
-          <% if user_signed_in? && current_user.is_admin === true %>
+    <div class="container-fluid">
+      <a class="navbar-brand nav_link" href="/"> <%= image_tag('logo_blanc_navbar.png', alt: 'Logo de la maison des sons', width: '100px') %></a>
+      <button id="opendys-toggle-btn" class="btn-primary opendys text-white">Opendys ON</button>
+      <button class="navbar-toggler border_burger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav justify-content-around w-100">
+          <li class="nav-item">
+            <%= link_to "Accueil", events_path, class: "nav_link" %>
+          </li>
           <li>
-          <div class="dropdown">
-          <% if current_user.first_name === "" || !current_user.first_name || current_user.last_name === "" || !current_user.last_name %>
-             <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav_link" href="/#agenda"> Agenda </a>
+          </li> 
+          <% if user_signed_in? && current_user.is_admin === true || user_signed_in? && current_user.is_teacher ===true && current_user.is_admin === true %>
+          <li>
+              <div class="dropdown">
+              <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin
+            </button> 
+            <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul>
+                <li>
+                <%= link_to "Tableau Admin", admin_root_path, class: "dropdown-item nav_link" %> 
+                </li>
+                <li>
+                <%= link_to "Créer un compte", new_user_path, class: "dropdown-item nav_link" %> 
+                </li>
+                <li>
+                <%= link_to "Créer un évènement", new_event_path, class: "dropdown-item nav_link" %>
+                </li>
+                <li>
+                <%= link_to "Créer une actualité", new_topic_path, class: "dropdown-item nav_link" %>
+                </li>
+            </ul>
+            </div>
+            </div>
+          </li>
+          <% elsif user_signed_in? && current_user.is_teacher ===true %>
+          <li>
+            <%= link_to "Créer un évènement", new_event_path, class: "dropdown-item nav_link" %>
+          </li>
+          <% end %>
+            <% if user_signed_in? && current_user.is_admin === true %>
+            <li>
+            <div class="dropdown">
+            <% if current_user.first_name === "" || !current_user.first_name || current_user.last_name === "" || !current_user.last_name %>
+              <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Mon compte
+              </button> 
+              <% else %> 
+              <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.first_name %> <%= current_user.last_name %>
+              </button> 
+              <% end %>
+              <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <ul>
+                  <li>
+                  <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item nav_link" %> 
+                  </li>
+                  <li>
+                  <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { confirm: "Vous allez être déconnecté", turbo_confirm: "Vous allez être déconnecté" }, class: "dropdown-item nav_link" %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </li>
+            <% elsif user_signed_in? %>
+            <li>
+              <div class="dropdown">
+              <% if current_user.first_name === "" || !current_user.first_name || current_user.last_name === "" || !current_user.last_name %>
+              <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Mon compte
-             </button> 
-            <% else %> 
+              </button> 
+          <% else %> 
             <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.first_name %> <%= current_user.last_name %>
             </button> 
-            <% end %>
-            <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% end %>
+              <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
               <ul>
                 <li>
                 <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item nav_link" %> 
@@ -85,37 +108,13 @@
                 <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { confirm: "Vous allez être déconnecté", turbo_confirm: "Vous allez être déconnecté" }, class: "dropdown-item nav_link" %>
                 </li>
               </ul>
+              </div>
             </div>
-          </div>
-          </li>
-          <% elsif user_signed_in? %>
-          <li>
-            <div class="dropdown">
-            <% if current_user.first_name === "" || !current_user.first_name || current_user.last_name === "" || !current_user.last_name %>
-            <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Mon compte
-            </button> 
-         <% else %> 
-          <button class="nav_link dropdown_button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.first_name %> <%= current_user.last_name %>
-          </button> 
-         <% end %>
-            <div class="custom_dropdown_menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <ul>
-              <li>
-              <%= link_to "Mon profil", user_path(current_user), class: "dropdown-item nav_link" %> 
-              </li>
-              <li>
-              <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, data: { confirm: "Vous allez être déconnecté", turbo_confirm: "Vous allez être déconnecté" }, class: "dropdown-item nav_link" %>
-              </li>
-            </ul>
-            </div>
-          </div>
-          </li>
-        <%end%>   
-      </ul>
+            </li>
+          <%end%>   
+        </ul>
+      </div>
     </div>
-  </div>
  
 </nav>
 <% end %>

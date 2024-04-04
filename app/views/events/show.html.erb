@@ -1,6 +1,7 @@
 <head> <!-- Add meta_description to the view -->
   <% content_for :title, @event.category %>
   <% content_for :meta_description, "Vous permet de visualiser la page de l'évènement avec toutes les informations le concernant." %>
+  <%= canonical_tag -%>
 </head>
 
 <br>
