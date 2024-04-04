@@ -8,7 +8,7 @@ CanonicalRails.setup do |config|
 
   # This is the main host, not just the TLD, omit slashes and protocol. If you have more than one, pick the one you want to rank in search results.
 
-  config.host = 'https://la-maison-des-sons.fly.dev/'
+  config.host = 'https://la-maison-des-sons.fly.dev/events'
   config.port# = '3000'
 
   # http://en.wikipedia.org/wiki/URL_normalization
