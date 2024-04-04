@@ -7,8 +7,4 @@ document.addEventListener("DOMContentLoaded", function() {
     avatarInput.click();
   });
 
-  // Show the form when a file is selected
-  avatarInput.addEventListener("change", function() {
-    document.getElementById("avatar_form").style.display = "block";
-  });
 });
