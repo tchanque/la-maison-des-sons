@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (musicShows.includes(eventCategory.value)) {
             instrumentForm.setAttribute("hidden", true);
             instrumentInput.value = "";
+            instrumentInput.setAttribute("required", false);
         
             maxSeatsForm.setAttribute("hidden", true);
             maxSeatsInput.value = 0;
@@ -38,12 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
             priceInput.value = 0;
 
             instrumentForm.removeAttribute("hidden");
+            instrumentInput.setAttribute("required", true)
             maxSeatsForm.removeAttribute("hidden");
             levelForm.removeAttribute("hidden");
 
             // Atelier, Stage => Not Free
         } else {
             instrumentForm.removeAttribute("hidden");
+            instrumentInput.setAttribute("required", true)
             maxSeatsForm.removeAttribute("hidden");
             priceForm.removeAttribute("hidden");
             levelForm.removeAttribute("hidden");
